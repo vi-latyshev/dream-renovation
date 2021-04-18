@@ -12,7 +12,7 @@
     * [Commits](#commits)
         * [Examples](#examples)
     * [Pull Requests](#pull-requests)
-1. [Build](#build)
+1. [Start app](#start-app)
 1. [Deploy](#deploy)
 
 ## Links
@@ -65,8 +65,8 @@ This starts the development server on http://localhost:3000.
 |-------------------|--------|
 |`dev`              |Run app in develop mode|
 |`lint`             |Run lint and type code check|
-|`test`             |Run tests|
 |`build`            |[Build app](#build) in production mode|
+|`start`            |[Build and start app](#start-app) in production mode|
 |`deploy`           |[Build and deploy](#deploy) app on production server|
 |`locize`           |Update localization|
 
@@ -136,6 +136,10 @@ The development process ends with a Pull Request of the development branch in th
 * If the `develop` branch has gone ahead during development, it is necessary to `rebase` from it.
 
 ## Build
+
+* **TODO**
+
+## Start app
 
 * **TODO**
 
