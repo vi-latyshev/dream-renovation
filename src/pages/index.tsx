@@ -1,16 +1,19 @@
 import Link from 'next/link';
 
-import Layout from '../components/Layout';
+import { CoreLayout } from 'components/CoreLayout/CoreLayout';
+
+const TITLE = '';
+const DESCRIPTION = '';
 
 const IndexPage = () => (
-    <Layout title="Home | Next.js + TypeScript Example">
+    <CoreLayout title={TITLE} description={DESCRIPTION}>
         <h1>Hello Next.js 👋</h1>
         <p>
             <Link href="/about">
                 <a>About</a>
             </Link>
         </p>
-    </Layout>
+    </CoreLayout>
 );
 
 export default IndexPage;

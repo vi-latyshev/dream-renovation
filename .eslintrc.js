@@ -41,12 +41,7 @@ module.exports = {
         // import/...
         'import/prefer-default-export': 'off',
         // not supported 'import type'
-        'import/order': [
-            'error',
-            {
-                'newlines-between': 'always',
-            },
-        ],
+        'import/order': 'off',
 
         // using @typescript-eslint/...
         'no-duplicate-imports': 'off',
