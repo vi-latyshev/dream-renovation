@@ -23,31 +23,16 @@
 
 ## Requirements
 
-* node `^15.0.0`
-* yarn `^1.22.0`
+* node `^15.0.0` - [install](https://nodejs.org/en/download/)
+* yarn `^1.22.0` - [install](https://yarnpkg.com/en/docs/install/)
 
 ## Install
 
-### node/npm
-
-* [Node.js Site](https://nodejs.org/)
-
-### yarn
-
-* [Yarn site](https://yarnpkg.com/en/docs/install/)
-
-### project
-
-Clone project from repository:
+Clone project from repository and install all project's dependencies::
 
 ```bash
 git clone git@github.com/vi-latyshev/dream-renovation
 cd dream-renovation
-```
-
-and install all project's dependencies:
-
-```bash
 yarn
 ```
 
@@ -59,7 +44,7 @@ yarn dev
 ```
 This starts the development server on http://localhost:3000.
 
-### Scripts commands
+## Scripts commands
 
 |`yarn <script>`    |Описание|
 |-------------------|--------|
