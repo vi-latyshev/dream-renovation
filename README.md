@@ -53,7 +53,6 @@ This starts the development server on http://localhost:3000.
 |`build`            |[Build app](#build) in production mode|
 |`start`            |[Build and start app](#start-app) in production mode|
 |`deploy`           |[Build and deploy](#deploy) app on production server|
-|`locize`           |Update localization|
 
 ## Structure
 
