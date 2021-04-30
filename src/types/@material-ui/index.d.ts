@@ -1,5 +1,3 @@
-import '@material-ui/core/styles/createPalette';
-
 import type { Property } from 'csstype';
 
 declare module '@material-ui/core/styles/createMixins' {

@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import Head from 'next/head';
 
 import { Header } from 'components/Header';
+import { Footer } from 'components/Footer';
 
 type Props = {
     title: string;
@@ -23,9 +24,6 @@ export const CoreLayout = ({ title, description, children }: Props) => (
         <main>
             {children}
         </main>
-        <footer>
-            <hr />
-            <span>I'm here to stay (Footer)</span>
-        </footer>
+        <Footer />
     </>
 );

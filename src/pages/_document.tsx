@@ -1,11 +1,15 @@
 import * as React from 'react';
 import Document, {
-    Html, Head, Main, NextScript,
+    Html,
+    Head,
+    Main,
+    NextScript,
 } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core';
 
 import { theme } from 'styles';
 
+// TODO: mb? https://github.com/vercel/next.js/issues/9794
 export default class MyDocument extends Document {
     render = () => (
         <Html lang="ru">
