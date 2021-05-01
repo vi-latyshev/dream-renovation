@@ -1,41 +1,132 @@
-# TypeScript Next.js example
+# Dream Renovation
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+## Sections
+1. [Links](#links)
+1. [Requirements](#requirements)
+1. [Install](#install)
+1. [Start developing](#start-developing)
+1. [Scripts commands](#scripts-commands)
+1. [Structure](#structure)
+1. [Developing steps](#developing-steps)
+    * [Branches](#branches)
+    * [Commits](#commits)
+        * [Examples](#examples)
+    * [Pull Requests](#pull-requests)
+1. [Start app](#start-app)
+1. [Deploy](#deploy)
 
-## Deploy your own
+## Links
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+### Site urls:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript&project-name=with-typescript&repository-name=with-typescript)
+* **TODO**
 
-## How to use it?
+## Requirements
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+* node `^15.0.0` - [install](https://nodejs.org/en/download/)
+* yarn `^1.22.0` - [install](https://yarnpkg.com/en/docs/install/)
+
+## Install
+
+Clone project from repository and install all project's dependencies::
 
 ```bash
-npx create-next-app --example with-typescript with-typescript-app
-# or
-yarn create next-app --example with-typescript with-typescript-app
+git clone git@github.com/vi-latyshev/dream-renovation
+cd dream-renovation
+yarn
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Start developing
 
-## Notes
+Runs which starts Next.js in development mode:
+```bash
+yarn dev
+```
+This starts the development server on http://localhost:3000.
 
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
+## Scripts commands
+
+|`yarn <script>`    |Description|
+|-------------------|-----------|
+|`dev`              |Run app in develop mode|
+|`lint`             |Run lint and type code check|
+|`build`            |[Build app](#build) in production mode|
+|`start`            |[Build and start app](#start-app) in production mode|
+|`deploy`           |[Build and deploy](#deploy) app on production server|
+
+## Structure
+
+* **TODO**
+
+## Developing steps
+
+### Branches
+
+The process of adding new functionality begins by creating a new branch for development, branching from the `develop` branch. The name prefix for the branch is selected based on the type of added functionality:
+
+* `feat` ─ adding new user features
+* `fix` ─ fixing bugs
+* `chore` ─ adding / updating new features that with doesn't affect user code. Example, optimizing package builds, code rules and etc
+* `docs` - documentation
+
+Then comes the `/` character and a short associative name in `kebab-case`.
+
+So, for example, the name of the branch for adding the change new header may have the name: `feat/new-header`.
+
+### Commits
+
+Comments to commits are formatted to the following rule:
 
 ```
-npm install --save-dev typescript
+<type>(<scope>): <subject>
 ```
 
-To enable TypeScript's features, we install the type declarations for React and Node.
+#### Type
+
+* `feat` - using for adding new feature
+* `fix` - fixing some bug
+* `docs` - add or update docs
+* `test` - add or update tests for app
+* `chore` - optimizing package builds, code rules and etc
+
+#### Scope
+
+Here you must specify which areas were affected commit. Example: `(header)` or `(button)`
+
+#### Subject
+
+Common style message:
 
 ```
-npm install --save-dev @types/react @types/react-dom @types/node
+action (with lower case) + for which entity + (optional details)
 ```
 
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
+For example:
+```
+fix margin in button
+```
 
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
+#### Examples
 
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+```
+feat(footer): add phone in contact
+fix(modal): fix shadow for modal
+chore(next-config): add rewrite for redirect in next config
+```
+
+### Pull Requests
+
+The development process ends with a Pull Request of the development branch in the `develop` branch on [github.com](https://github.com/vi-latyshev/dream-renovation).
+* If the `develop` branch has gone ahead during development, it is necessary to `rebase` from it.
+
+## Build
+
+* **TODO**
+
+## Start app
+
+* **TODO**
+
+## Deploy
+
+* **TODO**
