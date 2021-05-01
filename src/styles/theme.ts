@@ -27,7 +27,7 @@ const breakpoints = createBreakpoints({
 const spacing = createSpacing(8);
 
 const typography = createTypography(palette, {
-    fontFamily: 'sans-serif',
+    fontFamily: '"Manrope", sans-serif',
 });
 
 const mixins = createMixins(breakpoints, spacing, {
