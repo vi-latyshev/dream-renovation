@@ -46,8 +46,8 @@ This starts the development server on http://localhost:3000.
 
 ## Scripts commands
 
-|`yarn <script>`    |Описание|
-|-------------------|--------|
+|`yarn <script>`    |Description|
+|-------------------|-----------|
 |`dev`              |Run app in develop mode|
 |`lint`             |Run lint and type code check|
 |`build`            |[Build app](#build) in production mode|
