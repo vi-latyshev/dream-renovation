@@ -1,6 +1,7 @@
 import { Container, makeStyles } from '@material-ui/core';
 
 import { ContactsBlock } from './ContactBlock';
+import { SocialShareBlock } from './SocialShareBlock';
 
 const useStyles = makeStyles({
     footer: {
@@ -15,6 +16,7 @@ export const Footer = () => {
     return (
         <Container component="footer" className={classes.footer}>
             <ContactsBlock />
+            <SocialShareBlock />
         </Container>
     );
 };
