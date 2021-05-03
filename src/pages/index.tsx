@@ -1,6 +1,5 @@
-import Link from 'next/link';
-
-import { CoreLayout } from 'components/CoreLayout/CoreLayout';
+import { CoreLayout } from 'components/CoreLayout';
+import { Link } from 'components/controls';
 
 const TITLE = '';
 const DESCRIPTION = '';
@@ -10,7 +9,7 @@ const IndexPage = () => (
         <h1>Hello Next.js 👋</h1>
         <p>
             <Link href="/about">
-                <a>About</a>
+                About
             </Link>
         </p>
     </CoreLayout>

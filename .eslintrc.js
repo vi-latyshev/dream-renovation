@@ -70,7 +70,7 @@ module.exports = {
             4,
         ],
         'react/jsx-props-no-spreading': 'off',
-        // "react/prop-types": "off",
+        'react/prop-types': 'off',
         'react/jsx-one-expression-per-line': 'off',
         'react/no-unescaped-entities': 'warn',
         'react/react-in-jsx-scope': 'off',

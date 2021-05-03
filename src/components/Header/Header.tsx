@@ -1,20 +1,14 @@
-import Link from 'next/link';
+import { Link } from 'components/controls';
 
 export const Header = () => (
     <header>
         <nav>
             <Link href="/">
-                <a>Home</a>
+                Home
             </Link>{' '}
-            |{' '}
-            <Link href="/about">
-                <a>About</a>
-            </Link>{' '}
-            |{' '}
-            <Link href="/users">
-                <a>Users List</a>
-            </Link>{' '}
-            | <a href="/api/users">Users API</a>
+            <Link href="https://google.ru">
+                External
+            </Link>
         </nav>
     </header>
 );

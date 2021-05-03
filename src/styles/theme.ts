@@ -66,8 +66,23 @@ let muiTheme = createMuiTheme({
         MuiContainer: {
             maxWidth: 'xl',
         },
+        MuiLink: {
+            variant: 'body1',
+            underline: 'none',
+            color: 'textPrimary',
+        },
     },
-    overrides: {},
+    overrides: {
+        MuiLink: {
+            root: {
+                display: 'inline-block',
+                transition: '.3s',
+                '&:hover': {
+                    color: palette.primary.main,
+                },
+            },
+        },
+    },
 });
 
 muiTheme = responsiveFontSizes(muiTheme);

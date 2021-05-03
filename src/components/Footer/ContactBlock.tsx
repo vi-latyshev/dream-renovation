@@ -2,6 +2,7 @@ import { makeStyles, Typography } from '@material-ui/core';
 
 import { LogoIcon } from 'icons/Logo';
 import { CONTACTS } from 'constants/contacts';
+import { Link } from 'components/controls';
 
 const useStyles = makeStyles(({ typography }) => ({
     contact: {
@@ -28,11 +29,11 @@ export const ContactsBlock = () => {
             <LogoIcon />
             <div className={classes.contactLine}>
                 <Typography>Телефон для связи:</Typography>
-                <Typography className={classes.contactInfo}>{CONTACTS.tel}</Typography>
+                <Link href={`tel:${CONTACTS.tel}`} className={classes.contactInfo}>{CONTACTS.tel}</Link>
             </div>
             <div className={classes.contactLine}>
                 <Typography>Почта:</Typography>
-                <Typography className={classes.contactInfo}>{CONTACTS.email}</Typography>
+                <Link href={`mailto:${CONTACTS.email}`} className={classes.contactInfo}>{CONTACTS.email}</Link>
             </div>
             <div className={classes.contactLine}>
                 <Typography>Время работы:</Typography>

@@ -4,12 +4,14 @@ interface LoadDynamicScript {
     id: string;
     src: string;
     async?: boolean;
+    crossOrigin?: string;
 }
 
 export const useLoadScript = ({
     id,
     src,
-    async,
+    async = true,
+    crossOrigin = 'anonymous',
 }: LoadDynamicScript) => {
     const [isScriptLoaded, setIsScriptLoaded] = useState<boolean>(false);
 
@@ -26,8 +28,9 @@ export const useLoadScript = ({
 
         const script = document.createElement('script');
         script.id = id;
-        script.async = async ?? true;
+        script.async = async;
         script.src = src;
+        script.crossOrigin = crossOrigin;
 
         script.onload = () => {
             setIsScriptLoaded(true);
