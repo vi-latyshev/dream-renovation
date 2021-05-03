@@ -1,15 +1,18 @@
-import { makeStyles } from '@material-ui/core';
+import { Container, makeStyles } from '@material-ui/core';
 
-const useStyles = makeStyles(() => ({
-    footer: {},
-}));
+const useStyles = makeStyles({
+    footer: {
+        display: 'flex',
+        paddingTop: 50,
+        paddingBottom: 50,
+    },
+});
 
 export const Footer = () => {
     const classes = useStyles();
     return (
-        <footer className={classes.footer}>
+        <Container component="footer" className={classes.footer}>
             <hr />
-            <span>I'm here to stay (Footer)</span>
-        </footer>
+        </Container>
     );
 };

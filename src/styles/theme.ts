@@ -1,4 +1,4 @@
-import { createMuiTheme } from '@material-ui/core';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core';
 import createPalette from '@material-ui/core/styles/createPalette';
 import createBreakpoints from '@material-ui/core/styles/createBreakpoints';
 import createSpacing from '@material-ui/core/styles/createSpacing';
@@ -6,11 +6,19 @@ import createTypography from '@material-ui/core/styles/createTypography';
 import createMixins from '@material-ui/core/styles/createMixins';
 
 const palette = createPalette({
-    background: {
-        default: '#FBFBFB',
-    },
+    type: 'light',
     primary: {
         main: '#2EC5CE',
+    },
+    secondary: {
+        main: '#FE8A27',
+    },
+    text: {
+        primary: '#333333',
+        secondary: '#636363',
+    },
+    background: {
+        default: '#FBFBFB',
     },
 });
 
@@ -27,7 +35,11 @@ const breakpoints = createBreakpoints({
 const spacing = createSpacing(8);
 
 const typography = createTypography(palette, {
-    fontFamily: '"Manrope", sans-serif',
+    fontSize: 16,
+    fontFamily: [
+        '"Manrope"',
+        'sans-serif',
+    ].join(','),
 });
 
 const mixins = createMixins(breakpoints, spacing, {
@@ -44,12 +56,20 @@ const mixins = createMixins(breakpoints, spacing, {
     },
 });
 
-export const theme = createMuiTheme({
+let muiTheme = createMuiTheme({
     palette,
     breakpoints,
     spacing,
     typography,
     mixins,
-    props: {},
+    props: {
+        MuiContainer: {
+            maxWidth: 'xl',
+        },
+    },
     overrides: {},
 });
+
+muiTheme = responsiveFontSizes(muiTheme);
+
+export const theme = muiTheme;
