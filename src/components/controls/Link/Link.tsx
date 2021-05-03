@@ -8,7 +8,7 @@ export type LinkProps = {
     href: NextLinkProps['href'],
     as?: NextLinkProps['as'],
     activeClassName?: string;
-} & Omit<NextLinkProps, 'to' | 'linkAs' | 'href'> & Omit<MaterialLinkProps, 'href'>;
+} & NextLinkProps & MaterialLinkProps;
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(({
     href,
@@ -53,6 +53,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(({
         <NextLink
             passHref
             href={href}
+            as={linkAs}
         >
             <MaterialLink
                 ref={ref}
