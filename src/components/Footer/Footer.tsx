@@ -1,5 +1,7 @@
 import { Container, makeStyles } from '@material-ui/core';
 
+import { ContactsBlock } from './ContactBlock';
+
 const useStyles = makeStyles({
     footer: {
         display: 'flex',
@@ -12,7 +14,7 @@ export const Footer = () => {
     const classes = useStyles();
     return (
         <Container component="footer" className={classes.footer}>
-            <hr />
+            <ContactsBlock />
         </Container>
     );
 };
