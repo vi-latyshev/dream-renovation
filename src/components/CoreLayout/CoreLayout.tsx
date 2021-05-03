@@ -4,13 +4,13 @@ import Head from 'next/head';
 import { Header } from 'components/Header';
 import { Footer } from 'components/Footer';
 
-type Props = {
+type LayoutProps = {
     title: string;
     description: string;
     children?: ReactNode;
 };
 
-export const CoreLayout = ({ title, description, children }: Props) => (
+export const CoreLayout = ({ title, description, children }: LayoutProps) => (
     <>
         <Head>
             <title>{title}</title>
