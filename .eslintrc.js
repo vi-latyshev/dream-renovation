@@ -6,7 +6,7 @@ module.exports = {
         'eslint-plugin-react',
     ],
     extends: [
-        'airbnb-typescript/base',
+        'airbnb-typescript',
         'plugin:import/typescript',
     ],
     env: {
@@ -74,6 +74,6 @@ module.exports = {
         'react/jsx-one-expression-per-line': 'off',
         'react/no-unescaped-entities': 'warn',
         'react/react-in-jsx-scope': 'off',
-        // "react/require-default-props": "off",
+        'react/require-default-props': 'off',
     },
 };
