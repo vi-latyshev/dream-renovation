@@ -2,6 +2,7 @@ import { Container, makeStyles } from '@material-ui/core';
 
 import { LogoIcon } from 'icons/Logo';
 import { Navigation } from './Navigation';
+import { Socials } from './Socials';
 
 const useStyles = makeStyles(() => ({
     header: {
@@ -19,6 +20,7 @@ export const Header = () => {
         <Container component="header" className={classes.header}>
             <LogoIcon />
             <Navigation />
+            <Socials />
         </Container>
     );
 };
