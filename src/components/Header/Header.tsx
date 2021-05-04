@@ -1,14 +1,26 @@
-import { Link } from 'components/controls';
+import { Container, makeStyles } from '@material-ui/core';
 
-export const Header = () => (
-    <header>
-        <nav>
-            <Link href="/">
-                Home
-            </Link>{' '}
-            <Link href="https://google.ru">
-                External
-            </Link>
-        </nav>
-    </header>
-);
+import { LogoIcon } from 'icons/Logo';
+import { Navigation } from './Navigation';
+import { Socials } from './Socials';
+
+const useStyles = makeStyles(() => ({
+    header: {
+        display: 'flex',
+        flexDirection: 'row',
+        marginTop: 30,
+        marginBottom: 30,
+    },
+}));
+
+export const Header = () => {
+    const classes = useStyles();
+
+    return (
+        <Container component="header" className={classes.header}>
+            <LogoIcon />
+            <Navigation />
+            <Socials />
+        </Container>
+    );
+};
