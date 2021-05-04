@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core';
+import { scroller } from 'react-scroll';
 
 import { Link } from 'components/controls';
 
@@ -19,18 +20,34 @@ const useStyles = makeStyles(({ typography }) => ({
 export const Navigation = () => {
     const classes = useStyles();
 
+    const scrollToSection = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        event.preventDefault();
+
+        const { hash } = event.target as HTMLAnchorElement;
+        const containerId = hash.replace('#', '');
+
+        scroller.scrollTo(containerId, {
+            spy: true,
+            hashSpy: true,
+            smooth: true,
+            isDynamic: true,
+            duration: 500,
+            offset: -50,
+        });
+    };
+
     return (
         <nav className={classes.nav}>
-            <Link href="#about">
+            <Link href="#about" onClick={scrollToSection}>
                 О нас
             </Link>
-            <Link href="#services">
+            <Link href="#services" onClick={scrollToSection}>
                 Услуги
             </Link>
-            <Link href="#calculator">
+            <Link href="#calculator" onClick={scrollToSection}>
                 Калькулятор
             </Link>
-            <Link href="#prices">
+            <Link href="#prices" onClick={scrollToSection}>
                 Цены
             </Link>
         </nav>
