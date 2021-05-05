@@ -12,6 +12,7 @@
     * [Commits](#commits)
         * [Examples](#examples)
     * [Pull Requests](#pull-requests)
+1. [Build](#build)
 1. [Start app](#start-app)
 1. [Deploy](#deploy)
 
@@ -56,7 +57,50 @@ This starts the development server on http://localhost:3000.
 
 ## Structure
 
-* **TODO**
+### The project structure has both flat and [fractal structure](https://github.com/davezuko/react-redux-starter-kit/wiki/Fractal-Project-Structure)s.
+
+**Important!** - Top-level `components`, `hooks`, `utils` and `icons` directories contain reusable components
+
+```
+|── public                      # static files (icons, images, robots.txt and etc)
+|── src                         # all source files
+|   |── components              # common reuseble components
+|   |── configs                 # server/client configs (routes, csp and etc)
+|   |── constants               # frontend constants (links, contacts, socials and etc)
+|   |── hooks                   # common reuseble hooks
+|   |── icons                   # common reuseble icons
+|   |── pages                   # names of pages for routing
+|   |   |── _app.tsx            # 'head layout' of page. Used by Next.js
+|   |   |── _document.tsx       # 'head layout' of all pages, uses server-side rendering. Used by Next.js
+|   |   |── index.tsx           # home page, includes all sections/components from `./views/home`
+|   |   └── about.tsx           # some any page, includes all sections/components from `./views/about`
+|   |── styles                  # settings theme for material-ui
+|   |── types                   # types of node_modules libs for redeclaration
+|   └── views                   # includes all `components`, `hooks`, `utils` and `icons` used only on specific page
+|       |── home                # name of page
+|       |   |── hooks           # hooks only for 'home' page
+|       |   |── icons           # icons only for 'home' page
+|       |   |── index.ts        # all exports components/interfaces for importing components of 'home' page
+|       |   └── List.tsx        # some any component
+|       └── about               # some any page
+└──
+```
+
+Within of a fractal structure, an example of a list component might look like this:
+
+```
+…
+|   |── SmthList
+|   |   |── index.ts            # all exports components/interfaces for importing this component
+|   |   |── SmthList.tsx        # includes all logic of component
+|   |   |── constants.ts        # constants for this component, mostly to avoid circular dependencies
+|   |   |── utils               # some utilities различные вспомогательные утилиты
+|   |   |   └── smthFormatter.ts
+|   |   └── Row                 # component representing list line
+|   |       |── index.tx        # all exports components/interfaces for importing list line
+|   |       └── Row.tsx         # includes all logic of list line
+…
+```
 
 ## Developing steps
 
