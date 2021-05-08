@@ -1,4 +1,4 @@
-import { makeStyles, Typography } from '@material-ui/core';
+import { Button, makeStyles, Typography } from '@material-ui/core';
 
 import { Section } from 'components/Section';
 
@@ -7,6 +7,9 @@ const useStyles = makeStyles(({ palette }) => ({
         flexDirection: 'column',
         color: palette.common.white,
         background: palette.primary.main,
+    },
+    button: {
+        marginTop: 100,
     },
 }));
 
@@ -21,6 +24,13 @@ export const ContactUsSection = () => {
             >
                 Оставьте заявку - обсудим с вами детали
             </Typography>
+            <Button
+                color="secondary"
+                variant="outlined"
+                className={classes.button}
+            >
+                Связаться с нами
+            </Button>
         </Section>
     );
 };
