@@ -3,19 +3,19 @@ import { scroller } from 'react-scroll';
 
 import { Link } from 'components/controls';
 
-const useStyles = makeStyles(({ typography }) => ({
+const useStyles = makeStyles({
     nav: {
         display: 'flex',
         alignItems: 'center',
         marginLeft: 100,
         '& > a': {
-            fontWeight: typography.fontWeightBold,
+            fontWeight: 'bold',
             marginRight: 40,
             paddingLeft: 5,
             paddingRight: 5,
         },
     },
-}));
+});
 
 export const Navigation = () => {
     const classes = useStyles();

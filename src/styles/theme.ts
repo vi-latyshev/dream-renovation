@@ -136,6 +136,31 @@ let muiTheme = createMuiTheme({
                 },
             },
         },
+        MuiInput: {
+            root: {
+                fontWeight: 'bold',
+                '&$underline': {
+                    '&:not($disabled):before': {
+                        transitionProperty: 'border-bottom-color, border-bottom-width',
+                        borderBottomColor: palette.common.white,
+                    },
+                    '&:hover:not($disabled):before': {
+                        borderBottomColor: fade(palette.common.white, 0.5),
+                    },
+                    '&:after': {
+                        borderBottomColor: fade(palette.common.white, 0.7),
+                    },
+                },
+            },
+        },
+        MuiInputLabel: {
+            root: {
+                color: palette.common.white,
+                '&$focused:not($error)': {
+                    color: palette.common.white,
+                },
+            },
+        },
     },
 });
 
