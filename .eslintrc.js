@@ -37,6 +37,7 @@ module.exports = {
             'error',
             'as-needed',
         ],
+        'newline-before-return': 'error',
 
         // import/...
         'import/prefer-default-export': 'off',

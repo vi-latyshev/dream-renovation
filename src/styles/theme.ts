@@ -1,4 +1,4 @@
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core';
+import { createMuiTheme, fade, responsiveFontSizes } from '@material-ui/core';
 import createPalette from '@material-ui/core/styles/createPalette';
 import createBreakpoints from '@material-ui/core/styles/createBreakpoints';
 import createSpacing from '@material-ui/core/styles/createSpacing';
@@ -35,7 +35,18 @@ const breakpoints = createBreakpoints({
 const spacing = createSpacing(8);
 
 const typography = createTypography(palette, {
-    fontSize: 16,
+    h1: {
+        fontFamily: [
+            '"Montserrat"',
+            '"Verdana"',
+            'sans-serif',
+        ].join(','),
+        fontSize: '2.875rem', // 46px
+        fontWeight: 'bold',
+    },
+    body1: {
+        fontSize: '1rem', // 16px
+    },
     fontFamily: [
         '"Manrope"',
         'sans-serif',
@@ -71,6 +82,9 @@ let muiTheme = createMuiTheme({
             underline: 'none',
             color: 'textPrimary',
         },
+        MuiButton: {
+            disableElevation: true,
+        },
     },
     overrides: {
         MuiLink: {
@@ -79,6 +93,71 @@ let muiTheme = createMuiTheme({
                 transition: '.3s',
                 '&:hover': {
                     color: palette.primary.main,
+                },
+            },
+        },
+        MuiButton: {
+            root: {
+                textTransform: 'unset',
+                fontWeight: 'bold',
+                fontSize: '1.3125rem', // 21px
+            },
+            contained: {
+                padding: '7px 40px',
+            },
+            containedPrimary: {
+                color: palette.common.white,
+            },
+            // not used
+            // containedSecondary: {},
+            outlined: {
+                padding: '5px 40px',
+            },
+            outlinedPrimary: {
+                borderWidth: 2,
+                '&:hover': {
+                    borderWidth: 2,
+                },
+                '&$disabled': {
+                    borderWidth: 2,
+                },
+            },
+            outlinedSecondary: {
+                borderWidth: 2,
+                color: palette.common.white,
+                borderColor: palette.common.white,
+                '&:hover': {
+                    borderWidth: 2,
+                    borderColor: fade(palette.common.white, 0.8),
+                    backgroundColor: fade(palette.common.white, 0.05),
+                },
+                '&$disabled': {
+                    borderWidth: 2,
+                },
+            },
+        },
+        MuiInput: {
+            root: {
+                fontWeight: 'bold',
+                '&$underline': {
+                    '&:not($disabled):before': {
+                        transitionProperty: 'border-bottom-color, border-bottom-width',
+                        borderBottomColor: palette.common.white,
+                    },
+                    '&:hover:not($disabled):before': {
+                        borderBottomColor: fade(palette.common.white, 0.5),
+                    },
+                    '&:after': {
+                        borderBottomColor: fade(palette.common.white, 0.7),
+                    },
+                },
+            },
+        },
+        MuiInputLabel: {
+            root: {
+                color: palette.common.white,
+                '&$focused:not($error)': {
+                    color: palette.common.white,
                 },
             },
         },

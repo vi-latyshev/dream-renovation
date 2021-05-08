@@ -50,6 +50,7 @@ const useStyles = makeStyles(({ palette }) => ({
 
 export const Socials = () => {
     const classes = useStyles();
+
     return (
         <div className={classes.socials}>
             {SOCIALS_LINKS.map(({ href, icon: IconComponent }) => (
