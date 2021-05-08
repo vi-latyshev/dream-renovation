@@ -35,7 +35,18 @@ const breakpoints = createBreakpoints({
 const spacing = createSpacing(8);
 
 const typography = createTypography(palette, {
-    fontSize: 16,
+    h1: {
+        fontFamily: [
+            '"Montserrat"',
+            '"Verdana"',
+            'sans-serif',
+        ].join(','),
+        fontSize: 46,
+        fontWeight: 'bold',
+    },
+    body1: {
+        fontSize: 16,
+    },
     fontFamily: [
         '"Manrope"',
         'sans-serif',

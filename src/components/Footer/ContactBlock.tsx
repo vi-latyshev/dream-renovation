@@ -24,6 +24,7 @@ const useStyles = makeStyles(({ typography }) => ({
 
 export const ContactsBlock = () => {
     const classes = useStyles();
+
     return (
         <div className={classes.contact}>
             <LogoIcon />

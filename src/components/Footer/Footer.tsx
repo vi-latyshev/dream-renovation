@@ -13,6 +13,7 @@ const useStyles = makeStyles({
 
 export const Footer = () => {
     const classes = useStyles();
+
     return (
         <Container component="footer" className={classes.footer}>
             <ContactsBlock />

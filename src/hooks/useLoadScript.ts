@@ -21,6 +21,7 @@ export const useLoadScript = ({
         if (existingScript !== null) {
             if (existingScript.src === src) {
                 setIsScriptLoaded(true);
+
                 return;
             }
             existingScript.remove();
