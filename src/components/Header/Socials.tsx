@@ -58,6 +58,7 @@ export const Socials = () => {
                     key={href}
                     href={href}
                     className={classes.link}
+                    aria-label={href}
                 >
                     <div className={classes.linkBackground} />
                     <IconComponent className={classes.linkIcon} />
