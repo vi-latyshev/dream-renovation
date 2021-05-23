@@ -17,7 +17,9 @@ export const Footer = () => {
     return (
         <Container component="footer" className={classes.footer}>
             <ContactsBlock />
-            <SocialShareBlock />
+            {process.env.NODE_ENV === 'production' && (
+                <SocialShareBlock />
+            )}
         </Container>
     );
 };

@@ -27,8 +27,6 @@ export const Navigation = () => {
         const containerId = hash.replace('#', '');
 
         scroller.scrollTo(containerId, {
-            spy: true,
-            hashSpy: true,
             smooth: true,
             isDynamic: true,
             duration: 500,

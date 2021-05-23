@@ -1,7 +1,8 @@
 import { makeStyles, Typography } from '@material-ui/core';
 
 import { Section } from 'components/Section';
-import { ContactForm } from './components/ContactForm';
+
+import { ContactForm } from './ContactForm';
 
 const useStyles = makeStyles(({ palette }) => ({
     contact: {
