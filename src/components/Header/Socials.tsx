@@ -2,9 +2,9 @@ import { makeStyles } from '@material-ui/core';
 import { Link } from 'components/controls';
 
 import { SOCIALS } from 'constants/socials';
-import { InstagramIcon } from 'icons/socials/Instagram';
-import { WhatsappIcon } from 'icons/socials/Whatsapp';
-import { YoutubeIcon } from 'icons/socials/Youtube';
+import { InstagramIcon } from './icons/Instagram';
+import { WhatsappIcon } from './icons/Whatsapp';
+import { YoutubeIcon } from './icons/Youtube';
 
 const SOCIALS_LINKS = [
     { href: SOCIALS.intagram, icon: InstagramIcon },
