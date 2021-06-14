@@ -7,7 +7,6 @@ import { Socials } from './Socials';
 const useStyles = makeStyles(() => ({
     header: {
         display: 'flex',
-        flexDirection: 'row',
         marginTop: 30,
         marginBottom: 30,
     },

@@ -13,15 +13,15 @@ const useStyles = makeStyles(() => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        width: '100%',
     },
     inputContainer: {
         display: 'flex',
-        flexDirection: 'row',
         marginTop: 100,
+        width: '100%',
     },
     input: {
         marginRight: 100,
-        width: 300,
         '&:last-child': {
             marginRight: 0,
         },
@@ -39,6 +39,7 @@ export const ContactForm = () => {
             <div className={classes.inputContainer}>
                 {FORM_INPUTS.map(({ name, label, required }) => (
                     <Input
+                        fullWidth
                         key={name}
                         name={name}
                         label={label}

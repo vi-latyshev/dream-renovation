@@ -15,7 +15,11 @@ export const Footer = () => {
     const classes = useStyles();
 
     return (
-        <Container component="footer" className={classes.footer}>
+        <Container
+            maxWidth="xl"
+            component="footer"
+            className={classes.footer}
+        >
             <ContactsBlock />
             {process.env.NODE_ENV === 'production' && (
                 <SocialShareBlock />

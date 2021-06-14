@@ -11,7 +11,6 @@ const useStyles = makeStyles({
     },
     contactLine: {
         display: 'flex',
-        flexDirection: 'row',
         marginTop: 14,
         '& :not(:last-child)': {
             marginRight: 24,
