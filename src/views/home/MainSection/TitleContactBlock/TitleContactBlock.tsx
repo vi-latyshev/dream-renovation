@@ -64,7 +64,7 @@ export const TitleContactBlock = () => {
 
     return (
         <div className={classes.contactBlock}>
-            <Typography variant="h1" component="h1" className={classes.title}>
+            <Typography variant="h1" className={classes.title}>
                 Ремонт квартир
                 <br />
                 и домов под ключ

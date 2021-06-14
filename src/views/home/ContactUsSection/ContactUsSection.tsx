@@ -21,7 +21,7 @@ export const ContactUsSection = () => {
             maxWidth={false}
             className={classes.contact}
         >
-            <Typography component="h1" variant="h1">
+            <Typography variant="h1">
                 Оставьте заявку - обсудим с вами детали
             </Typography>
             <ContactForm />
