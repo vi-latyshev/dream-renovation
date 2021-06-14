@@ -10,7 +10,7 @@ import { TitleContactBlock } from './TitleContactBlock';
 
 const useStyles = makeStyles(() => ({
     section: {
-        paddingTop: 20,
+        paddingTop: 70,
         justifyContent: 'flex-start',
     },
     // background: {
@@ -36,7 +36,6 @@ const useStyles = makeStyles(() => ({
     //     },
     // },
     backgroundCard: {
-        position: 'relative',
         width: '100%',
         '& > div': {
             boxShadow: '0px 10px 50px rgba(0, 0, 0, 0.2)',
@@ -61,9 +60,8 @@ export const MainSection = () => {
             </div> */}
             <div className={classes.backgroundCard}>
                 <Image
-                    width="1432"
-                    height="760"
-                    objectFit="cover"
+                    width="1206"
+                    height="735"
                     layout="responsive"
                     src="/img/home-background.jpg"
                     alt="home"

@@ -1,14 +1,16 @@
 import { makeStyles, Typography } from '@material-ui/core';
 
-import { Section } from 'components/Section';
+import { SectionWithContainer } from 'components/Section';
 
 import { ContactForm } from './ContactForm';
 
 const useStyles = makeStyles(({ palette }) => ({
-    contact: {
+    contactContainer: {
         flexDirection: 'column',
+    },
+    contact: {
         color: palette.common.white,
-        background: palette.primary.main,
+        backgroundColor: palette.primary.main,
     },
 }));
 
@@ -16,15 +18,15 @@ export const ContactUsSection = () => {
     const classes = useStyles();
 
     return (
-        <Section
+        <SectionWithContainer
             id="contact"
-            maxWidth={false}
             className={classes.contact}
+            containerClassName={classes.contactContainer}
         >
             <Typography variant="h1">
                 Оставьте заявку - обсудим с вами детали
             </Typography>
             <ContactForm />
-        </Section>
+        </SectionWithContainer>
     );
 };

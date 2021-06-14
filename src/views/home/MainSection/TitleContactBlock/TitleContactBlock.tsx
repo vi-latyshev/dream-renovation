@@ -33,7 +33,6 @@ const useStyles = makeStyles(({ palette }) => ({
     },
     contacts: {
         display: 'flex',
-        flexDirection: 'row',
         marginBottom: 20,
         '& > *:not(:last-child)': {
             marginRight: 80,

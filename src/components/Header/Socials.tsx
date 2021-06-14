@@ -15,13 +15,11 @@ const SOCIALS_LINKS = [
 const useStyles = makeStyles(({ palette }) => ({
     socials: {
         display: 'flex',
-        alignItems: 'center',
         marginLeft: 'auto',
-        marginRight: 50,
+        marginRight: 30,
     },
     link: {
         display: 'flex',
-        position: 'relative',
         marginRight: 15,
         alignItems: 'center',
         justifyContent: 'center',
