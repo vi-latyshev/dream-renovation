@@ -29,7 +29,7 @@
 
 ## Install
 
-Clone project from repository and install all project's dependencies::
+Clone project from repository and install all project's dependencies:
 
 ```bash
 git clone git@github.com/vi-latyshev/dream-renovation

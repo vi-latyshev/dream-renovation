@@ -44,6 +44,15 @@ const typography = createTypography(palette, {
         fontSize: '2.875rem', // 46px
         fontWeight: 'bold',
     },
+    h2: {
+        fontFamily: [
+            '"Montserrat"',
+            '"Verdana"',
+            'sans-serif',
+        ].join(','),
+        fontSize: '2.5rem', // 40px
+        fontWeight: 'bold',
+    },
     body1: {
         fontSize: '1rem', // 16px
     },
