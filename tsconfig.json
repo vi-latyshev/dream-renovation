@@ -23,7 +23,12 @@
         "target": "esnext",
         "typeRoots": [
             "src/types"
-        ]
+        ],
+        "paths": {
+            "images/*": [
+                "../public/img/*",
+            ],
+        },
     },
     "exclude": [
         "node_modules"

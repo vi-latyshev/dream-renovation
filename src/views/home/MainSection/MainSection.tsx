@@ -4,6 +4,7 @@ import {
     makeStyles,
 } from '@material-ui/core';
 
+import homeBackgroundImg from 'images/home-background.jpg';
 import { Section } from 'components/Section';
 
 import { TitleContactBlock } from './TitleContactBlock';
@@ -14,11 +15,11 @@ const useStyles = makeStyles(() => ({
         justifyContent: 'flex-start',
     },
     // background: {
-    //     // position: 'absolute',
+    //     position: 'absolute',
     //     overflow: 'hidden',
-    //     width: '100%',
-    //     height: '100%',
-    //     // marginTop: -66,
+    //     width: '120%',
+    //     height: '120%',
+    //     marginTop: -66,
     //     '& > div': {
     //         zIndex: -2,
     //         '&::after': {
@@ -51,19 +52,17 @@ export const MainSection = () => {
             {/* TODO: background image */}
             {/* <div className={classes.background}>
                 <Image
-                    width="1920"
-                    height="1080"
-                    // objectFit="cover"
-                    layout="responsive"
-                    src="/img/home-background.jpg"
+                    placeholder="blur"
+                    layout="fixed"
+                    src={homeBackgroundImg}
+                    alt="home"
                 />
             </div> */}
             <div className={classes.backgroundCard}>
                 <Image
-                    width="1206"
-                    height="735"
+                    placeholder="blur"
                     layout="responsive"
-                    src="/img/home-background.jpg"
+                    src={homeBackgroundImg}
                     alt="home"
                 />
             </div>
