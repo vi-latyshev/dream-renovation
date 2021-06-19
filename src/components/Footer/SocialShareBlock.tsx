@@ -1,6 +1,6 @@
+import Script from 'next/script';
+import { useEffect, useRef, useState } from 'react';
 import { makeStyles, Typography } from '@material-ui/core';
-import { useLoadScript } from 'hooks/useLoadScript';
-import { useEffect, useRef } from 'react';
 
 /**
  * https://yandex.ru/dev/share/
@@ -36,10 +36,14 @@ export const SocialShareBlock = () => {
     const classes = useStyles();
 
     const yandexRef = useRef<HTMLDivElement>(null);
-    const [isScriptLoaded] = useLoadScript({ id: 'ya-share', src: 'https://yastatic.net/share2/share.js' });
+    const [isYandexShareLoaded, setIsYandexShareLoaded] = useState<boolean>(false);
+
+    const handleYaShareLoaded = () => {
+        setIsYandexShareLoaded(true);
+    };
 
     useEffect(() => {
-        if (!isScriptLoaded) {
+        if (!isYandexShareLoaded) {
             return undefined;
         }
 
@@ -49,16 +53,23 @@ export const SocialShareBlock = () => {
         return () => {
             share.destroy();
         };
-    }, [isScriptLoaded]);
-
-    if (!isScriptLoaded) {
-        return null;
-    }
+    }, [isYandexShareLoaded]);
 
     return (
-        <div className={classes.social}>
-            <Typography>Поделиться:</Typography>
-            <div ref={yandexRef} className={classes.yaShare} />
-        </div>
+        <>
+            <Script
+                async
+                id="ya-share"
+                strategy="lazyOnload"
+                src="https://yastatic.net/share2/share.js"
+                onLoad={handleYaShareLoaded}
+            />
+            {isYandexShareLoaded && (
+                <div className={classes.social}>
+                    <Typography>Поделиться:</Typography>
+                    <div ref={yandexRef} className={classes.yaShare} />
+                </div>
+            )}
+        </>
     );
 };

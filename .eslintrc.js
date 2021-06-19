@@ -3,11 +3,11 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     plugins: [
         '@typescript-eslint',
-        'eslint-plugin-react',
     ],
     extends: [
         'airbnb-typescript',
         'plugin:import/typescript',
+        'next',
     ],
     env: {
         browser: true,

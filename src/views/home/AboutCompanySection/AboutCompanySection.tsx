@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { makeStyles, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 
+import aboutCompanyImg from 'images/about-image.png';
 import { SectionWithContainer } from 'components/Section';
 
 const useStyles = makeStyles(({ palette }) => ({
@@ -55,10 +56,9 @@ export const AboutCompanySection = () => {
             </div>
             <div className={classes.imageContainer}>
                 <Image
-                    width="458"
-                    height="504"
                     layout="fixed"
-                    src="/img/about-image.png"
+                    placeholder="blur"
+                    src={aboutCompanyImg}
                     alt="about"
                 />
             </div>
