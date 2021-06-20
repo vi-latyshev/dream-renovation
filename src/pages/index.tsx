@@ -3,6 +3,7 @@ import {
     MainSection,
     ContactUsSection,
     AboutCompanySection,
+    CalculatorSection,
 } from 'views/home';
 
 const TITLE = 'Ремонт мечты';
@@ -12,6 +13,7 @@ const IndexPage = () => (
     <CoreLayout title={TITLE} description={DESCRIPTION}>
         <MainSection />
         <AboutCompanySection />
+        <CalculatorSection />
         <ContactUsSection />
     </CoreLayout>
 );

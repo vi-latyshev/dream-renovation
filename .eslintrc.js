@@ -52,7 +52,12 @@ module.exports = {
 
         // extends the base eslint/...
         '@typescript-eslint/no-duplicate-imports': 'error',
-        '@typescript-eslint/no-unused-vars': 'warn',
+        '@typescript-eslint/no-unused-vars': [
+            'warn',
+            {
+                argsIgnorePattern: '^_',
+            },
+        ],
         '@typescript-eslint/indent': [
             'error',
             4,
@@ -76,5 +81,8 @@ module.exports = {
         'react/no-unescaped-entities': 'warn',
         'react/react-in-jsx-scope': 'off',
         'react/require-default-props': 'off',
+
+        // jsx-a11y
+        'jsx-a11y/anchor-is-valid': 'off',
     },
 };
