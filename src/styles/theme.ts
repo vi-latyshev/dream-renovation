@@ -25,8 +25,8 @@ const palette = createPalette({
 const breakpoints = createBreakpoints({
     values: {
         xs: 0,
-        sm: 600,
-        md: 960,
+        sm: 576,
+        md: 894,
         lg: 1150,
         xl: 1480,
     },

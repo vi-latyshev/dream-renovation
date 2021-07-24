@@ -65,6 +65,35 @@ module.exports = {
         '@typescript-eslint/semi': 'error',
         '@typescript-eslint/type-annotation-spacing': 'error',
         '@typescript-eslint/no-explicit-any': 'error',
+        '@typescript-eslint/member-ordering': ['warn', {
+            default: [
+                'public-static-field',
+                'protected-static-field',
+                'private-static-field',
+
+                'public-static-method',
+                'protected-static-method',
+                'private-static-method',
+
+                'public-field',
+                'protected-field',
+                'private-field',
+
+                'constructor',
+
+                'public-abstract-field',
+                'protected-abstract-field',
+                'private-abstract-field',
+
+                'public-abstract-method',
+                'protected-abstract-method',
+                'private-abstract-method',
+
+                'public-method',
+                'protected-method',
+                'private-method',
+            ],
+        }],
 
         // react/
         'react/jsx-indent': [

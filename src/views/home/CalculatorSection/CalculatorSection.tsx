@@ -1,13 +1,12 @@
 import { makeStyles } from '@material-ui/core';
 
 import { SectionWithContainer } from 'components/Section';
-
 import { Calculator } from './components/Calculator';
 
 const useStyles = makeStyles(({ palette }) => ({
     calculator: {
         paddingBottom: 50,
-        borderWidth: '100px 50px',
+        borderWidth: '80px 40px',
         borderStyle: 'solid',
         borderColor: palette.secondary.main,
     },
