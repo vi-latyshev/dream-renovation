@@ -12,8 +12,7 @@ export interface CalculatorData {
     time: number;
 }
 
-interface CalcualatorDataContextValue {
-    data: CalculatorData;
+interface CalcualatorDataContextValue extends CalculatorData {
     setData: (data: Partial<CalculatorData>) => void;
 }
 
@@ -29,7 +28,7 @@ const initialCalcualtorData: Required<CalculatorData> = {
 };
 
 const CalculatorDataContext = createContext<CalcualatorDataContextValue>({
-    data: initialCalcualtorData,
+    ...initialCalcualtorData,
     setData: (_data) => { },
 });
 
@@ -45,7 +44,7 @@ export const CalculatorDataProvider = ({ children }: CalcualatorDataProviderProp
     return (
         <CalculatorDataContext.Provider
             value={{
-                data: calculatorData,
+                ...calculatorData,
                 setData: handleCalculatorData,
             }}
         >

@@ -1,6 +1,8 @@
+import { FinishStep } from './FinishStep';
+
 export const stepsComponents = [
     'div',
-    'div',
+    FinishStep,
 ];
 
 // Steps count minus Finish step
