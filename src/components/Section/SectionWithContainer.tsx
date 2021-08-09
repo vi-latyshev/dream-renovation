@@ -15,7 +15,7 @@ const useStyles = makeStyles(({ breakpoints, mixins, props }) => ({
         display: 'flex',
         flexDirection: 'column',
         width: '100%',
-        maxWidth: breakpoints.width(props?.MuiContainer?.maxWidth || 'lg'),
+        maxWidth: breakpoints.values[props?.MuiContainer?.maxWidth || 'lg'],
     },
     center: {
         ...mixins.flexCenter,

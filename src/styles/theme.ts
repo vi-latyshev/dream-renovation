@@ -1,4 +1,4 @@
-import { createMuiTheme, fade, responsiveFontSizes } from '@material-ui/core';
+import { createTheme, alpha, responsiveFontSizes } from '@material-ui/core/styles';
 import createPalette from '@material-ui/core/styles/createPalette';
 import createBreakpoints from '@material-ui/core/styles/createBreakpoints';
 import createSpacing from '@material-ui/core/styles/createSpacing';
@@ -81,7 +81,7 @@ const mixins = createMixins(breakpoints, spacing, {
     },
 });
 
-let muiTheme = createMuiTheme({
+let muiTheme = createTheme({
     palette,
     breakpoints,
     spacing,
@@ -151,8 +151,8 @@ let muiTheme = createMuiTheme({
                 borderColor: palette.common.white,
                 '&:hover': {
                     borderWidth: 2,
-                    borderColor: fade(palette.common.white, 0.8),
-                    backgroundColor: fade(palette.common.white, 0.05),
+                    borderColor: alpha(palette.common.white, 0.8),
+                    backgroundColor: alpha(palette.common.white, 0.05),
                 },
                 '&$disabled': {
                     borderWidth: 2,
@@ -168,10 +168,10 @@ let muiTheme = createMuiTheme({
                         borderBottomColor: palette.common.white,
                     },
                     '&:hover:not($disabled):before': {
-                        borderBottomColor: fade(palette.common.white, 0.5),
+                        borderBottomColor: alpha(palette.common.white, 0.5),
                     },
                     '&:after': {
-                        borderBottomColor: fade(palette.common.white, 0.7),
+                        borderBottomColor: alpha(palette.common.white, 0.7),
                     },
                 },
             },
