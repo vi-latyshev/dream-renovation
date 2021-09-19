@@ -1,8 +1,8 @@
 /**
- * @type {import('next/dist/next-server/server/config').NextConfig}
+ * @type {import('next').NextConfig}
  */
 const nextConfig = {
-    reactStrictMode: true,
+    // reactStrictMode: true,
     poweredByHeader: false,
     eslint: {
         dirs: [

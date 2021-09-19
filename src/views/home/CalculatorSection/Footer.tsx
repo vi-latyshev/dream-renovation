@@ -20,10 +20,10 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export const CalculatorFooter = () => {
+export const Footer = () => {
     const classes = useStyles();
 
-    // TODO: change to and open Modal
+    // @TODO: change to and open Modal
     const handleContactClick = () => {
         scroller.scrollTo('contact', {
             smooth: true,

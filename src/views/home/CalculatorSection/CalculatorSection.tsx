@@ -1,7 +1,9 @@
-import { makeStyles } from '@material-ui/core';
+import { Typography, makeStyles } from '@material-ui/core';
 
 import { SectionWithContainer } from 'components/Section';
-import { Calculator } from './components/Calculator';
+
+import { Calculator } from './Calculator';
+import { Footer } from './Footer';
 
 const useStyles = makeStyles(({ palette }) => ({
     calculator: {
@@ -10,6 +12,9 @@ const useStyles = makeStyles(({ palette }) => ({
         borderStyle: 'solid',
         borderColor: palette.secondary.main,
     },
+    title: {
+        marginBottom: 30,
+    },
 }));
 
 export const CalculatorSection = () => {
@@ -17,7 +22,11 @@ export const CalculatorSection = () => {
 
     return (
         <SectionWithContainer withoutCenter className={classes.calculator}>
+            <Typography variant="h1" className={classes.title}>
+                Калькулятор ремонта
+            </Typography>
             <Calculator />
+            <Footer />
         </SectionWithContainer>
     );
 };

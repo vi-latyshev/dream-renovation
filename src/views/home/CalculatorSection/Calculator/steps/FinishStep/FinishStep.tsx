@@ -11,6 +11,8 @@ const useStyles = makeStyles(({ breakpoints }) => ({
     finish: {
         display: 'flex',
         flexDirection: 'column',
+        width: breakpoints.values.md,
+        height: '100%',
     },
     title: {
         marginTop: 40,
@@ -19,9 +21,7 @@ const useStyles = makeStyles(({ breakpoints }) => ({
     totalContainer: {
         display: 'flex',
         alignItems: 'center',
-        width: breakpoints.width('md'),
         marginTop: 40,
-        marginBottom: 80,
     },
     totalTime: {
         marginLeft: 'auto',
@@ -30,7 +30,7 @@ const useStyles = makeStyles(({ breakpoints }) => ({
     },
     footer: {
         display: 'flex',
-        width: breakpoints.width('md'),
+        marginTop: 'auto',
     },
     contactQuestions: {
         display: 'flex',
@@ -47,13 +47,16 @@ const useStyles = makeStyles(({ breakpoints }) => ({
 
 export const FinishStep = () => {
     const classes = useStyles();
+
     const { restartSteps } = useCalculatorSteps();
+    const calculatorData = useCalculatorData();
+
     const {
         price,
         dirtyMaterialsPrice,
         clearlyMaterialsPrice,
         time,
-    } = useCalculatorData();
+    } = calculatorData;
 
     return (
         <div className={classes.finish}>

@@ -6,21 +6,21 @@ import {
 } from 'react';
 
 interface CalculatorStepsContextValue {
-    step: number,
-    countSteps: number,
+    step: number;
+    stepCount: number;
     prevStep: () => void;
     nextStep: () => void;
     restartSteps: () => void;
 }
 
 interface CalculatorStepsProviderProps {
-    countSteps: number;
+    stepCount: number;
     children: React.ReactNode;
 }
 
 const CalculatorStepsContext = createContext<CalculatorStepsContextValue>({
     step: 0,
-    countSteps: 0,
+    stepCount: 0,
     prevStep: () => { },
     nextStep: () => { },
     restartSteps: () => { },
@@ -28,34 +28,34 @@ const CalculatorStepsContext = createContext<CalculatorStepsContextValue>({
 
 export const useCalculatorSteps = () => useContext<CalculatorStepsContextValue>(CalculatorStepsContext);
 
-export const CalculatorStepsProvider = ({ countSteps, children }: CalculatorStepsProviderProps) => {
-    const [calculatorStep, setCalculatorStep] = useState<number>(0);
+export const CalculatorStepsProvider = ({ stepCount, children }: CalculatorStepsProviderProps) => {
+    const [step, setStep] = useState<number>(0);
 
     const prevStep = useCallback(() => {
-        setCalculatorStep((step) => {
-            const newStep = step - 1;
+        setStep((currentStep) => {
+            const newStep = currentStep - 1;
 
             return Math.max(newStep, 0);
         });
     }, []);
 
     const nextStep = useCallback(() => {
-        setCalculatorStep((step) => {
-            const newStep = step + 1;
+        setStep((currentStep) => {
+            const newStep = currentStep + 1;
 
-            return Math.min(newStep, countSteps);
+            return Math.min(newStep, stepCount);
         });
-    }, [countSteps]);
+    }, [stepCount]);
 
     const restartSteps = useCallback(() => {
-        setCalculatorStep(0);
+        setStep(0);
     }, []);
 
     return (
         <CalculatorStepsContext.Provider
             value={{
-                step: calculatorStep,
-                countSteps,
+                step,
+                stepCount,
                 prevStep,
                 nextStep,
                 restartSteps,

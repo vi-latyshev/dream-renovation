@@ -209,7 +209,7 @@ let muiTheme = createTheme({
             },
             valueLabel: {
                 top: 35,
-                left: 'calc(-50% + 6px)',
+                left: 'calc(-50% + 2px)',
                 fontSize: '1rem',
                 '& *': {
                     background: 'transparent',

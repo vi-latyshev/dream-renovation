@@ -13,7 +13,7 @@ const useStyles = makeStyles(({ breakpoints }) => ({
         alignItems: 'center',
         justifyContent: 'space-between',
         marginBottom: 25,
-        width: breakpoints.width('sm'),
+        width: breakpoints.values.sm,
         fontWeight: 'bold',
         '& > span': {
             textAlign: 'right',
