@@ -1,9 +1,16 @@
-import { Typography, Button, makeStyles } from '@material-ui/core';
+import { useEffect, useState } from 'react';
+import {
+    Fade,
+    Button,
+    Typography,
+    makeStyles,
+} from '@material-ui/core';
 
 import { PhoneContact } from 'components/PhoneContact';
 
 import { useCalculatorSteps } from '../../context/steps';
 import { useCalculatorData } from '../../context/data';
+import { relativeTimeWithPlural } from '../../utils/relativeTimeWithPlural';
 
 import { DataValueBlock } from './DataValueBlock';
 
@@ -49,14 +56,23 @@ export const FinishStep = () => {
     const classes = useStyles();
 
     const { restartSteps } = useCalculatorSteps();
-    const calculatorData = useCalculatorData();
-
     const {
         price,
         dirtyMaterialsPrice,
         clearlyMaterialsPrice,
         time,
-    } = calculatorData;
+    } = useCalculatorData();
+
+    const [relativeDays, setRelativeDays] = useState<string | null>(null);
+
+    useEffect(() => {
+        const getRelativeDays = async () => {
+            const relatDays = await relativeTimeWithPlural(time);
+            setRelativeDays(relatDays);
+        };
+
+        getRelativeDays();
+    }, [time]);
 
     return (
         <div className={classes.finish}>
@@ -73,11 +89,13 @@ export const FinishStep = () => {
                     </Typography>{' '}
                     от {price + dirtyMaterialsPrice + clearlyMaterialsPrice} руб/м2
                 </Typography>
-                <DataValueBlock
-                    label="Срок ремонта"
-                    data={`от ${time} месяца`}
-                    classNames={classes.totalTime}
-                />
+                <Fade in={relativeDays !== null}>
+                    <DataValueBlock
+                        label="Срок ремонта"
+                        data={`~ ${relativeDays}`}
+                        classNames={classes.totalTime}
+                    />
+                </Fade>
             </div>
             <div className={classes.footer}>
                 <div className={classes.contactQuestions}>
