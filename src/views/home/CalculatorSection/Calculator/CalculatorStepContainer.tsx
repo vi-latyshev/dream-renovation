@@ -12,13 +12,16 @@ import { useCalculatorSteps } from './context/steps';
 
 import type { TransitionProps } from '@material-ui/core/transitions';
 
-const useStyles = makeStyles(({ breakpoints }) => ({
+const useStyles = makeStyles(({ palette, breakpoints }) => ({
     wrapper: {
         display: 'flex',
         flexDirection: 'column',
         height: 500,
+        width: breakpoints.values.md,
     },
     description: {
+        fontWeight: 600,
+        color: palette.text.secondary,
         marginBottom: 50,
     },
     step: {
@@ -28,7 +31,6 @@ const useStyles = makeStyles(({ breakpoints }) => ({
     stepper: {
         display: 'flex',
         alignItems: 'center',
-        width: breakpoints.values.md,
         '& > *:not(:last-child)': {
             marginRight: 40,
         },

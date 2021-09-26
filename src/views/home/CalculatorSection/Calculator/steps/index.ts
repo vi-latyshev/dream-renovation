@@ -1,7 +1,10 @@
+import { PlaceStep } from './PlaceStep';
+import { CountAreaStep } from './CountAreaStep';
 import { FinishStep } from './FinishStep';
 
 export const stepsComponents = [
-    'div',
+    PlaceStep,
+    CountAreaStep,
     FinishStep,
 ];
 

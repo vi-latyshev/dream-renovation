@@ -15,11 +15,10 @@ import { relativeTimeWithPlural } from '../../utils/relativeTimeWithPlural';
 
 import { DataValueBlock } from './DataValueBlock';
 
-const useStyles = makeStyles(({ breakpoints }) => ({
+const useStyles = makeStyles({
     finish: {
         display: 'flex',
         flexDirection: 'column',
-        width: breakpoints.values.md,
         height: '100%',
     },
     title: {
@@ -51,29 +50,31 @@ const useStyles = makeStyles(({ breakpoints }) => ({
         alignSelf: 'flex-end',
         marginLeft: 'auto',
     },
-}));
+});
 
 export const FinishStep = () => {
     const classes = useStyles();
 
     const { restartSteps } = useCalculatorSteps();
+    const { data } = useCalculatorData();
+
     const {
         price,
         dirtyMaterialsPrice,
         clearlyMaterialsPrice,
-        time,
-    } = useCalculatorData();
+        days,
+    } = data;
 
     const [relativeDays, setRelativeDays] = useState<string | null>(null);
 
     useEffect(() => {
         const getRelativeDays = async () => {
-            const relatDays = await relativeTimeWithPlural(time);
+            const relatDays = await relativeTimeWithPlural(days);
             setRelativeDays(relatDays);
         };
 
         getRelativeDays();
-    }, [time]);
+    }, [days]);
 
     if (relativeDays === null) {
         return <Loading />;

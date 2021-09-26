@@ -9,11 +9,14 @@ export interface CalculatorData {
     price: number;
     dirtyMaterialsPrice: number;
     clearlyMaterialsPrice: number;
-    time: number;
+    days: number;
 }
 
-interface CalcualatorDataContextValue extends CalculatorData {
-    setData: (data: Partial<CalculatorData>) => void;
+export type PartialCalculatorData = Partial<CalculatorData>;
+
+interface CalcualatorDataContextValue {
+    data: CalculatorData;
+    setData: (data: PartialCalculatorData) => void;
 }
 
 interface CalcualatorDataProviderProps {
@@ -24,28 +27,28 @@ const initialCalcualtorData: Required<CalculatorData> = {
     price: 18000,
     dirtyMaterialsPrice: 6000,
     clearlyMaterialsPrice: 7000,
-    time: 0,
+    days: 2.5 * 30,
 };
 
 const CalculatorDataContext = createContext<CalcualatorDataContextValue>({
-    ...initialCalcualtorData,
+    data: initialCalcualtorData,
     setData: (_data) => { },
 });
 
 export const useCalculatorData = () => useContext<CalcualatorDataContextValue>(CalculatorDataContext);
 
 export const CalculatorDataProvider = ({ children }: CalcualatorDataProviderProps) => {
-    const [calculatorData, setCalculatorData] = useState<CalculatorData>(initialCalcualtorData);
+    const [data, setData] = useState<CalculatorData>(initialCalcualtorData);
 
-    const handleCalculatorData = useCallback((newData: Partial<CalculatorData>) => {
-        setCalculatorData((data) => ({ ...data, ...newData }));
+    const handleSetData = useCallback((newData: PartialCalculatorData) => {
+        setData((currentData) => ({ ...currentData, ...newData }));
     }, []);
 
     return (
         <CalculatorDataContext.Provider
             value={{
-                ...calculatorData,
-                setData: handleCalculatorData,
+                data,
+                setData: handleSetData,
             }}
         >
             {children}
