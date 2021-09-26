@@ -7,6 +7,7 @@ import { Footer } from './Footer';
 
 const useStyles = makeStyles(({ palette }) => ({
     calculator: {
+        paddingTop: 100,
         paddingBottom: 50,
         borderWidth: '80px 40px',
         borderStyle: 'solid',

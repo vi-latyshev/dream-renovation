@@ -2,7 +2,7 @@ import { StepTitle } from '../components/StepTitle';
 import { RadioWrapper } from '../components/RadioWrapper';
 import { Radio } from '../components/controls';
 
-export const PlaceStep = () => (
+const PlaceStep = () => (
     <>
         <StepTitle>Где необходимо сделать ремонт?</StepTitle>
         <RadioWrapper>
@@ -33,3 +33,5 @@ export const PlaceStep = () => (
         </RadioWrapper>
     </>
 );
+
+export default PlaceStep;

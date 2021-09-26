@@ -6,10 +6,10 @@ import classicStyleImg from '../images/classic-style.jpg';
 import scandinavianStyleImg from '../images/scandinavian-style.jpg';
 import minimalismStyleImg from '../images/minimalism-style.jpg';
 
-export const StyleStep = () => (
+const StyleStep = () => (
     <>
         <StepTitle>Какой вы предпочитаете стиль?</StepTitle>
-        <RadioWrapper spacing={5}>
+        <RadioWrapper spacing={4}>
             <RadioImage
                 value="classic"
                 label="Классический"
@@ -31,3 +31,5 @@ export const StyleStep = () => (
         </RadioWrapper>
     </>
 );
+
+export default StyleStep;

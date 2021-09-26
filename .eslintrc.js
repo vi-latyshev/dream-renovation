@@ -110,6 +110,7 @@ module.exports = {
         'react/no-unescaped-entities': 'warn',
         'react/react-in-jsx-scope': 'off',
         'react/require-default-props': 'off',
+        'react/display-name': 'off',
 
         // jsx-a11y
         'jsx-a11y/anchor-is-valid': 'off',

@@ -1,1 +1,1 @@
-export * from './FinishStep';
+export { FinishStep as default } from './FinishStep';

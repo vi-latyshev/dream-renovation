@@ -2,7 +2,7 @@ import { StepTitle } from '../components/StepTitle';
 import { RadioWrapper } from '../components/RadioWrapper';
 import { Radio } from '../components/controls';
 
-export const MaterialsStep = () => (
+const MaterialsStep = () => (
     <>
         <StepTitle>Какие чистовые материалы вы хотите использовать в будущем интерьере?</StepTitle>
         <RadioWrapper>
@@ -27,3 +27,5 @@ export const MaterialsStep = () => (
         </RadioWrapper>
     </>
 );
+
+export default MaterialsStep;

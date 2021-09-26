@@ -2,7 +2,7 @@ import { StepTitle } from '../components/StepTitle';
 import { RadioWrapper } from '../components/RadioWrapper';
 import { Radio } from '../components/controls';
 
-export const AlreadyDesignStep = () => (
+const AlreadyDesignStep = () => (
     <>
         <StepTitle>Есть ли у вас уже разработанный дизайн-проект?</StepTitle>
         <RadioWrapper>
@@ -17,3 +17,5 @@ export const AlreadyDesignStep = () => (
         </RadioWrapper>
     </>
 );
+
+export default AlreadyDesignStep;

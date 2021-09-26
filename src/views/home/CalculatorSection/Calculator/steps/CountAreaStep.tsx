@@ -6,7 +6,7 @@ const getLabelWithMetrics = (string: string) => (
     <>{string} m<sup>2</sup></>
 );
 
-export const CountAreaStep = () => (
+const CountAreaStep = () => (
     <>
         <StepTitle>Какая у вас общая площадь объекта?</StepTitle>
         <RadioWrapper>
@@ -41,3 +41,5 @@ export const CountAreaStep = () => (
         </RadioWrapper>
     </>
 );
+
+export default CountAreaStep;

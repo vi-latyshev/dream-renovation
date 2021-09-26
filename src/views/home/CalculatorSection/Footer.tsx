@@ -7,7 +7,7 @@ const useStyles = makeStyles(() => ({
     footer: {
         display: 'flex',
         alignSelf: 'center',
-        marginTop: 120,
+        marginTop: 80,
     },
     link: {
         display: 'flex',

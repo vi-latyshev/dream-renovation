@@ -65,8 +65,8 @@ export const RadioImage = ({
                     label={(
                         <div className={classes.container}>
                             <Image
-                                width={224}
-                                height={195}
+                                width={196}
+                                height={169}
                                 layout="fixed"
                                 src={imgSrc}
                                 alt={imgAlt}

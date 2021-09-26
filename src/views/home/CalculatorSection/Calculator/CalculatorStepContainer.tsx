@@ -26,6 +26,7 @@ const useStyles = makeStyles(({ palette, breakpoints }) => ({
     step: {
         height: '100%',
         overflow: 'hidden',
+        width: breakpoints.values.md,
     },
     stepper: {
         display: 'flex',
