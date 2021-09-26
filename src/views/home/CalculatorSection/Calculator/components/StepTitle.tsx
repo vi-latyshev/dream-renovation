@@ -6,7 +6,7 @@ interface StepTitleProps {
 
 const useStyles = makeStyles(() => ({
     title: {
-        marginBottom: 50,
+        marginBottom: 35,
     },
 }));
 

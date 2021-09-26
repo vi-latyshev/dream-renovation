@@ -1,5 +1,5 @@
+import Image from 'next/image';
 import {
-    alpha,
     Grid,
     Paper,
     Radio as MuiRadio,
@@ -12,26 +12,40 @@ import { useCheckedRadio } from '../../../hooks/useCheckedRadio';
 
 import type { FormControlLabelProps } from '@material-ui/core';
 
-interface RadioProps extends Omit<FormControlLabelProps, 'control'> { }
+interface RadioImageProps extends Omit<FormControlLabelProps, 'control'> {
+    imgSrc: StaticImageData;
+    imgAlt: string;
+}
 
 const useStyles = makeStyles(({ palette }) => ({
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        padding: 25,
+        paddingBottom: 15,
+        textAlign: 'center',
+        '& > *:nth-child(1)': {
+            marginBottom: 15,
+        },
+    },
     checked: {
         borderColor: palette.primary.main,
     },
     controlLabel: {
         margin: 0,
-        paddingRight: 9,
-        minWidth: 292,
     },
     radio: {
-        color: alpha(palette.primary.main, palette.action.disabledOpacity),
-        padding: 10,
-        margin: '5px 0',
-        marginRight: 20,
+        display: 'none',
     },
 }));
 
-export const Radio = ({ checked, ...props }: RadioProps) => {
+export const RadioImage = ({
+    imgSrc,
+    imgAlt,
+    label,
+    checked,
+    ...props
+}: RadioImageProps) => {
     const classes = useStyles();
 
     const [isChecked, handleChange] = useCheckedRadio();
@@ -47,6 +61,18 @@ export const Radio = ({ checked, ...props }: RadioProps) => {
                             color="primary"
                             className={classes.radio}
                         />
+                    )}
+                    label={(
+                        <div className={classes.container}>
+                            <Image
+                                width={224}
+                                height={195}
+                                layout="fixed"
+                                src={imgSrc}
+                                alt={imgAlt}
+                            />
+                            {label}
+                        </div>
                     )}
                     className={classes.controlLabel}
                     {...props}

@@ -14,6 +14,8 @@ export const MaterialsStep = () => (
                 value="imported"
                 label="Импортные"
             />
+        </RadioWrapper>
+        <RadioWrapper>
             <Radio
                 value="exclusive"
                 label="Эксклюзивные"

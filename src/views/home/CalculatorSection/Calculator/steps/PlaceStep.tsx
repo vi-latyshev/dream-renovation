@@ -14,6 +14,8 @@ export const PlaceStep = () => (
                 value="office"
                 label="Офис"
             />
+        </RadioWrapper>
+        <RadioWrapper>
             <Radio
                 value="townhouse"
                 label="Таунхаус"
@@ -22,6 +24,8 @@ export const PlaceStep = () => (
                 value="сottage"
                 label="Коттедж"
             />
+        </RadioWrapper>
+        <RadioWrapper>
             <Radio
                 value="shop"
                 label="Магазин"

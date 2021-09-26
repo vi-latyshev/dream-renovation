@@ -18,6 +18,8 @@ export const CountAreaStep = () => (
                 value="90-120"
                 label={getLabelWithMetrics('90-120')}
             />
+        </RadioWrapper>
+        <RadioWrapper>
             <Radio
                 value="45-70"
                 label={getLabelWithMetrics('45-70')}
@@ -26,6 +28,8 @@ export const CountAreaStep = () => (
                 value="120-150"
                 label={getLabelWithMetrics('120-150')}
             />
+        </RadioWrapper>
+        <RadioWrapper>
             <Radio
                 value="70-90"
                 label={getLabelWithMetrics('70-90')}
