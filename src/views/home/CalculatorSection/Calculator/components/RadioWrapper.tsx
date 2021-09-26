@@ -4,8 +4,9 @@ import type { GridProps } from '@material-ui/core';
 
 interface RadioWrapperProps extends GridProps { }
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(({ breakpoints }) => ({
     container: {
+        width: breakpoints.values.md,
         '& > *': {
             marginBottom: 35,
             '&:nth-child(2n)': {

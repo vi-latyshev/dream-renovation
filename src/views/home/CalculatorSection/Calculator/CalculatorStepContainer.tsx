@@ -17,7 +17,6 @@ const useStyles = makeStyles(({ palette, breakpoints }) => ({
         display: 'flex',
         flexDirection: 'column',
         height: 500,
-        width: breakpoints.values.md,
     },
     description: {
         fontWeight: 600,
@@ -31,6 +30,7 @@ const useStyles = makeStyles(({ palette, breakpoints }) => ({
     stepper: {
         display: 'flex',
         alignItems: 'center',
+        width: breakpoints.values.md,
         '& > *:not(:last-child)': {
             marginRight: 40,
         },

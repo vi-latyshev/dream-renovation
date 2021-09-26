@@ -15,11 +15,12 @@ import { relativeTimeWithPlural } from '../../utils/relativeTimeWithPlural';
 
 import { DataValueBlock } from './DataValueBlock';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(({ breakpoints }) => ({
     finish: {
         display: 'flex',
         flexDirection: 'column',
         height: '100%',
+        width: breakpoints.values.md,
     },
     title: {
         marginTop: 40,
@@ -50,7 +51,7 @@ const useStyles = makeStyles({
         alignSelf: 'flex-end',
         marginLeft: 'auto',
     },
-});
+}));
 
 export const FinishStep = () => {
     const classes = useStyles();
