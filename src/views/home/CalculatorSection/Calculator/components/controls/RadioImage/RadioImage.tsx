@@ -68,6 +68,7 @@ export const RadioImage = ({
                                 width={196}
                                 height={169}
                                 layout="fixed"
+                                placeholder="blur"
                                 src={imgSrc}
                                 alt={imgAlt}
                             />
