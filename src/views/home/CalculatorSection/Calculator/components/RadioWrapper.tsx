@@ -8,7 +8,9 @@ const useStyles = makeStyles(({ breakpoints }) => ({
     container: {
         width: breakpoints.values.md,
         '& > *': {
-            marginBottom: 35,
+            '&:nth-child(n)': {
+                marginBottom: 35,
+            },
             '&:nth-child(2n)': {
                 marginLeft: 80,
             },
