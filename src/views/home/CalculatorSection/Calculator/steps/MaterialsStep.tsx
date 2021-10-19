@@ -1,11 +1,10 @@
 import { StepTitle } from '../components/StepTitle';
-import { RadioWrapper } from '../components/RadioWrapper';
-import { Radio } from '../components/controls';
+import { Radio, RadioGroupWrapper } from '../components/controls';
 
 const MaterialsStep = () => (
     <>
         <StepTitle>Какие чистовые материалы вы хотите использовать в будущем интерьере?</StepTitle>
-        <RadioWrapper>
+        <RadioGroupWrapper>
             <Radio
                 value="domestic"
                 label="Отечественные"
@@ -14,8 +13,6 @@ const MaterialsStep = () => (
                 value="imported"
                 label="Импортные"
             />
-        </RadioWrapper>
-        <RadioWrapper>
             <Radio
                 value="exclusive"
                 label="Эксклюзивные"
@@ -24,7 +21,7 @@ const MaterialsStep = () => (
                 value="mixed"
                 label="Смешанный вариант"
             />
-        </RadioWrapper>
+        </RadioGroupWrapper>
     </>
 );
 

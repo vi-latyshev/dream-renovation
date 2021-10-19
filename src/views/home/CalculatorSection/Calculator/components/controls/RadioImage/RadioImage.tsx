@@ -1,18 +1,16 @@
 import Image from 'next/image';
 import {
-    Grid,
     Paper,
     Radio as MuiRadio,
     FormControlLabel,
     makeStyles,
+    useRadioGroup,
 } from '@material-ui/core';
 import clsx from 'clsx';
 
-import { useCheckedRadio } from '../../../hooks/useCheckedRadio';
-
 import type { FormControlLabelProps } from '@material-ui/core';
 
-interface RadioImageProps extends Omit<FormControlLabelProps, 'control'> {
+interface RadioImageProps extends Omit<FormControlLabelProps, 'control' | 'checked'> {
     imgSrc: StaticImageData;
     imgAlt: string;
 }
@@ -43,42 +41,39 @@ export const RadioImage = ({
     imgSrc,
     imgAlt,
     label,
-    checked,
     ...props
 }: RadioImageProps) => {
     const classes = useStyles();
+    const radioGroup = useRadioGroup();
 
-    const [isChecked, handleChange] = useCheckedRadio();
+    const isChecked = radioGroup?.value === props.value;
 
     return (
-        <Grid item>
-            <Paper variant="outlined" className={clsx({ [classes.checked]: isChecked })}>
-                <FormControlLabel
-                    checked={checked}
-                    onChange={handleChange}
-                    control={(
-                        <MuiRadio
-                            color="primary"
-                            className={classes.radio}
+        <Paper variant="outlined" className={clsx({ [classes.checked]: isChecked })}>
+            <FormControlLabel
+                checked={isChecked}
+                control={(
+                    <MuiRadio
+                        color="primary"
+                        className={classes.radio}
+                    />
+                )}
+                label={(
+                    <div className={classes.container}>
+                        <Image
+                            width={196}
+                            height={169}
+                            layout="fixed"
+                            placeholder="blur"
+                            src={imgSrc}
+                            alt={imgAlt}
                         />
-                    )}
-                    label={(
-                        <div className={classes.container}>
-                            <Image
-                                width={196}
-                                height={169}
-                                layout="fixed"
-                                placeholder="blur"
-                                src={imgSrc}
-                                alt={imgAlt}
-                            />
-                            {label}
-                        </div>
-                    )}
-                    className={classes.controlLabel}
-                    {...props}
-                />
-            </Paper>
-        </Grid>
+                        {label}
+                    </div>
+                )}
+                className={classes.controlLabel}
+                {...props}
+            />
+        </Paper>
     );
 };

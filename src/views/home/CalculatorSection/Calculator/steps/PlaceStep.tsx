@@ -1,11 +1,10 @@
 import { StepTitle } from '../components/StepTitle';
-import { RadioWrapper } from '../components/RadioWrapper';
-import { Radio } from '../components/controls';
+import { Radio, RadioGroupWrapper } from '../components/controls';
 
 const PlaceStep = () => (
     <>
         <StepTitle>Где необходимо сделать ремонт?</StepTitle>
-        <RadioWrapper>
+        <RadioGroupWrapper>
             <Radio
                 value="apartment"
                 label="Квартира"
@@ -14,8 +13,6 @@ const PlaceStep = () => (
                 value="office"
                 label="Офис"
             />
-        </RadioWrapper>
-        <RadioWrapper>
             <Radio
                 value="townhouse"
                 label="Таунхаус"
@@ -24,13 +21,11 @@ const PlaceStep = () => (
                 value="сottage"
                 label="Коттедж"
             />
-        </RadioWrapper>
-        <RadioWrapper>
             <Radio
                 value="shop"
                 label="Магазин"
             />
-        </RadioWrapper>
+        </RadioGroupWrapper>
     </>
 );
 

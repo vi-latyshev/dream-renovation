@@ -1,6 +1,5 @@
 import { StepTitle } from '../components/StepTitle';
-import { RadioWrapper } from '../components/RadioWrapper';
-import { RadioImage } from '../components/controls';
+import { RadioImage, RadioGroupImageWrapper } from '../components/controls';
 
 import classicStyleImg from '../images/classic-style.jpg';
 import scandinavianStyleImg from '../images/scandinavian-style.jpg';
@@ -9,7 +8,7 @@ import minimalismStyleImg from '../images/minimalism-style.jpg';
 const StyleStep = () => (
     <>
         <StepTitle>Какой вы предпочитаете стиль?</StepTitle>
-        <RadioWrapper spacing={4}>
+        <RadioGroupImageWrapper>
             <RadioImage
                 value="classic"
                 label="Классический"
@@ -28,7 +27,7 @@ const StyleStep = () => (
                 imgSrc={minimalismStyleImg}
                 imgAlt="Минимализм"
             />
-        </RadioWrapper>
+        </RadioGroupImageWrapper>
     </>
 );
 

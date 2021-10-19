@@ -1,11 +1,10 @@
 import { StepTitle } from '../components/StepTitle';
-import { RadioWrapper } from '../components/RadioWrapper';
-import { Radio } from '../components/controls';
+import { Radio, RadioGroupWrapper } from '../components/controls';
 
 const AlreadyDesignStep = () => (
     <>
         <StepTitle>Есть ли у вас уже разработанный дизайн-проект?</StepTitle>
-        <RadioWrapper>
+        <RadioGroupWrapper>
             <Radio
                 value="yes"
                 label="Да"
@@ -14,7 +13,7 @@ const AlreadyDesignStep = () => (
                 value="no"
                 label="Нет"
             />
-        </RadioWrapper>
+        </RadioGroupWrapper>
     </>
 );
 
