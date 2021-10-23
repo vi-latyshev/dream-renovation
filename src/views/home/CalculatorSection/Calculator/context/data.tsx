@@ -16,7 +16,7 @@ export type PartialCalculatorData = Partial<CalculatorData>;
 
 interface CalcualatorDataContextValue {
     data: CalculatorData;
-    setData: (data: PartialCalculatorData) => void;
+    setData: React.Dispatch<PartialCalculatorData | ((prevState: CalculatorData) => PartialCalculatorData)>;
 }
 
 interface CalcualatorDataProviderProps {
@@ -24,24 +24,32 @@ interface CalcualatorDataProviderProps {
 }
 
 const initialCalcualtorData: Required<CalculatorData> = {
-    price: 18000,
-    dirtyMaterialsPrice: 6000,
-    clearlyMaterialsPrice: 7000,
-    days: 2.5 * 30,
+    price: 0,
+    dirtyMaterialsPrice: 0,
+    clearlyMaterialsPrice: 0,
+    days: 0,
 };
 
 const CalculatorDataContext = createContext<CalcualatorDataContextValue>({
-    data: initialCalcualtorData,
+    data: { ...initialCalcualtorData },
     setData: (_data) => { },
 });
 
 export const useCalculatorData = () => useContext<CalcualatorDataContextValue>(CalculatorDataContext);
 
 export const CalculatorDataProvider = ({ children }: CalcualatorDataProviderProps) => {
-    const [data, setData] = useState<CalculatorData>(initialCalcualtorData);
+    const [data, setData] = useState<CalculatorData>({ ...initialCalcualtorData });
 
-    const handleSetData = useCallback((newData: PartialCalculatorData) => {
-        setData((currentData) => ({ ...currentData, ...newData }));
+    const handleSetData = useCallback<CalcualatorDataContextValue['setData']>((stateAction) => {
+        if (typeof stateAction !== 'function') {
+            setData((currentData) => ({ ...currentData, ...stateAction }));
+
+            return;
+        }
+        setData((currentData) => ({
+            ...currentData,
+            ...stateAction(currentData),
+        }));
     }, []);
 
     return (

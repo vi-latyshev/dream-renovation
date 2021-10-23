@@ -1,13 +1,13 @@
-import { RadioGroup, makeStyles } from '@material-ui/core';
-import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core';
 
-import type { RadioGroupProps } from '@material-ui/core';
+import { RadioGroupBaseWrapper } from './RadioGroupBaseWrapper';
 
-export interface RadioGroupWrapperProps extends RadioGroupProps { }
+import type { RadioDataNames, RadioGroupBaseWrapperProps } from './RadioGroupBaseWrapper';
+
+interface RadioGroupWrapperProps<T extends RadioDataNames> extends RadioGroupBaseWrapperProps<T> { }
 
 const useStyles = makeStyles(({ spacing }) => ({
     radioGroup: {
-        flexDirection: 'row',
         '& > *': {
             margin: spacing(2, 4),
             '&:nth-child(2n+1)': {
@@ -17,12 +17,12 @@ const useStyles = makeStyles(({ spacing }) => ({
     },
 }));
 
-export const RadioGroupWrapper = ({ className, ...props }: RadioGroupWrapperProps) => {
+export const RadioGroupWrapper = <T extends RadioDataNames>(props: RadioGroupWrapperProps<T>) => {
     const classes = useStyles();
 
     return (
-        <RadioGroup
-            className={clsx(classes.radioGroup, className)}
+        <RadioGroupBaseWrapper
+            className={classes.radioGroup}
             {...props}
         />
     );
