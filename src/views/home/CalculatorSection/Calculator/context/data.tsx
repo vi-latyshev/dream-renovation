@@ -1,4 +1,4 @@
-import {
+import React, {
     useState,
     useContext,
     useCallback,
@@ -17,6 +17,7 @@ export type PartialCalculatorData = Partial<CalculatorData>;
 interface CalcualatorDataContextValue {
     data: CalculatorData;
     setData: React.Dispatch<PartialCalculatorData | ((prevState: CalculatorData) => PartialCalculatorData)>;
+    resetData: () => void;
 }
 
 interface CalcualatorDataProviderProps {
@@ -33,6 +34,7 @@ const initialCalcualtorData: Required<CalculatorData> = {
 const CalculatorDataContext = createContext<CalcualatorDataContextValue>({
     data: { ...initialCalcualtorData },
     setData: (_data) => { },
+    resetData: () => { },
 });
 
 export const useCalculatorData = () => useContext<CalcualatorDataContextValue>(CalculatorDataContext);
@@ -52,11 +54,16 @@ export const CalculatorDataProvider = ({ children }: CalcualatorDataProviderProp
         }));
     }, []);
 
+    const resetData = useCallback(() => {
+        setData({ ...initialCalcualtorData });
+    }, []);
+
     return (
         <CalculatorDataContext.Provider
             value={{
                 data,
                 setData: handleSetData,
+                resetData,
             }}
         >
             {children}

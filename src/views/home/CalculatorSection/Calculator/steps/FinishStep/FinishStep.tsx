@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
     Fade,
     Button,
@@ -11,6 +11,7 @@ import { PhoneContact } from 'components/PhoneContact';
 
 import { useCalculatorSteps } from '../../context/steps';
 import { useCalculatorData } from '../../context/data';
+import { useControlsData } from '../../context/controls_data';
 import { relativeTimeWithPlural } from '../../utils/relativeTimeWithPlural';
 
 import { DataValueBlock } from './DataValueBlock';
@@ -57,7 +58,8 @@ export const FinishStep = () => {
     const classes = useStyles();
 
     const { restartSteps } = useCalculatorSteps();
-    const { data } = useCalculatorData();
+    const { data, resetData } = useCalculatorData();
+    const { resetValues } = useControlsData();
 
     const {
         price,
@@ -76,6 +78,12 @@ export const FinishStep = () => {
 
         getRelativeDays();
     }, [days]);
+
+    const resetCalculator = useCallback(() => {
+        resetValues();
+        resetData();
+        restartSteps();
+    }, [resetValues, resetData, restartSteps]);
 
     if (relativeDays === null) {
         return <Loading />;
@@ -113,7 +121,7 @@ export const FinishStep = () => {
                     <Button
                         color="primary"
                         variant="contained"
-                        onClick={restartSteps}
+                        onClick={resetCalculator}
                         className={classes.stepButton}
                     >
                         Пересчитать

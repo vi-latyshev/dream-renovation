@@ -14,6 +14,7 @@ type ControlsData = {
 export interface ControlsDataContextValue {
     values: ControlsData;
     setValues: (name: string, value: ControlsValue) => void;
+    resetValues: () => void;
 }
 
 interface ControlsDataProviderProps {
@@ -25,6 +26,7 @@ const initialControlsData = {};
 const ControlsDataContext = createContext<ControlsDataContextValue>({
     values: { ...initialControlsData },
     setValues: (_name, _values) => { },
+    resetValues: () => { },
 });
 
 export const useControlsData = () => useContext<ControlsDataContextValue>(ControlsDataContext);
@@ -39,11 +41,16 @@ export const ControlsDataProvider = ({ children }: ControlsDataProviderProps) =>
         }));
     }, []);
 
+    const resetValues = useCallback(() => {
+        setValues({ ...initialControlsData });
+    }, []);
+
     return (
         <ControlsDataContext.Provider
             value={{
                 values,
                 setValues: handleSetValues,
+                resetValues,
             }}
         >
             {children}
