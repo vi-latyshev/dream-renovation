@@ -1,9 +1,11 @@
-import { createMuiTheme, fade, responsiveFontSizes } from '@material-ui/core';
+import { createTheme, alpha, responsiveFontSizes } from '@material-ui/core/styles';
 import createPalette from '@material-ui/core/styles/createPalette';
 import createBreakpoints from '@material-ui/core/styles/createBreakpoints';
 import createSpacing from '@material-ui/core/styles/createSpacing';
 import createTypography from '@material-ui/core/styles/createTypography';
 import createMixins from '@material-ui/core/styles/createMixins';
+
+import type { TypographyStyleOptions } from '@material-ui/core/styles/createTypography';
 
 const palette = createPalette({
     type: 'light',
@@ -25,8 +27,8 @@ const palette = createPalette({
 const breakpoints = createBreakpoints({
     values: {
         xs: 0,
-        sm: 600,
-        md: 960,
+        sm: 576,
+        md: 894,
         lg: 1150,
         xl: 1480,
     },
@@ -34,24 +36,27 @@ const breakpoints = createBreakpoints({
 
 const spacing = createSpacing(8);
 
+const defaultTypographyHeadings: TypographyStyleOptions = {
+    fontFamily: [
+        '"Montserrat"',
+        '"Verdana"',
+        'sans-serif',
+    ].join(','),
+    fontWeight: 'bold',
+};
+
 const typography = createTypography(palette, {
     h1: {
-        fontFamily: [
-            '"Montserrat"',
-            '"Verdana"',
-            'sans-serif',
-        ].join(','),
+        ...defaultTypographyHeadings,
         fontSize: '2.875rem', // 46px
-        fontWeight: 'bold',
     },
     h2: {
-        fontFamily: [
-            '"Montserrat"',
-            '"Verdana"',
-            'sans-serif',
-        ].join(','),
+        ...defaultTypographyHeadings,
         fontSize: '2.5rem', // 40px
-        fontWeight: 'bold',
+    },
+    h3: {
+        ...defaultTypographyHeadings,
+        fontSize: '1.5rem', // 24px
     },
     body1: {
         fontSize: '1rem', // 16px
@@ -76,7 +81,7 @@ const mixins = createMixins(breakpoints, spacing, {
     },
 });
 
-let muiTheme = createMuiTheme({
+let muiTheme = createTheme({
     palette,
     breakpoints,
     spacing,
@@ -107,12 +112,13 @@ let muiTheme = createMuiTheme({
         },
         MuiButton: {
             root: {
+                minWidth: 260,
                 textTransform: 'unset',
                 fontWeight: 'bold',
                 fontSize: '1.3125rem', // 21px
             },
             contained: {
-                padding: '7px 40px',
+                padding: '10px 40px',
             },
             containedPrimary: {
                 color: palette.common.white,
@@ -120,7 +126,15 @@ let muiTheme = createMuiTheme({
             // not used
             // containedSecondary: {},
             outlined: {
+                borderWidth: 2,
                 padding: '5px 40px',
+                color: palette.text.secondary,
+                '&:hover': {
+                    borderWidth: 2,
+                },
+                '&$disabled': {
+                    borderWidth: 2,
+                },
             },
             outlinedPrimary: {
                 borderWidth: 2,
@@ -137,8 +151,8 @@ let muiTheme = createMuiTheme({
                 borderColor: palette.common.white,
                 '&:hover': {
                     borderWidth: 2,
-                    borderColor: fade(palette.common.white, 0.8),
-                    backgroundColor: fade(palette.common.white, 0.05),
+                    borderColor: alpha(palette.common.white, 0.8),
+                    backgroundColor: alpha(palette.common.white, 0.05),
                 },
                 '&$disabled': {
                     borderWidth: 2,
@@ -154,10 +168,10 @@ let muiTheme = createMuiTheme({
                         borderBottomColor: palette.common.white,
                     },
                     '&:hover:not($disabled):before': {
-                        borderBottomColor: fade(palette.common.white, 0.5),
+                        borderBottomColor: alpha(palette.common.white, 0.5),
                     },
                     '&:after': {
-                        borderBottomColor: fade(palette.common.white, 0.7),
+                        borderBottomColor: alpha(palette.common.white, 0.7),
                     },
                 },
             },
@@ -167,6 +181,39 @@ let muiTheme = createMuiTheme({
                 color: palette.common.white,
                 '&$focused:not($error)': {
                     color: palette.common.white,
+                },
+            },
+        },
+        MuiSlider: {
+            track: {
+                height: 5,
+                borderRadius: 2,
+            },
+            rail: {
+                height: 5,
+                borderRadius: 2,
+                opacity: 1,
+                backgroundColor: palette.action.disabledBackground,
+            },
+            thumb: {
+                width: 22,
+                height: 22,
+                marginTop: -8.5,
+                marginLeft: -11,
+                backgroundColor: palette.common.white,
+                borderWidth: 2,
+                borderStyle: 'solid',
+                '&:focus, &:hover, &$active': {
+                    boxShadow: 'inherit',
+                },
+            },
+            valueLabel: {
+                top: 35,
+                left: 'calc(-50% + 2px)',
+                fontSize: '1rem',
+                '& *': {
+                    background: 'transparent',
+                    color: palette.text.primary,
                 },
             },
         },

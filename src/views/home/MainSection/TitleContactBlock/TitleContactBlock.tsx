@@ -4,9 +4,9 @@ import clsx from 'clsx';
 
 import { CONTACTS } from 'constants/contacts';
 import { Link } from 'components/controls';
+import { PhoneContact } from 'components/PhoneContact';
 
-import { PhoneIcon } from './icons/Phone';
-import { EmailIcon } from './icons/Email';
+import { EmailIcon } from 'icons/Email';
 
 const useStyles = makeStyles(({ palette }) => ({
     contactBlock: {
@@ -88,10 +88,7 @@ export const TitleContactBlock = () => {
             </Button>
             <div className={classes.contactsContaner}>
                 <div className={classes.contacts}>
-                    <Link href={`tel:${CONTACTS.tel}`} className={classes.contact}>
-                        <PhoneIcon className={classes.contactIcon} />
-                        {CONTACTS.tel}
-                    </Link>
+                    <PhoneContact />
                     <div className={classes.contact}>
                         <Typography color="secondary">
                             {CONTACTS.workTimeString}
@@ -107,7 +104,7 @@ export const TitleContactBlock = () => {
                         href={`mailto:${CONTACTS.email}`}
                         className={clsx(classes.contact, classes.contactEmail)}
                     >
-                        <EmailIcon className={classes.contactIcon} />
+                        <EmailIcon color="secondary" className={classes.contactIcon} />
                         {CONTACTS.email}
                     </Link>
                 </div>

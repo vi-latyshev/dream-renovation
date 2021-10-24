@@ -8,6 +8,7 @@ import { SectionWithContainer } from 'components/Section';
 const useStyles = makeStyles(({ palette }) => ({
     aboutContainer: {
         width: 'auto',
+        flexDirection: 'row',
         backgroundColor: palette.primary.main,
         borderRadius: 16,
         color: palette.common.white,

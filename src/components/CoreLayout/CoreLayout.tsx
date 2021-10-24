@@ -1,4 +1,3 @@
-import React, { ReactNode } from 'react';
 import Head from 'next/head';
 
 import { Header } from 'components/Header';
@@ -7,7 +6,7 @@ import { Footer } from 'components/Footer';
 type LayoutProps = {
     title: string;
     description: string;
-    children?: ReactNode;
+    children?: React.ReactNode;
 };
 
 export const CoreLayout = ({ title, description, children }: LayoutProps) => (

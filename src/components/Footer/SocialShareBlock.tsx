@@ -1,5 +1,10 @@
+import {
+    useRef,
+    useState,
+    useEffect,
+    useCallback,
+} from 'react';
 import Script from 'next/script';
-import { useEffect, useRef, useState } from 'react';
 import { makeStyles, Typography } from '@material-ui/core';
 
 /**
@@ -38,9 +43,9 @@ export const SocialShareBlock = () => {
     const yandexRef = useRef<HTMLDivElement>(null);
     const [isYandexShareLoaded, setIsYandexShareLoaded] = useState<boolean>(false);
 
-    const handleYaShareLoaded = () => {
+    const handleYaShareLoaded = useCallback(() => {
         setIsYandexShareLoaded(true);
-    };
+    }, []);
 
     useEffect(() => {
         if (!isYandexShareLoaded) {

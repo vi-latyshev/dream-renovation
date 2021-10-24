@@ -52,7 +52,12 @@ module.exports = {
 
         // extends the base eslint/...
         '@typescript-eslint/no-duplicate-imports': 'error',
-        '@typescript-eslint/no-unused-vars': 'warn',
+        '@typescript-eslint/no-unused-vars': [
+            'warn',
+            {
+                argsIgnorePattern: '^_',
+            },
+        ],
         '@typescript-eslint/indent': [
             'error',
             4,
@@ -60,6 +65,35 @@ module.exports = {
         '@typescript-eslint/semi': 'error',
         '@typescript-eslint/type-annotation-spacing': 'error',
         '@typescript-eslint/no-explicit-any': 'error',
+        '@typescript-eslint/member-ordering': ['warn', {
+            default: [
+                'public-static-field',
+                'protected-static-field',
+                'private-static-field',
+
+                'public-static-method',
+                'protected-static-method',
+                'private-static-method',
+
+                'public-field',
+                'protected-field',
+                'private-field',
+
+                'constructor',
+
+                'public-abstract-field',
+                'protected-abstract-field',
+                'private-abstract-field',
+
+                'public-abstract-method',
+                'protected-abstract-method',
+                'private-abstract-method',
+
+                'public-method',
+                'protected-method',
+                'private-method',
+            ],
+        }],
 
         // react/
         'react/jsx-indent': [
@@ -76,5 +110,9 @@ module.exports = {
         'react/no-unescaped-entities': 'warn',
         'react/react-in-jsx-scope': 'off',
         'react/require-default-props': 'off',
+        'react/display-name': 'off',
+
+        // jsx-a11y
+        'jsx-a11y/anchor-is-valid': 'off',
     },
 };
