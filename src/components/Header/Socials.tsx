@@ -12,17 +12,15 @@ const SOCIALS_LINKS = [
     { href: SOCIALS.whatsapp, icon: WhatsappIcon },
 ];
 
-const useStyles = makeStyles(({ palette }) => ({
+const useStyles = makeStyles(({ palette, mixins }) => ({
     socials: {
         display: 'flex',
         marginLeft: 'auto',
         marginRight: 30,
     },
     link: {
-        display: 'flex',
+        ...mixins.flexCenter,
         marginRight: 15,
-        alignItems: 'center',
-        justifyContent: 'center',
         '&:hover': {
             '& $linkBackground': {
                 transition: '.3s',

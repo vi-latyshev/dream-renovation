@@ -4,6 +4,8 @@ import { SectionWithContainer } from 'components/Section';
 
 import { ContactForm } from './ContactForm';
 
+export const CONTACT_US_SECTION_ID = 'contact';
+
 const useStyles = makeStyles(({ palette }) => ({
     contact: {
         color: palette.common.white,
@@ -16,7 +18,7 @@ export const ContactUsSection = () => {
 
     return (
         <SectionWithContainer
-            id="contact"
+            id={CONTACT_US_SECTION_ID}
             className={classes.contact}
         >
             <Typography variant="h1">

@@ -5,6 +5,8 @@ import { SectionWithContainer } from 'components/Section';
 import { Calculator } from './Calculator';
 import { Footer } from './Footer';
 
+export const CALCULATOR_SECTION_ID = 'calculator';
+
 const useStyles = makeStyles(({ palette }) => ({
     calculator: {
         paddingTop: 100,
@@ -22,7 +24,11 @@ export const CalculatorSection = () => {
     const classes = useStyles();
 
     return (
-        <SectionWithContainer withoutCenter className={classes.calculator}>
+        <SectionWithContainer
+            id={CALCULATOR_SECTION_ID}
+            withoutCenter
+            className={classes.calculator}
+        >
             <Typography variant="h1" className={classes.title}>
                 Калькулятор ремонта
             </Typography>

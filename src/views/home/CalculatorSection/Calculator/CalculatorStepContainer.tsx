@@ -12,14 +12,14 @@ import { useCalculatorSteps } from './context/steps';
 
 import type { TransitionProps } from '@material-ui/core/transitions';
 
-const useStyles = makeStyles(({ palette, breakpoints }) => ({
+const useStyles = makeStyles(({ palette, breakpoints, typography }) => ({
     wrapper: {
         display: 'flex',
         flexDirection: 'column',
         height: 500,
     },
     description: {
-        fontWeight: 600,
+        fontWeight: typography.fontWeightBold,
         color: palette.text.secondary,
         marginBottom: 50,
     },

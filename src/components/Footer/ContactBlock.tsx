@@ -4,7 +4,7 @@ import { LogoIcon } from 'icons/Logo';
 import { CONTACTS } from 'constants/contacts';
 import { Link } from 'components/controls';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(({ typography }) => ({
     contact: {
         display: 'flex',
         flexDirection: 'column',
@@ -17,9 +17,9 @@ const useStyles = makeStyles({
         },
     },
     contactInfo: {
-        fontWeight: 'bold',
+        fontWeight: typography.fontWeightBold,
     },
-});
+}));
 
 export const ContactsBlock = () => {
     const classes = useStyles();
