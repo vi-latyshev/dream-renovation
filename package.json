@@ -10,7 +10,7 @@
     },
     "scripts": {
         "dev": "next dev",
-        "lint": "next lint --no-cache",
+        "lint": "next lint",
         "build": "next build",
         "start": "yarn build && next start"
     },
