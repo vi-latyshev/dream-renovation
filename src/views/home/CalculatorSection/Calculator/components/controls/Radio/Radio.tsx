@@ -1,21 +1,12 @@
-import {
-    alpha,
-    Paper,
-    Radio as MuiRadio,
-    FormControlLabel,
-    makeStyles,
-    useRadioGroup,
-} from '@material-ui/core';
-import clsx from 'clsx';
+import { alpha, makeStyles } from '@material-ui/core';
 
-import type { FormControlLabelProps } from '@material-ui/core';
+import { RadioBase } from './RadioBase';
 
-interface RadioProps extends Omit<FormControlLabelProps, 'control' | 'checked'> { }
+import type { RadioBaseProps } from './RadioBase';
+
+interface RadioProps extends RadioBaseProps { }
 
 const useStyles = makeStyles(({ palette }) => ({
-    checked: {
-        borderColor: palette.primary.main,
-    },
     controlLabel: {
         margin: 0,
         paddingRight: 9,
@@ -31,23 +22,12 @@ const useStyles = makeStyles(({ palette }) => ({
 
 export const Radio = ({ ...props }: RadioProps) => {
     const classes = useStyles();
-    const radioGroup = useRadioGroup();
-
-    const isChecked = radioGroup?.value === props.value;
 
     return (
-        <Paper variant="outlined" className={clsx({ [classes.checked]: isChecked })}>
-            <FormControlLabel
-                checked={isChecked}
-                control={(
-                    <MuiRadio
-                        color="primary"
-                        className={classes.radio}
-                    />
-                )}
-                className={classes.controlLabel}
-                {...props}
-            />
-        </Paper>
+        <RadioBase
+            className={classes.controlLabel}
+            radioClassName={classes.radio}
+            {...props}
+        />
     );
 };
