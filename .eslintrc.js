@@ -5,6 +5,7 @@ module.exports = {
         '@typescript-eslint',
     ],
     extends: [
+        'airbnb',
         'airbnb-typescript',
         'plugin:import/typescript',
         'next',
