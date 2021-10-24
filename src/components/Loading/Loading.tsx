@@ -5,11 +5,9 @@ interface LoadingProps {
     withoutCenter?: boolean;
 }
 
-const useStyles = makeStyles(({ palette }) => ({
+const useStyles = makeStyles(({ palette, mixins }) => ({
     center: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        ...mixins.flexCenter,
         height: '100%',
         width: '100%',
     },

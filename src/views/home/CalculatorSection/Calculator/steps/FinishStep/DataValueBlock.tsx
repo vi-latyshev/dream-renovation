@@ -7,18 +7,18 @@ interface DataValueBlockProps {
     classNames?: string;
 }
 
-const useStyles = makeStyles(({ breakpoints }) => ({
+const useStyles = makeStyles(({ breakpoints, typography }) => ({
     container: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         marginBottom: 25,
         width: breakpoints.values.sm,
-        fontWeight: 'bold',
-        '& > span': {
-            textAlign: 'right',
-            marginLeft: 35,
-        },
+        fontWeight: typography.fontWeightBold,
+    },
+    data: {
+        textAlign: 'right',
+        marginLeft: 35,
     },
 }));
 
@@ -36,6 +36,7 @@ export const DataValueBlock = ({ label, data, classNames }: DataValueBlockProps)
                 component="span"
                 display="inline"
                 color="textPrimary"
+                className={classes.data}
             >
                 {data}
             </Typography>

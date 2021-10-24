@@ -4,11 +4,11 @@ import { CONTACTS } from 'constants/contacts';
 import { Link } from 'components/controls';
 import { PhoneIcon } from 'icons/Phone';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(({ typography }) => ({
     phone: {
         display: 'flex',
         alignItems: 'center',
-        fontWeight: 'bold',
+        fontWeight: typography.fontWeightBold,
     },
     contactIcon: {
         marginRight: 10,

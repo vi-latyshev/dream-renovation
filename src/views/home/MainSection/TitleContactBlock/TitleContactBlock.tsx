@@ -8,6 +8,8 @@ import { PhoneContact } from 'components/PhoneContact';
 
 import { EmailIcon } from 'icons/Email';
 
+import { CONTACT_US_SECTION_ID } from '../../ContactUsSection';
+
 const useStyles = makeStyles(({ palette }) => ({
     contactBlock: {
         display: 'flex',
@@ -54,7 +56,7 @@ export const TitleContactBlock = () => {
     const classes = useStyles();
 
     const handleContactUs = () => {
-        scroller.scrollTo('contact', {
+        scroller.scrollTo(CONTACT_US_SECTION_ID, {
             smooth: true,
             isDynamic: true,
             duration: 500,

@@ -2,20 +2,31 @@ import { makeStyles } from '@material-ui/core';
 import { scroller } from 'react-scroll';
 
 import { Link } from 'components/controls';
+import {
+    ABOUNT_SECTION_ID,
+    CALCULATOR_SECTION_ID,
+} from 'views/home';
 
-const useStyles = makeStyles({
+const NAVIGATION_LIST = [
+    { text: 'О нас', to: ABOUNT_SECTION_ID },
+    { text: 'Услуги', to: '#services' },
+    { text: 'Калькулятор', to: CALCULATOR_SECTION_ID },
+    { text: 'Цены', to: '#prices' },
+];
+
+const useStyles = makeStyles(({ typography }) => ({
     nav: {
         display: 'flex',
         alignItems: 'center',
         marginLeft: 100,
-        '& > a': {
-            fontWeight: 'bold',
-            marginRight: 40,
-            paddingLeft: 5,
-            paddingRight: 5,
-        },
     },
-});
+    link: {
+        fontWeight: typography.fontWeightBold,
+        marginRight: 40,
+        paddingLeft: 5,
+        paddingRight: 5,
+    },
+}));
 
 export const Navigation = () => {
     const classes = useStyles();
@@ -36,18 +47,16 @@ export const Navigation = () => {
 
     return (
         <nav className={classes.nav}>
-            <Link href="#about" onClick={scrollToSection}>
-                О нас
-            </Link>
-            <Link href="#services" onClick={scrollToSection}>
-                Услуги
-            </Link>
-            <Link href="#calculator" onClick={scrollToSection}>
-                Калькулятор
-            </Link>
-            <Link href="#prices" onClick={scrollToSection}>
-                Цены
-            </Link>
+            {NAVIGATION_LIST.map(({ text, to }) => (
+                <Link
+                    key={to}
+                    href={`#${to}`}
+                    onClick={scrollToSection}
+                    className={classes.link}
+                >
+                    {text}
+                </Link>
+            ))}
         </nav>
     );
 };

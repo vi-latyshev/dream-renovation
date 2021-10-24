@@ -5,6 +5,8 @@ import clsx from 'clsx';
 import aboutCompanyImg from 'images/about-image.png';
 import { SectionWithContainer } from 'components/Section';
 
+export const ABOUNT_SECTION_ID = 'about';
+
 const useStyles = makeStyles(({ palette }) => ({
     aboutContainer: {
         width: 'auto',
@@ -37,7 +39,10 @@ export const AboutCompanySection = () => {
     const classes = useStyles();
 
     return (
-        <SectionWithContainer containerClassName={classes.aboutContainer}>
+        <SectionWithContainer
+            id={ABOUNT_SECTION_ID}
+            containerClassName={classes.aboutContainer}
+        >
             <div className={classes.textContainer}>
                 <Typography variant="h2" className={classes.text}>
                     Немного о нашей компании
