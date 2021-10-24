@@ -1,5 +1,5 @@
-import { Fade, makeStyles } from '@material-ui/core';
 import { useCallback, useEffect, useState } from 'react';
+import { Fade, makeStyles } from '@material-ui/core';
 
 import { useCalculatorSteps } from './context/steps';
 import { stepsComponents } from './steps';

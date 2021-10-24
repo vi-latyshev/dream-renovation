@@ -16,23 +16,23 @@ const MaterialsStep = () => (
     <>
         <StepTitle>Какие чистовые материалы вы хотите использовать в будущем интерьере?</StepTitle>
         <RadioGroupWrapper<MaterialControls> name="material" groupData={materialData}>
-            {(controls) => (
+            {(control) => (
                 <>
                     <Radio
                         label="Отечественные"
-                        {...controls('domestic')}
+                        {...control('domestic')}
                     />
                     <Radio
                         label="Импортные"
-                        {...controls('imported')}
+                        {...control('imported')}
                     />
                     <Radio
                         label="Эксклюзивные"
-                        {...controls('exclusive')}
+                        {...control('exclusive')}
                     />
                     <Radio
                         label="Смешанный вариант"
-                        {...controls('mixed')}
+                        {...control('mixed')}
                     />
                 </>
             )}

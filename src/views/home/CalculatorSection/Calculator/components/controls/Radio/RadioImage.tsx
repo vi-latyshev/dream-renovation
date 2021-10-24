@@ -17,7 +17,7 @@ const useStyles = makeStyles({
         padding: 25,
         paddingBottom: 15,
         textAlign: 'center',
-        '& > *:nth-child(1)': {
+        '& > *:first-child': {
             marginBottom: 15,
         },
     },

@@ -45,40 +45,35 @@ export const RadioGroupBaseWrapper = <T extends RadioDataNames>({
 }: RadioGroupBaseWrapperProps<T>) => {
     const classes = useStyles();
 
-    const { setData } = useCalculatorData();
+    const { data, setData } = useCalculatorData();
     const { values, setValues } = useControlsData();
 
-    const [, setPrevData] = useState<PartialCalculatorData>({});
+    const [prevData, setPrevData] = useState<PartialCalculatorData>({});
 
     // kostyl for types of childs @TODO somehow change to types
     const control: ControlType<T> = useCallback((controlName) => ({
         value: controlName,
     }), []);
 
-    const handleChange = useCallback((_event: React.ChangeEvent<HTMLInputElement>, value: string) => {
+    const handleChange = (_event: React.ChangeEvent<HTMLInputElement>, value: string) => {
         const valueByControl = groupData[value as T];
 
         setValues(name, value);
-        // for avoid rerender (doesnt depent on variables outside)
-        setPrevData((prevData) => {
-            setData((data) => {
-                const newValues = { ...data };
+        setPrevData(valueByControl);
 
-                // subtract old choice
-                Object.keys(prevData).forEach((key) => {
-                    newValues[key as CalculatorDataKeys] -= prevData[key as CalculatorDataKeys] ?? 0;
-                });
-                // add old choice
-                Object.keys(valueByControl).forEach((key) => {
-                    newValues[key as CalculatorDataKeys] += valueByControl[key as CalculatorDataKeys] ?? 0;
-                });
+        const newValues = { ...data };
 
-                return newValues;
-            });
-
-            return valueByControl;
+        // subtract old choice
+        Object.keys(prevData).forEach((key) => {
+            newValues[key as CalculatorDataKeys] -= prevData[key as CalculatorDataKeys] ?? 0;
         });
-    }, [name, groupData, setValues, setData]);
+        // add old choice
+        Object.keys(valueByControl).forEach((key) => {
+            newValues[key as CalculatorDataKeys] += valueByControl[key as CalculatorDataKeys] ?? 0;
+        });
+
+        setData(newValues);
+    };
 
     return (
         <RadioGroup

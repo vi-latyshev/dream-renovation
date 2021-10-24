@@ -14,15 +14,15 @@ const AlreadyDesignStep = () => (
     <>
         <StepTitle>Есть ли у вас уже разработанный дизайн-проект?</StepTitle>
         <RadioGroupWrapper<AlreadyDesignControls> name="already_design" groupData={alreadyDesignData}>
-            {(controls) => (
+            {(control) => (
                 <>
                     <Radio
                         label="Да"
-                        {...controls('yes')}
+                        {...control('yes')}
                     />
                     <Radio
                         label="Нет"
-                        {...controls('no')}
+                        {...control('no')}
                     />
                 </>
             )}

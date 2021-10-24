@@ -14,7 +14,7 @@ const steps = [
 // load every step as dynamic module
 export const stepsComponents = steps.map((step, index) => dynamic(
     () => import(`./${step}`),
-    { loading: () => <Loading />, ssr: index > 1 },
+    { loading: () => <Loading />, ssr: index > 0 },
 ));
 
 // steps count minus Finish step

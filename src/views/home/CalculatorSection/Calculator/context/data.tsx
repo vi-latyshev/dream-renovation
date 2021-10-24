@@ -16,7 +16,7 @@ export type PartialCalculatorData = Partial<CalculatorData>;
 
 interface CalcualatorDataContextValue {
     data: CalculatorData;
-    setData: React.Dispatch<PartialCalculatorData | ((prevState: CalculatorData) => PartialCalculatorData)>;
+    setData: React.Dispatch<PartialCalculatorData>;
     resetData: () => void;
 }
 
@@ -43,15 +43,7 @@ export const CalculatorDataProvider = ({ children }: CalcualatorDataProviderProp
     const [data, setData] = useState<CalculatorData>({ ...initialCalcualtorData });
 
     const handleSetData = useCallback<CalcualatorDataContextValue['setData']>((stateAction) => {
-        if (typeof stateAction !== 'function') {
-            setData((currentData) => ({ ...currentData, ...stateAction }));
-
-            return;
-        }
-        setData((currentData) => ({
-            ...currentData,
-            ...stateAction(currentData),
-        }));
+        setData((currentData) => ({ ...currentData, ...stateAction }));
     }, []);
 
     const resetData = useCallback(() => {
