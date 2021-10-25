@@ -4,19 +4,17 @@ import type { SliderProps } from '@material-ui/core';
 
 interface AnimatedSliderProps extends SliderProps { }
 
-export const SLIDER_ANIMATION_TIME = 700;
-
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(({ transitions }) => ({
     root: {
         cursor: 'auto',
     },
     thumb: {
         '&:not($active)': {
-            transition: `left ${SLIDER_ANIMATION_TIME}ms ease-in-out`,
+            transition: `left ${transitions.duration.enteringScreen}ms ease-in-out`,
         },
     },
     track: {
-        transition: `width ${SLIDER_ANIMATION_TIME}ms ease-in-out`,
+        transition: `width ${transitions.duration.enteringScreen}ms ease-in-out`,
     },
     active: {},
 }));

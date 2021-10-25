@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core';
 import { scroller } from 'react-scroll';
 
+import { theme } from 'styles';
 import { Link } from 'components/controls';
 import {
     ABOUNT_SECTION_ID,
@@ -40,8 +41,7 @@ export const Navigation = () => {
         scroller.scrollTo(containerId, {
             smooth: true,
             isDynamic: true,
-            duration: 500,
-            offset: -50,
+            duration: theme.transitions.duration.enteringScreen,
         });
     };
 

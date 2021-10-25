@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
 
 import { theme } from 'styles';
+import { BackToTop } from 'components/BackToTop';
 
 import type { AppProps } from 'next/app';
 
@@ -24,6 +25,7 @@ const App = ({ Component, pageProps }: AppProps) => {
             <ThemeProvider theme={theme}>
                 <CssBaseline />
                 <Component {...pageProps} />
+                <BackToTop />
             </ThemeProvider>
         </>
     );

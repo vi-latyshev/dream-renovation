@@ -1,15 +1,13 @@
 import { makeStyles } from '@material-ui/core';
+import { Instagram, WhatsApp, YouTube } from '@material-ui/icons';
 import { Link } from 'components/controls';
 
 import { SOCIALS } from 'constants/socials';
-import { InstagramIcon } from './icons/Instagram';
-import { WhatsappIcon } from './icons/Whatsapp';
-import { YoutubeIcon } from './icons/Youtube';
 
 const SOCIALS_LINKS = [
-    { href: SOCIALS.intagram, icon: InstagramIcon },
-    { href: SOCIALS.youtube, icon: YoutubeIcon },
-    { href: SOCIALS.whatsapp, icon: WhatsappIcon },
+    { href: SOCIALS.intagram, icon: Instagram },
+    { href: SOCIALS.youtube, icon: YouTube },
+    { href: SOCIALS.whatsapp, icon: WhatsApp },
 ];
 
 const useStyles = makeStyles(({ palette, mixins }) => ({
@@ -33,8 +31,8 @@ const useStyles = makeStyles(({ palette, mixins }) => ({
         },
     },
     linkBackground: {
-        width: 52,
-        height: 52,
+        width: 40,
+        height: 40,
         borderRadius: 100,
         backgroundColor: palette.primary.main,
         opacity: 0.1,
