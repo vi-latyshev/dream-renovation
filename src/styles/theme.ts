@@ -87,6 +87,12 @@ let muiTheme = createTheme({
     spacing,
     typography,
     mixins,
+    transitions: {
+        duration: {
+            enteringScreen: 700,
+            leavingScreen: 700 / 1.2,
+        },
+    },
     props: {
         MuiContainer: {
             maxWidth: 'lg',
@@ -97,7 +103,15 @@ let muiTheme = createTheme({
             color: 'textPrimary',
         },
         MuiButton: {
+            color: 'primary',
+            variant: 'contained',
             disableElevation: true,
+        },
+        MuiFab: {
+            color: 'primary',
+        },
+        MuiSvgIcon: {
+            color: 'primary',
         },
     },
     overrides: {

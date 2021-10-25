@@ -43,7 +43,6 @@ export const BackToTop = () => {
             <div className={classes.container}>
                 <Fab
                     size="medium"
-                    color="primary"
                     aria-label="scroll back to top"
                     onClick={handleClickToTop}
                 >

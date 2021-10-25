@@ -118,12 +118,7 @@ export const FinishStep = () => {
                         </Typography>
                         <PhoneContact />
                     </div>
-                    <Button
-                        color="primary"
-                        variant="contained"
-                        onClick={resetCalculator}
-                        className={classes.stepButton}
-                    >
+                    <Button onClick={resetCalculator} className={classes.stepButton}>
                         Пересчитать
                     </Button>
                 </div>

@@ -1,12 +1,12 @@
 import { Button, makeStyles, Typography } from '@material-ui/core';
+import { AlternateEmail } from '@material-ui/icons';
 import { scroller } from 'react-scroll';
 import clsx from 'clsx';
 
+import { theme } from 'styles';
 import { CONTACTS } from 'constants/contacts';
 import { Link } from 'components/controls';
 import { PhoneContact } from 'components/PhoneContact';
-
-import { EmailIcon } from 'icons/Email';
 
 import { CONTACT_US_SECTION_ID } from '../../ContactUsSection';
 
@@ -59,7 +59,7 @@ export const TitleContactBlock = () => {
         scroller.scrollTo(CONTACT_US_SECTION_ID, {
             smooth: true,
             isDynamic: true,
-            duration: 500,
+            duration: theme.transitions.duration.enteringScreen,
         });
     };
 
@@ -81,11 +81,7 @@ export const TitleContactBlock = () => {
                     Профессионалы с многолетним опытом работы
                 </Typography>
             </div>
-            <Button
-                color="primary"
-                variant="contained"
-                onClick={handleContactUs}
-            >
+            <Button onClick={handleContactUs}>
                 Связаться с нами
             </Button>
             <div className={classes.contactsContaner}>
@@ -106,7 +102,7 @@ export const TitleContactBlock = () => {
                         href={`mailto:${CONTACTS.email}`}
                         className={clsx(classes.contact, classes.contactEmail)}
                     >
-                        <EmailIcon color="secondary" className={classes.contactIcon} />
+                        <AlternateEmail color="secondary" className={classes.contactIcon} />
                         {CONTACTS.email}
                     </Link>
                 </div>

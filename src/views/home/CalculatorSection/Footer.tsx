@@ -1,6 +1,8 @@
 import { Link, makeStyles, Typography } from '@material-ui/core';
 import { scroller } from 'react-scroll';
 
+import { theme } from 'styles';
+
 import { RulerIcon } from './icons/RulerIcon';
 
 const useStyles = makeStyles(() => ({
@@ -28,8 +30,7 @@ export const Footer = () => {
         scroller.scrollTo('contact', {
             smooth: true,
             isDynamic: true,
-            duration: 500,
-            offset: -50,
+            duration: theme.transitions.duration.enteringScreen,
         });
     };
 
@@ -44,7 +45,7 @@ export const Footer = () => {
                 onClick={handleContactClick}
                 className={classes.link}
             >
-                <RulerIcon className={classes.rulerIcon} />
+                <RulerIcon color="inherit" className={classes.rulerIcon} />
                 Проконсультироваться с замерщиком
             </Link>
         </div>

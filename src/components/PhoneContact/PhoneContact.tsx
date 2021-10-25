@@ -1,8 +1,8 @@
 import { makeStyles } from '@material-ui/core';
+import { PhoneEnabledSharp } from '@material-ui/icons';
 
 import { CONTACTS } from 'constants/contacts';
 import { Link } from 'components/controls';
-import { PhoneIcon } from 'icons/Phone';
 
 const useStyles = makeStyles(({ typography }) => ({
     phone: {
@@ -20,7 +20,7 @@ export const PhoneContact = () => {
 
     return (
         <Link href={`tel:${CONTACTS.tel}`} className={classes.phone}>
-            <PhoneIcon color="primary" className={classes.contactIcon} />
+            <PhoneEnabledSharp className={classes.contactIcon} />
             {CONTACTS.tel}
         </Link>
     );

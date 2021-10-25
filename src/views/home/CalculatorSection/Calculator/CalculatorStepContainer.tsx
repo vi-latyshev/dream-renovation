@@ -4,9 +4,10 @@ import {
     Typography,
     makeStyles,
 } from '@material-ui/core';
+import { KeyboardBackspaceRounded } from '@material-ui/icons';
 
-import { AnimatedSlider, SLIDER_ANIMATION_TIME } from 'components/controls';
-import { ArrowLeftIcon } from 'icons/ArrowLeft';
+import { theme } from 'styles';
+import { AnimatedSlider } from 'components/controls';
 
 import { useCalculatorSteps } from './context/steps';
 
@@ -38,18 +39,20 @@ const useStyles = makeStyles(({ palette, breakpoints, typography }) => ({
     },
     backStepButton: {
         minWidth: 'auto',
-        padding: 14,
+        paddingLeft: 8,
+        paddingRight: 8,
     },
 }));
 
 const buttonFadeTimeout: TransitionProps['timeout'] = {
-    exit: SLIDER_ANIMATION_TIME / 1.2,
+    exit: theme.transitions.duration.leavingScreen,
 };
 
 const valueLabelSliderFormat = (value: number) => `${Math.round(value)}%`;
 
 export const CalculatorStepContainer: React.FC = ({ children }) => {
     const classes = useStyles();
+
     const {
         step,
         stepCount,
@@ -86,14 +89,10 @@ export const CalculatorStepContainer: React.FC = ({ children }) => {
                             onClick={prevStep}
                             className={classes.backStepButton}
                         >
-                            <ArrowLeftIcon />
+                            <KeyboardBackspaceRounded color="disabled" fontSize="large" />
                         </Button>
                     </Fade>
-                    <Button
-                        color="primary"
-                        variant="contained"
-                        onClick={nextStep}
-                    >
+                    <Button onClick={nextStep}>
                         Далее
                     </Button>
                 </div>

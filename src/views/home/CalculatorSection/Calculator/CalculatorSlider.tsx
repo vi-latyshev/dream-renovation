@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Fade, makeStyles } from '@material-ui/core';
 
+import { theme } from 'styles';
+
 import { useCalculatorSteps } from './context/steps';
 import { stepsComponents } from './steps';
 
@@ -13,7 +15,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const fadeStepTimeout: TransitionProps['timeout'] = {
-    enter: 500,
+    enter: theme.transitions.duration.enteringScreen,
     exit: 0,
 };
 
