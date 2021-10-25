@@ -115,7 +115,7 @@ let muiTheme = createTheme({
                 minWidth: 260,
                 textTransform: 'unset',
                 fontWeight: 'bold',
-                fontSize: '1.3125rem', // 21px
+                fontSize: '1.25rem', // 20px
             },
             contained: {
                 padding: '10px 40px',
@@ -127,7 +127,7 @@ let muiTheme = createTheme({
             // containedSecondary: {},
             outlined: {
                 borderWidth: 2,
-                padding: '5px 40px',
+                padding: '8px 40px',
                 color: palette.text.secondary,
                 '&:hover': {
                     borderWidth: 2,
@@ -214,6 +214,14 @@ let muiTheme = createTheme({
                 '& *': {
                     background: 'transparent',
                     color: palette.text.primary,
+                },
+            },
+        },
+        MuiFab: {
+            root: {
+                boxShadow: 'none',
+                '&:active': {
+                    boxShadow: 'none',
                 },
             },
         },
