@@ -1,4 +1,5 @@
-import { Link, makeStyles, Typography } from '@material-ui/core';
+import { Link, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { scroller } from 'react-scroll';
 
 import { theme } from 'styles';

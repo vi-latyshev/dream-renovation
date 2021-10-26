@@ -5,7 +5,9 @@ import {
     useCallback,
 } from 'react';
 import Script from 'next/script';
-import { makeStyles, Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 /**
  * https://yandex.ru/dev/share/

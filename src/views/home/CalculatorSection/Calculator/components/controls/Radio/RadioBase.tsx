@@ -2,12 +2,12 @@ import {
     Paper,
     Radio as MuiRadio,
     FormControlLabel,
-    makeStyles,
     useRadioGroup,
-} from '@material-ui/core';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
 
-import type { FormControlLabelProps } from '@material-ui/core';
+import type { FormControlLabelProps } from '@mui/material';
 
 export interface RadioBaseProps extends Omit<FormControlLabelProps, 'control' | 'checked'> {
     radioClassName?: string;

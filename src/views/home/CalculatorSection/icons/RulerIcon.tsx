@@ -1,6 +1,6 @@
-import { SvgIcon } from '@material-ui/core';
+import { SvgIcon } from '@mui/material';
 
-import type { SvgIconProps } from '@material-ui/core';
+import type { SvgIconProps } from '@mui/material';
 
 export const RulerIcon = (props: SvgIconProps) => (
     <SvgIcon width="29" height="29" viewBox="0 0 29 29" {...props}>

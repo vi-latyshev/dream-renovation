@@ -1,4 +1,6 @@
-import { Container, makeStyles } from '@material-ui/core';
+import { Container } from '@mui/material';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 import { LogoIcon } from 'icons/Logo';
 import { Navigation } from './Navigation';

@@ -1,17 +1,13 @@
-import {
-    Fade,
-    Button,
-    Typography,
-    makeStyles,
-} from '@material-ui/core';
-import { KeyboardBackspaceRounded } from '@material-ui/icons';
+import { Fade, Button, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import { KeyboardBackspaceRounded } from '@mui/icons-material';
 
 import { theme } from 'styles';
 import { AnimatedSlider } from 'components/controls';
 
 import { useCalculatorSteps } from './context/steps';
 
-import type { TransitionProps } from '@material-ui/core/transitions';
+import type { TransitionProps } from '@mui/material/transitions';
 
 const useStyles = makeStyles(({ palette, breakpoints, typography }) => ({
     wrapper: {
@@ -83,12 +79,7 @@ export const CalculatorStepContainer: React.FC = ({ children }) => {
                         valueLabelFormat={valueLabelSliderFormat}
                     />
                     <Fade in={step > 0} unmountOnExit timeout={buttonFadeTimeout}>
-                        <Button
-                            color="default"
-                            variant="outlined"
-                            onClick={prevStep}
-                            className={classes.backStepButton}
-                        >
+                        <Button variant="outlined" onClick={prevStep} className={classes.backStepButton}>
                             <KeyboardBackspaceRounded color="disabled" fontSize="large" />
                         </Button>
                     </Fade>

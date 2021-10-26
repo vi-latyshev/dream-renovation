@@ -1,4 +1,5 @@
-import { Container, ContainerProps, makeStyles } from '@material-ui/core';
+import { Container, ContainerProps } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
 
 export interface SectionProps extends ContainerProps {

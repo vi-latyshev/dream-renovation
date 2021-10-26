@@ -1,11 +1,7 @@
 import { useCallback } from 'react';
-import {
-    Fab,
-    Fade,
-    makeStyles,
-    useScrollTrigger,
-} from '@material-ui/core';
-import { ExpandLessRounded } from '@material-ui/icons';
+import { Fab, Fade, useScrollTrigger } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import { ExpandLessRounded } from '@mui/icons-material';
 import { animateScroll } from 'react-scroll';
 
 import { theme } from 'styles';

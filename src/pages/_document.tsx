@@ -5,7 +5,7 @@ import Document, {
     Main,
     NextScript,
 } from 'next/document';
-import { ServerStyleSheets } from '@material-ui/core';
+import ServerStyleSheets from '@mui/styles/ServerStyleSheets';
 
 import { theme } from 'styles';
 

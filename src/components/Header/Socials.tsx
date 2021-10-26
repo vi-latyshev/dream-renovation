@@ -1,5 +1,5 @@
-import { makeStyles } from '@material-ui/core';
-import { Instagram, WhatsApp, YouTube } from '@material-ui/icons';
+import makeStyles from '@mui/styles/makeStyles';
+import { Instagram, WhatsApp, YouTube } from '@mui/icons-material';
 import { Link } from 'components/controls';
 
 import { SOCIALS } from 'constants/socials';

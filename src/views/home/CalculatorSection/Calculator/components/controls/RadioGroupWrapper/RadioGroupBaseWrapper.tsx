@@ -1,11 +1,12 @@
 import { useCallback, useState } from 'react';
-import { RadioGroup, makeStyles } from '@material-ui/core';
+import { RadioGroup } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
 
 import { useCalculatorData } from '../../../context/data';
 import { useControlsData } from '../../../context/controls_data';
 
-import type { RadioGroupProps } from '@material-ui/core';
+import type { RadioGroupProps } from '@mui/material';
 
 import type { PartialCalculatorData } from '../../../context/data';
 

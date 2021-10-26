@@ -1,10 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
-import {
-    Fade,
-    Button,
-    Typography,
-    makeStyles,
-} from '@material-ui/core';
+import { Fade, Button, Typography } from '@mui/material';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 import { Loading } from 'components/Loading';
 import { PhoneContact } from 'components/PhoneContact';

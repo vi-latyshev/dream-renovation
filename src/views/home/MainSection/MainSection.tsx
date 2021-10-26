@@ -1,8 +1,5 @@
 import Image from 'next/image';
-import {
-    // fade,
-    makeStyles,
-} from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
 
 import homeBackgroundImg from 'images/home-background.jpg';
 import { Section } from 'components/Section';

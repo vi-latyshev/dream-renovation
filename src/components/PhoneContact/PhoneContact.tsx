@@ -1,5 +1,5 @@
-import { makeStyles } from '@material-ui/core';
-import { PhoneEnabledSharp } from '@material-ui/icons';
+import makeStyles from '@mui/styles/makeStyles';
+import { PhoneEnabledSharp } from '@mui/icons-material';
 
 import { CONTACTS } from 'constants/contacts';
 import { Link } from 'components/controls';

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { makeStyles } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
 
 import { RadioBase } from './RadioBase';
 

@@ -1,6 +1,14 @@
 import type { Property } from 'csstype';
+import type { Theme } from '@mui/material/styles';
 
-declare module '@material-ui/core/styles/createMixins' {
+/**
+ * @TODO remove or change after migration
+ */
+declare module '@mui/styles/defaultTheme' {
+    interface DefaultTheme extends Theme { }
+}
+
+declare module '@mui/material/styles/createMixins' {
     interface Mixins {
         flexCenter: {
             display: Property.Display,

@@ -1,5 +1,6 @@
-import { Button, makeStyles, Typography } from '@material-ui/core';
-import { AlternateEmail } from '@material-ui/icons';
+import { Button, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import { AlternateEmail } from '@mui/icons-material';
 import { scroller } from 'react-scroll';
 import clsx from 'clsx';
 

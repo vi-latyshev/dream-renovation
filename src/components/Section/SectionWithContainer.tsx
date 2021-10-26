@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
 
 import { Section } from './Section';
@@ -10,12 +10,12 @@ export interface SectionWithContainerProps extends SectionProps {
     containerClassName?: string;
 }
 
-const useStyles = makeStyles(({ breakpoints, mixins, props }) => ({
+const useStyles = makeStyles(({ breakpoints, mixins, components }) => ({
     container: {
         display: 'flex',
         flexDirection: 'column',
         width: '100%',
-        maxWidth: breakpoints.values[props?.MuiContainer?.maxWidth || 'lg'],
+        maxWidth: breakpoints.values[components?.MuiContainer?.defaultProps?.maxWidth || 'lg'],
     },
     center: {
         ...mixins.flexCenter,

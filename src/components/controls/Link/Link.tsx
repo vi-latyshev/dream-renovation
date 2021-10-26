@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { useRouter } from 'next/router';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
-import { Link as MaterialLink, LinkProps as MaterialLinkProps } from '@material-ui/core';
+import { Link as MaterialLink, LinkProps as MaterialLinkProps } from '@mui/material';
 import clsx from 'clsx';
 
 export type LinkProps = {

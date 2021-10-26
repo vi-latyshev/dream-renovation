@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Fade, makeStyles } from '@material-ui/core';
+import { Fade } from '@mui/material';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 import { theme } from 'styles';
 
 import { useCalculatorSteps } from './context/steps';
 import { stepsComponents } from './steps';
 
-import type { TransitionProps } from '@material-ui/core/transitions';
+import type { TransitionProps } from '@mui/material/transitions';
 
 const useStyles = makeStyles(() => ({
     container: {

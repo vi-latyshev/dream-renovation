@@ -1,6 +1,8 @@
-import { makeStyles, Slider } from '@material-ui/core';
+import { Slider } from '@mui/material';
 
-import type { SliderProps } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+
+import type { SliderProps } from '@mui/material';
 
 interface AnimatedSliderProps extends SliderProps { }
 

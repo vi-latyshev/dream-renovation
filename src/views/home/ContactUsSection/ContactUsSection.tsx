@@ -1,4 +1,6 @@
-import { makeStyles, Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 import { SectionWithContainer } from 'components/Section';
 

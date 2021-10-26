@@ -1,6 +1,6 @@
-import { TextField } from '@material-ui/core';
+import { TextField } from '@mui/material';
 
-import type { TextFieldProps } from '@material-ui/core';
+import type { TextFieldProps } from '@mui/material';
 
 export interface InputProps extends Omit<TextFieldProps, 'error' | 'label'> {
     error?: string;
