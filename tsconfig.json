@@ -26,9 +26,10 @@
         ],
         "paths": {
             "images/*": [
-                "../public/img/*",
-            ],
+                "../public/img/*"
+            ]
         },
+        "incremental": true
     },
     "exclude": [
         "node_modules"
