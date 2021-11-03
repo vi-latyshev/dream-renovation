@@ -10,9 +10,9 @@ import {
 
 const NAVIGATION_LIST = [
     { text: 'О нас', to: ABOUNT_SECTION_ID },
-    { text: 'Услуги', to: '#services' },
+    { text: 'Услуги', to: 'services' },
     { text: 'Калькулятор', to: CALCULATOR_SECTION_ID },
-    { text: 'Цены', to: '#prices' },
+    { text: 'Цены', to: 'prices' },
 ];
 
 const useStyles = makeStyles(({ typography }) => ({
