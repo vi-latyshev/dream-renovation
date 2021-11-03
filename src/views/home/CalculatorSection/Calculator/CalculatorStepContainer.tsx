@@ -13,7 +13,7 @@ import { useCalculatorSteps } from './context/steps';
 
 import type { TransitionProps } from '@material-ui/core/transitions';
 
-const useStyles = makeStyles(({ palette, breakpoints, typography }) => ({
+const useStyles = makeStyles(({ breakpoints, typography }) => ({
     wrapper: {
         display: 'flex',
         flexDirection: 'column',
@@ -21,7 +21,6 @@ const useStyles = makeStyles(({ palette, breakpoints, typography }) => ({
     },
     description: {
         fontWeight: typography.fontWeightBold,
-        color: palette.text.secondary,
         marginBottom: 50,
     },
     step: {
@@ -65,7 +64,7 @@ export const CalculatorStepContainer: React.FC = ({ children }) => {
     return (
         <div className={classes.wrapper}>
             {isStepLessMax && (
-                <Typography className={classes.description}>
+                <Typography color="textSecondary" className={classes.description}>
                     Рассчитайте стоимость вашего будущего ремонта
                     максимально точно при помощи нашего калькулятора
                 </Typography>
