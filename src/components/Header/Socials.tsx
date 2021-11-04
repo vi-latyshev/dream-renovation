@@ -21,6 +21,7 @@ const useStyles = makeStyles(({ palette, mixins }) => ({
         marginRight: 15,
         '&:hover': {
             '& $linkBackground': {
+                // @TODO fix transition
                 transition: '.3s',
                 backgroundColor: palette.primary.dark,
             },

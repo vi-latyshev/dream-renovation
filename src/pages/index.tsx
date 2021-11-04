@@ -10,7 +10,6 @@ import {
 import type { PageMetaProps } from 'components/Page';
 
 const meta: PageMetaProps = {
-    title: 'Ремонт мечты',
     description: 'Ремонт мечты',
 };
 
