@@ -1,4 +1,4 @@
-import { CoreLayout } from 'components/CoreLayout';
+import { Page } from 'components/Page';
 import {
     MainSection,
     ContactUsSection,
@@ -6,16 +6,20 @@ import {
     CalculatorSection,
 } from 'views/home';
 
-const TITLE = 'Ремонт мечты';
-const DESCRIPTION = 'Ремонт мечты';
+import type { PageMetaProps } from 'components/Page';
+
+const meta: PageMetaProps = {
+    title: 'Ремонт мечты',
+    description: 'Ремонт мечты',
+};
 
 const IndexPage = () => (
-    <CoreLayout title={TITLE} description={DESCRIPTION}>
+    <Page meta={meta}>
         <MainSection />
         <AboutCompanySection />
         <CalculatorSection />
         <ContactUsSection />
-    </CoreLayout>
+    </Page>
 );
 
 export default IndexPage;

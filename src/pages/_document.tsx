@@ -14,6 +14,9 @@ export default class MyDocument extends Document {
     render = () => (
         <Html lang="ru">
             <Head>
+                {/* @TODO wrap this before deplouy on production */}
+                <meta name="robots" content="noindex" />
+
                 <meta name="theme-color" content={theme.palette.primary.main} />
                 <link
                     rel="preconnect"
