@@ -1,0 +1,36 @@
+import { ServicesList } from '../components';
+
+import floorsImg from './images/floors.jpg';
+import bathroomImg from './images/bathroom.jpg';
+import electricityImg from './images/electricity.jpg';
+import plumbingImg from './images/plumbing.jpg';
+import fullApartamentImg from './images/full-apartament.jpg';
+
+import type { ServicesItemProps } from '../components';
+
+const features: ServicesItemProps[] = [
+    {
+        title: 'Полы',
+        img: floorsImg,
+    },
+    {
+        title: 'Ванная',
+        img: bathroomImg,
+    },
+    {
+        title: 'Электрика',
+        img: electricityImg,
+    },
+    {
+        title: 'Сантехника',
+        img: plumbingImg,
+    },
+    {
+        title: 'Квартира целиком',
+        img: fullApartamentImg,
+    },
+];
+
+export const FeaturesList = () => (
+    <ServicesList items={features} />
+);

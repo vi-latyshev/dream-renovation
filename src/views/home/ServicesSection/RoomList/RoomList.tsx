@@ -1,32 +1,33 @@
 import { ServicesList } from '../components';
-import type { ServicesItemProps } from '../components';
 
-import livingRoom from '../images/living-room.jpg';
-import bedRoom from '../images/bedroom.jpg';
-import childRoom from '../images/childrens-room.jpg';
-import kitchenRoom from '../images/kitchen-room.jpg';
-import corridorRoom from '../images/corridor-room.jpg';
+import livingRoomImg from './images/living-room.jpg';
+import bedRoomImg from './images/bedroom.jpg';
+import childRoomImg from './images/childrens-room.jpg';
+import kitchenRoomImg from './images/kitchen-room.jpg';
+import corridorRoomImg from './images/corridor-room.jpg';
+
+import type { ServicesItemProps } from '../components';
 
 const rooms: ServicesItemProps[] = [
     {
         title: 'Гостиная',
-        img: livingRoom,
+        img: livingRoomImg,
     },
     {
         title: 'Спальня',
-        img: bedRoom,
+        img: bedRoomImg,
     },
     {
         title: 'Детская',
-        img: childRoom,
+        img: childRoomImg,
     },
     {
         title: 'Кухня',
-        img: kitchenRoom,
+        img: kitchenRoomImg,
     },
     {
         title: 'Коридор',
-        img: corridorRoom,
+        img: corridorRoomImg,
     },
 ];
 

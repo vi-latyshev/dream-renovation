@@ -1,6 +1,7 @@
 import { makeStyles, Typography } from '@material-ui/core';
 
 import { SectionWithContainer } from 'components/Section';
+import { FeaturesList } from './FeaturesList';
 
 import { RoomList } from './RoomList';
 
@@ -30,6 +31,7 @@ export const ServicesSection = () => {
             <Typography variant="h3">
                 Определённые типы работ
             </Typography>
+            <FeaturesList />
         </SectionWithContainer>
     );
 };
