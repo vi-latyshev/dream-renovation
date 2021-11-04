@@ -2,10 +2,11 @@ import { makeStyles, Typography } from '@material-ui/core';
 
 import { SectionWithContainer } from 'components/Section';
 
+import { RoomList } from './RoomList';
+
 export const SERVICES_SECTION_ID = 'services';
 
 const useStyles = makeStyles(() => ({
-    services: {},
     title: {
         marginBottom: 60,
     },
@@ -18,7 +19,6 @@ export const ServicesSection = () => {
         <SectionWithContainer
             maxWidth="xl"
             id={SERVICES_SECTION_ID}
-            className={classes.services}
         >
             <Typography variant="h1" className={classes.title}>
                 Наши услуги
@@ -26,6 +26,7 @@ export const ServicesSection = () => {
             <Typography variant="h3">
                 Какую комнату нужно преобразить?
             </Typography>
+            <RoomList />
             <Typography variant="h3">
                 Определённые типы работ
             </Typography>

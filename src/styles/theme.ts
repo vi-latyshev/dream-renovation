@@ -239,6 +239,18 @@ let muiTheme = createTheme({
                 },
             },
         },
+        MuiPaper: {
+            rounded: {
+                borderRadius: 8,
+                transition: 'box-shadow .3s',
+            },
+            elevation1: {
+                boxShadow: `0px 10px 20px ${alpha(palette.text.primary, 0.07)}`,
+                '&:hover': {
+                    boxShadow: `0px 10px 20px ${alpha(palette.text.primary, 0.2)}`,
+                },
+            },
+        },
     },
 });
 
