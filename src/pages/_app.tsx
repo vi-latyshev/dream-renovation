@@ -20,9 +20,6 @@ const App = ({ Component, pageProps }: AppProps) => {
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
-                {/* @TODO wrap this before deplouy on production */}
-                <meta name="robots" content="noindex" />
-
                 {/* other meta */}
             </Head>
             <ThemeProvider theme={theme}>
