@@ -13,8 +13,7 @@ const useStyles = makeStyles(({ spacing }) => ({
     service: {
         display: 'flex',
         flexDirection: 'column',
-        marginTop: spacing(8),
-        paddingBottom: spacing(8),
+        margin: spacing(8, 0),
     },
     container: {
         display: 'flex',

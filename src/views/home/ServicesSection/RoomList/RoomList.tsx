@@ -27,12 +27,12 @@ const rooms: ServicesItemProps[] = [
     {
         title: 'Кухня',
         img: kitchenRoomImg,
-        url: '/',
+        url: '/kitchen',
     },
     {
         title: 'Коридор',
         img: corridorRoomImg,
-        url: '/',
+        url: '/kitchen',
     },
 ];
 

@@ -15,16 +15,16 @@ const useStyles = makeStyles(({ spacing }) => ({
 
 const images = [
     {
-        img: livingRoomImg,
-        alt: 'livingroom',
+        src: livingRoomImg,
+        alt: 'Гостиная',
     },
     {
-        img: bedroomImg,
-        alt: 'bedroom',
+        src: bedroomImg,
+        alt: 'Спальня',
     },
     {
-        img: childroomImg,
-        alt: 'childroom',
+        src: childroomImg,
+        alt: 'Детская',
     },
 ];
 
@@ -57,10 +57,10 @@ export const LivingRoomView = () => {
                     spacing={3}
                     justifyContent="center"
                 >
-                    {images.map(({ img, alt }) => (
+                    {images.map(({ src, alt }) => (
                         <Grid item key={alt}>
                             <Image
-                                src={img}
+                                src={src}
                                 alt={alt}
                                 width={350}
                                 height={240}
