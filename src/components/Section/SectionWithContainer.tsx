@@ -40,7 +40,7 @@ export const SectionWithContainer = ({
     });
 
     return (
-        <Section maxWidth={maxWidth ?? false} {...props}>
+        <Section maxWidth={false} {...props}>
             <div className={containerClass}>
                 {children}
             </div>

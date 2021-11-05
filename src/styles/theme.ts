@@ -22,6 +22,9 @@ const palette = createPalette({
     background: {
         default: '#FBFBFB',
     },
+    backgroundSecondary: {
+        main: '#F2F2F2',
+    },
 });
 
 const breakpoints = createBreakpoints({

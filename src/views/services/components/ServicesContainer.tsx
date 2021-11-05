@@ -9,22 +9,24 @@ export interface ServicesContainerProps {
     children: React.ReactNode;
 }
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(({ spacing }) => ({
     service: {
         display: 'flex',
         flexDirection: 'column',
-        marginTop: 120,
-        paddingBottom: 120,
+        marginTop: spacing(8),
+        paddingBottom: spacing(8),
     },
     container: {
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'row',
-        marginBottom: 100,
+        marginBottom: spacing(6),
     },
     iconBack: {
         fontSize: '5rem',
-        marginRight: 40,
+    },
+    title: {
+        marginLeft: spacing(5),
     },
 }));
 
@@ -39,7 +41,7 @@ export const ServicesContainer = ({ title, children }: ServicesContainerProps) =
                 className={classes.container}
             >
                 <KeyboardBackspaceRounded color="inherit" className={classes.iconBack} />
-                <Typography variant="h1">
+                <Typography variant="h1" className={classes.title}>
                     {title}
                 </Typography>
             </Container>
