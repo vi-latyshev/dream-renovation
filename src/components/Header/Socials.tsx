@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core';
 import { Instagram, WhatsApp, YouTube } from '@material-ui/icons';
-import { Link } from 'components/controls';
 
+import { Link } from 'components/controls';
 import { SOCIALS } from 'constants/socials';
 
 const SOCIALS_LINKS = [

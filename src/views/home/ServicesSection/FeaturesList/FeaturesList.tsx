@@ -12,22 +12,27 @@ const features: ServicesItemProps[] = [
     {
         title: 'Полы',
         img: floorsImg,
+        url: '/',
     },
     {
         title: 'Ванная',
         img: bathroomImg,
+        url: '/',
     },
     {
         title: 'Электрика',
         img: electricityImg,
+        url: '/',
     },
     {
         title: 'Сантехника',
         img: plumbingImg,
+        url: '/',
     },
     {
         title: 'Квартира целиком',
         img: fullApartamentImg,
+        url: '/',
     },
 ];
 

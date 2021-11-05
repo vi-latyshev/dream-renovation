@@ -12,22 +12,27 @@ const rooms: ServicesItemProps[] = [
     {
         title: 'Гостиная',
         img: livingRoomImg,
+        url: '/livingroom',
     },
     {
         title: 'Спальня',
         img: bedRoomImg,
+        url: '/livingroom',
     },
     {
         title: 'Детская',
         img: childRoomImg,
+        url: '/livingroom',
     },
     {
         title: 'Кухня',
         img: kitchenRoomImg,
+        url: '/',
     },
     {
         title: 'Коридор',
         img: corridorRoomImg,
+        url: '/',
     },
 ];
 

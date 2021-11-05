@@ -1,5 +1,7 @@
 import { PageBase } from 'components/Page';
 
+import { ServicesContainer } from 'views/services/components';
+
 import type { PageMetaProps } from 'components/Page';
 
 const meta: PageMetaProps = {
@@ -9,7 +11,9 @@ const meta: PageMetaProps = {
 
 const LivingRoom = () => (
     <PageBase meta={meta}>
-        <></>
+        <ServicesContainer title={meta.title!}>
+            <></>
+        </ServicesContainer>
     </PageBase>
 );
 
