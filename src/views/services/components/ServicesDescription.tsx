@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 import type { GridProps } from '@material-ui/core';
 
-interface ServicesDescriptionProps extends GridProps {
+export interface ServicesDescriptionProps extends GridProps {
     title?: string;
     description: string[];
 }

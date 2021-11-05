@@ -12,7 +12,7 @@ const features: ServicesItemProps[] = [
     {
         title: 'Полы',
         img: floorsImg,
-        url: '/',
+        url: '/floors',
     },
     {
         title: 'Ванная',

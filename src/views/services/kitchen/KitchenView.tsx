@@ -1,20 +1,10 @@
 import Image from 'next/image';
-import { Container, Grid, makeStyles } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
-import { ServicesDescription, ServicesTypesTitle } from '../components';
+import { ServicesLayoutRow } from '../components';
 
 import kitchenImg from './images/kitchen.jpg';
 import corridorImg from './images/corridor.jpg';
-
-const useStyles = makeStyles(({ spacing }) => ({
-    container: {
-        display: 'flex',
-        flexDirection: 'row',
-    },
-    description: {
-        paddingLeft: spacing(8),
-    },
-}));
 
 const images = [
     {
@@ -43,44 +33,21 @@ const description = [
     'Монтаж напольных плинтусов',
 ];
 
-export const KitchenView = () => {
-    const classes = useStyles();
-
-    return (
-        <Container className={classes.container}>
-            <Grid
-                item
-                lg={5}
-                container
-                spacing={3}
-                direction="column"
-            >
-                {images.map(({ src, alt }) => (
-                    <Grid item key={alt}>
-                        <Image
-                            width={384}
-                            height={430}
-                            src={src}
-                            alt={alt}
-                            objectFit="cover"
-                        />
-                    </Grid>
-                ))}
-            </Grid>
-            <Grid
-                item
-                lg={9}
-                container
-                direction="column"
-            >
-                <Grid item>
-                    <ServicesTypesTitle />
+export const KitchenView = () => (
+    <ServicesLayoutRow
+        description={description}
+        images={(
+            images.map(({ src, alt }) => (
+                <Grid item key={alt}>
+                    <Image
+                        src={src}
+                        alt={alt}
+                        width={384}
+                        height={430}
+                        objectFit="cover"
+                    />
                 </Grid>
-                <ServicesDescription
-                    description={description}
-                    className={classes.description}
-                />
-            </Grid>
-        </Container>
-    );
-};
+            ))
+        )}
+    />
+);
