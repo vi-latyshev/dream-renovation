@@ -16,10 +16,11 @@ const useStyles = makeStyles(({ spacing }) => ({
         margin: spacing(8, 0),
     },
     container: {
+        marginBottom: spacing(6),
+    },
+    link: {
         display: 'flex',
         alignItems: 'center',
-        flexDirection: 'row',
-        marginBottom: spacing(6),
     },
     iconBack: {
         fontSize: '5rem',
@@ -34,15 +35,13 @@ export const ServicesContainer = ({ title, children }: ServicesContainerProps) =
 
     return (
         <div className={classes.service}>
-            <Container
-                component={Link}
-                href={`/#${SERVICES_SECTION_ID}`}
-                className={classes.container}
-            >
-                <KeyboardBackspaceRounded color="inherit" className={classes.iconBack} />
-                <Typography variant="h1" className={classes.title}>
-                    {title}
-                </Typography>
+            <Container className={classes.container}>
+                <Link href={`/#${SERVICES_SECTION_ID}`} className={classes.link}>
+                    <KeyboardBackspaceRounded color="inherit" className={classes.iconBack} />
+                    <Typography variant="h1" className={classes.title}>
+                        {title}
+                    </Typography>
+                </Link>
             </Container>
             {children}
         </div>
