@@ -32,7 +32,7 @@ const features: ServicesItemProps[] = [
     {
         title: 'Квартира целиком',
         img: fullApartamentImg,
-        url: '/',
+        url: '/full_apartament',
     },
 ];
 

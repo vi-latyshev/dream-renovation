@@ -4,18 +4,20 @@ import { ServicesLayoutColumn } from '../components';
 
 import electricityImg from './images/electricity.jpg';
 
-const description = {
-    description: [
-        'Штробление стен для проведения электропроводки',
-        'Проведение электропроводки с гофрой',
-        'Установка щитка с автоматами и узо',
-        'Подключение розеток',
-    ],
-};
+const description = [
+    {
+        description: [
+            'Штробление стен для проведения электропроводки',
+            'Проведение электропроводки с гофрой',
+            'Установка щитка с автоматами и узо',
+            'Подключение розеток',
+        ],
+    },
+];
 
 export const ElectricityView = () => (
     <ServicesLayoutColumn
-        description={description}
+        descriptions={description}
         images={(
             <Image
                 width={1128}

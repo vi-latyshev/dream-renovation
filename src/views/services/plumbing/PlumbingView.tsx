@@ -4,18 +4,20 @@ import { ServicesLayoutColumn } from '../components';
 
 import plumbingImg from './images/plumbing.jpg';
 
-const description = {
-    description: [
-        'Штробление стен под сантехнические трубы',
-        'Проведение сантехнических труб и канализации',
-        'Установка фильтров и датчиков',
-        'Монтаж сантехники',
-    ],
-};
+const description = [
+    {
+        description: [
+            'Штробление стен под сантехнические трубы',
+            'Проведение сантехнических труб и канализации',
+            'Установка фильтров и датчиков',
+            'Монтаж сантехники',
+        ],
+    },
+];
 
 export const PlumbingView = () => (
     <ServicesLayoutColumn
-        description={description}
+        descriptions={description}
         images={(
             <Image
                 width={1128}
