@@ -21,7 +21,7 @@ export const FloorsView = () => (
                 <Image
                     src={floorsImg}
                     alt="Полы"
-                    width={384}
+                    width={480}
                     height={918}
                     objectFit="cover"
                 />
