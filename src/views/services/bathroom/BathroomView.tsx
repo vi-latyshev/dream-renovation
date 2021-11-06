@@ -27,6 +27,7 @@ export const BathroomView = () => (
                     width={480}
                     height={918}
                     objectFit="cover"
+                    placeholder="blur"
                 />
             </Grid>
         )}

@@ -65,6 +65,7 @@ export const LivingRoomView = () => {
                                 width={350}
                                 height={240}
                                 objectFit="cover"
+                                placeholder="blur"
                             />
                         </Grid>
                     ))}

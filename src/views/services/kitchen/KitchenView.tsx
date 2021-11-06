@@ -45,6 +45,7 @@ export const KitchenView = () => (
                         width={384}
                         height={430}
                         objectFit="cover"
+                        placeholder="blur"
                     />
                 </Grid>
             ))

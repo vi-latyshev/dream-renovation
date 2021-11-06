@@ -24,6 +24,7 @@ export const ElectricityView = () => (
                 height={407}
                 alt="Электрика"
                 objectFit="cover"
+                placeholder="blur"
                 src={electricityImg}
             />
         )}

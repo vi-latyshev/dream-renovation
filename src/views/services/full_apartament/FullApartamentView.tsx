@@ -53,9 +53,10 @@ export const FullApartamentView = () => (
             <Image
                 width={1128}
                 height={768}
-                alt="Апартаменты целиком"
                 objectFit="cover"
+                placeholder="blur"
                 src={fullApartamentImg}
+                alt="Апартаменты целиком"
             />
         )}
     />

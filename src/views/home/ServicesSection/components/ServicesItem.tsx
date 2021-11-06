@@ -39,6 +39,7 @@ export const ServicesCard = ({ title, img, url }: ServicesCardProps) => {
                         width={180}
                         height={165}
                         objectFit="cover"
+                        placeholder="blur"
                     />
                 </Paper>
             </Link>

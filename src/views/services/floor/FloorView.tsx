@@ -19,11 +19,12 @@ export const FloorsView = () => (
         images={(
             <Grid item>
                 <Image
-                    src={floorsImg}
                     alt="Полы"
                     width={480}
                     height={918}
+                    src={floorsImg}
                     objectFit="cover"
+                    placeholder="blur"
                 />
             </Grid>
         )}

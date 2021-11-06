@@ -25,6 +25,7 @@ export const PlumbingView = () => (
                 alt="Сантехника"
                 objectFit="cover"
                 src={plumbingImg}
+                placeholder="blur"
             />
         )}
     />
