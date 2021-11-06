@@ -8,7 +8,7 @@ import bedroomImg from './images/bedroom.jpg';
 import childroomImg from './images/childroom.jpg';
 
 const useStyles = makeStyles(({ spacing }) => ({
-    container: {
+    imgContainer: {
         marginBottom: spacing(4),
     },
 }));
@@ -51,7 +51,7 @@ export const LivingRoomView = () => {
 
     return (
         <>
-            <Container className={classes.container}>
+            <Container className={classes.imgContainer}>
                 <Grid
                     container
                     spacing={3}
@@ -70,7 +70,7 @@ export const LivingRoomView = () => {
                     ))}
                 </Grid>
             </Container>
-            <ServicesTypesTitle />
+            <ServicesTypesTitle withCenter />
             <Container>
                 <Grid container>
                     <ServicesDescription lg={8} description={leftDescription} />

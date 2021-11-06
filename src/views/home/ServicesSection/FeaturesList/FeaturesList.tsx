@@ -22,7 +22,7 @@ const features: ServicesItemProps[] = [
     {
         title: 'Электрика',
         img: electricityImg,
-        url: '/',
+        url: '/electricity',
     },
     {
         title: 'Сантехника',
