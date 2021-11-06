@@ -1,4 +1,4 @@
-import { ServicesList } from '../components';
+import { ServicesCardList } from '../components';
 
 import livingRoomImg from './images/living-room.jpg';
 import bedRoomImg from './images/bedroom.jpg';
@@ -6,9 +6,9 @@ import childRoomImg from './images/childrens-room.jpg';
 import kitchenRoomImg from './images/kitchen-room.jpg';
 import corridorRoomImg from './images/corridor-room.jpg';
 
-import type { ServicesItemProps } from '../components';
+import type { ServicesCardProps } from '../components';
 
-const rooms: ServicesItemProps[] = [
+const rooms: ServicesCardProps[] = [
     {
         title: 'Гостиная',
         img: livingRoomImg,
@@ -37,5 +37,5 @@ const rooms: ServicesItemProps[] = [
 ];
 
 export const RoomList = () => (
-    <ServicesList items={rooms} />
+    <ServicesCardList items={rooms} />
 );

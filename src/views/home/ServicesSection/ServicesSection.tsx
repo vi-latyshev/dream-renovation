@@ -1,8 +1,8 @@
 import { makeStyles, Typography } from '@material-ui/core';
 
 import { SectionWithContainer } from 'components/Section';
-import { FeaturesList } from './FeaturesList';
 
+import { FeaturesList } from './FeaturesList';
 import { RoomList } from './RoomList';
 
 export const SERVICES_SECTION_ID = 'services';

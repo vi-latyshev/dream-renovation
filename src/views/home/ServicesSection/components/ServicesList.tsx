@@ -1,11 +1,11 @@
 import { Grid, makeStyles } from '@material-ui/core';
 
-import { ServicesItem } from './ServicesItem';
+import { ServicesCard } from './ServicesItem';
 
-import type { ServicesItemProps } from './ServicesItem';
+import type { ServicesCardProps } from './ServicesItem';
 
-export interface ServicesListProps {
-    items: ServicesItemProps[];
+export interface ServicesCardListProps {
+    items: ServicesCardProps[];
 }
 
 const useStyles = makeStyles(() => ({
@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export const ServicesList = ({ items }: ServicesListProps) => {
+export const ServicesCardList = ({ items }: ServicesCardListProps) => {
     const classes = useStyles();
 
     return (
@@ -26,7 +26,7 @@ export const ServicesList = ({ items }: ServicesListProps) => {
             className={classes.list}
         >
             {items.map((item) => (
-                <ServicesItem key={item.title} {...item} />
+                <ServicesCard key={item.title} {...item} />
             ))}
         </Grid>
     );

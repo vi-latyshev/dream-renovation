@@ -8,7 +8,7 @@ import {
 
 import { Link } from 'components/controls';
 
-export interface ServicesItemProps {
+export interface ServicesCardProps {
     title: string;
     img: StaticImageData;
     url: string;
@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export const ServicesItem = ({ title, img, url }: ServicesItemProps) => {
+export const ServicesCard = ({ title, img, url }: ServicesCardProps) => {
     const classes = useStyles();
 
     return (

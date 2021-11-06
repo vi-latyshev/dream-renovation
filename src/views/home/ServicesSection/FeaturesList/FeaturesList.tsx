@@ -1,4 +1,4 @@
-import { ServicesList } from '../components';
+import { ServicesCardList } from '../components';
 
 import floorsImg from './images/floors.jpg';
 import bathroomImg from './images/bathroom.jpg';
@@ -6,9 +6,9 @@ import electricityImg from './images/electricity.jpg';
 import plumbingImg from './images/plumbing.jpg';
 import fullApartamentImg from './images/full-apartament.jpg';
 
-import type { ServicesItemProps } from '../components';
+import type { ServicesCardProps } from '../components';
 
-const features: ServicesItemProps[] = [
+const features: ServicesCardProps[] = [
     {
         title: 'Полы',
         img: floorsImg,
@@ -37,5 +37,5 @@ const features: ServicesItemProps[] = [
 ];
 
 export const FeaturesList = () => (
-    <ServicesList items={features} />
+    <ServicesCardList items={features} />
 );
