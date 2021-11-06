@@ -3,6 +3,15 @@
  */
 const nextConfig = {
     // reactStrictMode: true,
+    async redirects() {
+        return [
+            {
+                source: '/services',
+                destination: '/#services',
+                permanent: true,
+            },
+        ];
+    },
     poweredByHeader: false,
     eslint: {
         dirs: [

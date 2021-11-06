@@ -22,6 +22,9 @@ const palette = createPalette({
     background: {
         default: '#FBFBFB',
     },
+    backgroundSecondary: {
+        main: '#F2F2F2',
+    },
 });
 
 const breakpoints = createBreakpoints({
@@ -236,6 +239,18 @@ let muiTheme = createTheme({
                 boxShadow: 'none',
                 '&:active': {
                     boxShadow: 'none',
+                },
+            },
+        },
+        MuiPaper: {
+            rounded: {
+                borderRadius: 8,
+                transition: 'box-shadow .3s',
+            },
+            elevation1: {
+                boxShadow: `0px 10px 20px ${alpha(palette.text.primary, 0.07)}`,
+                '&:hover': {
+                    boxShadow: `0px 10px 20px ${alpha(palette.text.primary, 0.2)}`,
                 },
             },
         },

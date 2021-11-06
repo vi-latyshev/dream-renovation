@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core';
 import { Instagram, WhatsApp, YouTube } from '@material-ui/icons';
-import { Link } from 'components/controls';
 
+import { Link } from 'components/controls';
 import { SOCIALS } from 'constants/socials';
 
 const SOCIALS_LINKS = [
@@ -21,6 +21,7 @@ const useStyles = makeStyles(({ palette, mixins }) => ({
         marginRight: 15,
         '&:hover': {
             '& $linkBackground': {
+                // @TODO fix transition
                 transition: '.3s',
                 backgroundColor: palette.primary.dark,
             },

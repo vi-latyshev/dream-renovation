@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import Head from 'next/head';
-import { CssBaseline, ThemeProvider } from '@material-ui/core';
+import { CssBaseline, ThemeProvider, StylesProvider } from '@material-ui/core';
 
 import { theme } from 'styles';
 import { BackToTop } from 'components/BackToTop';
@@ -22,11 +22,13 @@ const App = ({ Component, pageProps }: AppProps) => {
 
                 {/* other meta */}
             </Head>
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <Component {...pageProps} />
-                <BackToTop />
-            </ThemeProvider>
+            <StylesProvider injectFirst>
+                <ThemeProvider theme={theme}>
+                    <CssBaseline />
+                    <Component {...pageProps} />
+                    <BackToTop />
+                </ThemeProvider>
+            </StylesProvider>
         </>
     );
 };

@@ -31,6 +31,13 @@ export default class MyDocument extends Document {
             <body>
                 <Main />
                 <NextScript />
+                <div
+                    aria-label="author"
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={{
+                        __html: '<!-- Authored by Vi - https://github.com/vi-latyshev | P.s. design system is not mine and it is terribly ugly -->',
+                    }}
+                />
             </body>
         </Html>
     );

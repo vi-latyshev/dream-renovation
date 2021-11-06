@@ -13,7 +13,7 @@ import { theme } from 'styles';
 const SCROLL_TO_TOP_OFFSET = 100;
 
 const useStyles = makeStyles(({ palette, spacing }) => ({
-    container: {
+    backToTop: {
         position: 'fixed',
         bottom: spacing(5),
         right: spacing(8),
@@ -40,7 +40,7 @@ export const BackToTop = () => {
 
     return (
         <Fade in={isLowerOffset}>
-            <div className={classes.container}>
+            <div className={classes.backToTop}>
                 <Fab
                     size="medium"
                     aria-label="scroll back to top"
