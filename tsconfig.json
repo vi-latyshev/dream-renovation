@@ -20,6 +20,7 @@
         "resolveJsonModule": true,
         "skipLibCheck": true,
         "strict": true,
+        "incremental": true,
         "target": "esnext",
         "typeRoots": [
             "src/types"
@@ -28,15 +29,14 @@
             "images/*": [
                 "../public/img/*"
             ]
-        },
-        "incremental": true
+        }
     },
     "exclude": [
         "node_modules"
     ],
     "include": [
-        ".eslintrc.js",
-        "next.config.js",
+        "*.js",
+        ".*.js",
         "**/*.ts",
         "**/*.tsx"
     ]

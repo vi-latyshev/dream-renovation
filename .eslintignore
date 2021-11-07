@@ -1,3 +1,6 @@
+# by default eslint ignoring dot-files
+!.*
+
 # next.js
 /.next/
 /out/
