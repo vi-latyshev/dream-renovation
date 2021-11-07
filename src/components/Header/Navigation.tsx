@@ -40,6 +40,7 @@ export const Navigation = () => {
         const containerId = hash.replace('#', '');
 
         scroller.scrollTo(containerId, {
+            offset: 50,
             smooth: true,
             isDynamic: true,
             duration: theme.transitions.duration.enteringScreen,
