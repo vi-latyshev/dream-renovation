@@ -15,7 +15,7 @@ const countAreaData: RadioDataProps<CountAreaControls> = {
 };
 
 const getLabelWithMetrics = (string: string) => (
-    <>{string} m<sup>2</sup></>
+    <>{string} м<sup>2</sup></>
 );
 
 const CountAreaStep = () => (

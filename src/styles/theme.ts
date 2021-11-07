@@ -244,13 +244,14 @@ let muiTheme = createTheme({
         },
         MuiPaper: {
             rounded: {
-                borderRadius: 8,
+                borderRadius: 10,
                 transition: 'box-shadow .3s',
+                border: `1px solid ${palette.divider}`,
             },
             elevation1: {
-                boxShadow: `0px 10px 20px ${alpha(palette.text.primary, 0.07)}`,
+                boxShadow: `0px 10px 20px ${alpha(palette.divider, 0.07)}`,
                 '&:hover': {
-                    boxShadow: `0px 10px 20px ${alpha(palette.text.primary, 0.2)}`,
+                    boxShadow: `0px 10px 20px ${alpha(palette.divider, 0.2)}`,
                 },
             },
         },
