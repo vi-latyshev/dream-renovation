@@ -2,6 +2,7 @@ import { Page } from 'components/Page';
 import {
     MainSection,
     StepSection,
+    PricingSection,
     ServicesSection,
     ContactUsSection,
     CalculatorSection,
@@ -21,6 +22,7 @@ const IndexPage = () => (
         <AboutCompanySection />
         <StepSection />
         <CalculatorSection />
+        <PricingSection />
         <ContactUsSection />
     </Page>
 );

@@ -3,6 +3,8 @@ import { scroller } from 'react-scroll';
 
 import { theme } from 'styles';
 
+import { CONTACT_US_SECTION_ID } from '../ContactUsSection';
+
 import { RulerIcon } from './icons/RulerIcon';
 
 const useStyles = makeStyles(() => ({
@@ -27,7 +29,7 @@ export const Footer = () => {
 
     // @TODO: change to and open Modal
     const handleContactClick = () => {
-        scroller.scrollTo('contact', {
+        scroller.scrollTo(CONTACT_US_SECTION_ID, {
             smooth: true,
             isDynamic: true,
             duration: theme.transitions.duration.enteringScreen,

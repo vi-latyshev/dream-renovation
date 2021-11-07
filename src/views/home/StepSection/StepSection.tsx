@@ -3,10 +3,9 @@ import { Grid, makeStyles, Typography } from '@material-ui/core';
 import { SectionWithContainer } from 'components/Section';
 
 import { BigRulerIcon } from './icons/BigRuler';
-import { StepItem } from './components/StepItem';
+import { StepItem } from './components';
 
 const useStyles = makeStyles(({ spacing }) => ({
-    section: {},
     stepsContainer: {
         margin: spacing(8, 0),
     },
