@@ -7,9 +7,12 @@ import { RoomList } from './RoomList';
 
 export const SERVICES_SECTION_ID = 'services';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(({ typography, spacing }) => ({
     title: {
-        marginBottom: 60,
+        marginBottom: spacing(3),
+    },
+    titleDescription: {
+        fontSize: typography.h3.fontSize,
     },
 }));
 
@@ -24,7 +27,7 @@ export const ServicesSection = () => {
             <Typography variant="h1" className={classes.title}>
                 Наши услуги
             </Typography>
-            <Typography variant="h3">
+            <Typography className={classes.titleDescription}>
                 Какую комнату нужно преобразить?
             </Typography>
             <RoomList />

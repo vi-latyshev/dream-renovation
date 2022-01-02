@@ -61,6 +61,10 @@ const typography = createTypography(palette, {
         ...defaultTypographyHeadings,
         fontSize: '1.5rem', // 24px
     },
+    h4: {
+        ...defaultTypographyHeadings,
+        fontSize: '1.25rem', // 20px
+    },
     body1: {
         fontSize: '1rem', // 16px
     },
@@ -116,6 +120,9 @@ let muiTheme = createTheme({
         MuiSvgIcon: {
             color: 'primary',
         },
+        MuiTextField: {
+            variant: 'outlined',
+        },
     },
     overrides: {
         MuiCssBaseline: {
@@ -143,6 +150,7 @@ let muiTheme = createTheme({
                 fontSize: '1.25rem', // 20px
             },
             contained: {
+                borderRadius: 5,
                 padding: '10px 40px',
             },
             containedPrimary: {
@@ -151,54 +159,55 @@ let muiTheme = createTheme({
             // not used
             // containedSecondary: {},
             outlined: {
-                borderWidth: 2,
+                borderWidth: 3,
+                borderRadius: 10,
                 padding: '8px 40px',
                 color: palette.text.secondary,
                 '&:hover': {
-                    borderWidth: 2,
+                    borderWidth: 3,
                 },
                 '&$disabled': {
-                    borderWidth: 2,
+                    borderWidth: 3,
                 },
             },
             outlinedPrimary: {
-                borderWidth: 2,
+                borderWidth: 3,
                 '&:hover': {
-                    borderWidth: 2,
+                    borderWidth: 3,
                 },
                 '&$disabled': {
-                    borderWidth: 2,
+                    borderWidth: 3,
                 },
             },
             outlinedSecondary: {
-                borderWidth: 2,
+                borderWidth: 3,
                 color: palette.common.white,
                 borderColor: palette.common.white,
                 '&:hover': {
-                    borderWidth: 2,
+                    borderWidth: 3,
                     borderColor: alpha(palette.common.white, 0.8),
                     backgroundColor: alpha(palette.common.white, 0.05),
                 },
                 '&$disabled': {
-                    borderWidth: 2,
+                    borderWidth: 3,
                 },
             },
         },
         MuiInput: {
             root: {
                 fontWeight: 'bold',
-                '&$underline': {
-                    '&:not($disabled):before': {
-                        transitionProperty: 'border-bottom-color, border-bottom-width',
-                        borderBottomColor: palette.common.white,
-                    },
-                    '&:hover:not($disabled):before': {
-                        borderBottomColor: alpha(palette.common.white, 0.5),
-                    },
-                    '&:after': {
-                        borderBottomColor: alpha(palette.common.white, 0.7),
-                    },
-                },
+                // '&$underline': {
+                //     '&:not($disabled):before': {
+                //         transitionProperty: 'border-bottom-color, border-bottom-width',
+                //         borderBottomColor: palette.common.white,
+                //     },
+                //     '&:hover:not($disabled):before': {
+                //         borderBottomColor: alpha(palette.common.white, 0.5),
+                //     },
+                //     '&:after': {
+                //         borderBottomColor: alpha(palette.common.white, 0.7),
+                //     },
+                // },
             },
         },
         MuiInputLabel: {

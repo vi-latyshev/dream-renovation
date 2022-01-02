@@ -3,15 +3,14 @@ import { useState, useCallback } from 'react';
 import {
     Grid,
     Paper,
-    Button,
     Collapse,
     Typography,
     makeStyles,
 } from '@material-ui/core';
-import { AddOutlined } from '@material-ui/icons';
 
 import { PriceFeatureItem } from './PriceFeatureItem';
 import { PriceOptionsFeatureItem } from './PriceOptionsFeatureItem';
+import { PriceOptionsButton } from './PriceOptionsButton';
 
 interface PriceCardProps {
     image: StaticImageData;
@@ -39,10 +38,6 @@ const useStyles = makeStyles(({ spacing, typography }) => ({
     featuresList: {
         justifySelf: 'flex-start',
         margin: spacing(3, 0),
-    },
-    optionsFeatureButton: {
-        width: '100%',
-        cursor: 'pointer',
     },
 }));
 
@@ -103,12 +98,7 @@ export const PriceCard = ({
                         </PriceFeatureItem>
                     ))}
                 </div>
-                <AddOutlined
-                    color="primary"
-                    fontSize="large"
-                    className={classes.optionsFeatureButton}
-                    onClick={handleClickOpen}
-                />
+                <PriceOptionsButton onClick={handleClickOpen} />
                 <Collapse in={isOpened}>
                     <div className={classes.featuresList}>
                         {optionsFeatures.map((feature) => (
@@ -117,9 +107,6 @@ export const PriceCard = ({
                             </PriceOptionsFeatureItem>
                         ))}
                     </div>
-                    <Button variant="outlined">
-                        Выбрать
-                    </Button>
                 </Collapse>
             </Paper>
         </Grid>

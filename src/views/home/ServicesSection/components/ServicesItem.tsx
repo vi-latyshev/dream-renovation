@@ -14,12 +14,12 @@ export interface ServicesCardProps {
     url: string;
 }
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(({ spacing }) => ({
     paper: {
-        padding: 24,
+        padding: spacing(2),
     },
     title: {
-        marginBottom: 20,
+        marginBottom: spacing(2),
     },
 }));
 
@@ -36,8 +36,8 @@ export const ServicesCard = ({ title, img, url }: ServicesCardProps) => {
                     <Image
                         src={img}
                         alt={title}
-                        width={180}
-                        height={165}
+                        width={200}
+                        height={177}
                         objectFit="cover"
                         placeholder="blur"
                     />

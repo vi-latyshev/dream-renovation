@@ -19,7 +19,11 @@ export const PriceFeatureItem = ({ children }: PriceFeatureItemProps) => {
 
     return (
         <PriceFeatureItemContainer>
-            <CheckRounded color="primary" className={classes.icon} />
+            <CheckRounded
+                color="primary"
+                fontSize="small"
+                className={classes.icon}
+            />
             <Typography>
                 {children}
             </Typography>

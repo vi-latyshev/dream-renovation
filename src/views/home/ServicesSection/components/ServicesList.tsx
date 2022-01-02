@@ -21,7 +21,7 @@ export const ServicesCardList = ({ items }: ServicesCardListProps) => {
     return (
         <Grid
             container
-            spacing={5}
+            spacing={4}
             justifyContent="center"
             className={classes.list}
         >

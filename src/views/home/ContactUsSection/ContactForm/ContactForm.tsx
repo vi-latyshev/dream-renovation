@@ -47,6 +47,13 @@ export const ContactForm = () => {
                         className={classes.input}
                     />
                 ))}
+                <Input
+                    variant="standard"
+                    fullWidth
+                    name="2"
+                    required
+                    className={classes.input}
+                />
             </div>
             <Button
                 type="submit"

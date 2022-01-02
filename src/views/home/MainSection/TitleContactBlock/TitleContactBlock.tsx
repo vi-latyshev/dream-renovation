@@ -1,7 +1,6 @@
 import { Button, makeStyles, Typography } from '@material-ui/core';
 import { AlternateEmail } from '@material-ui/icons';
 import { scroller } from 'react-scroll';
-import clsx from 'clsx';
 
 import { theme } from 'styles';
 import { CONTACTS } from 'constants/contacts';
@@ -10,7 +9,7 @@ import { PhoneContact } from 'components/PhoneContact';
 
 import { CONTACT_US_SECTION_ID } from '../../ContactUsSection';
 
-const useStyles = makeStyles(({ palette }) => ({
+const useStyles = makeStyles(({ palette, spacing }) => ({
     contactBlock: {
         display: 'flex',
         position: 'absolute',
@@ -18,7 +17,9 @@ const useStyles = makeStyles(({ palette }) => ({
         alignItems: 'flex-start',
         padding: '40px 90px 20px',
         marginLeft: -90,
+        borderRadius: 5,
         backgroundColor: palette.background.default,
+        boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.07)',
     },
     title: {
         marginBottom: 50,
@@ -28,16 +29,20 @@ const useStyles = makeStyles(({ palette }) => ({
             marginBottom: 30,
         },
     },
-    contactsContaner: {
+    contactsContainer: {
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'row',
         marginTop: 40,
+        '& > *:not(:last-child)': {
+            marginRight: spacing(8),
+        },
     },
     contacts: {
         display: 'flex',
         marginBottom: 20,
-        '& > *:not(:last-child)': {
-            marginRight: 80,
+        flexDirection: 'column',
+        '& > *:not(:first-child)': {
+            marginTop: spacing(2),
         },
     },
     contact: {
@@ -46,9 +51,6 @@ const useStyles = makeStyles(({ palette }) => ({
     },
     contactIcon: {
         marginRight: 10,
-    },
-    contactEmail: {
-        marginLeft: 'auto',
     },
 }));
 
@@ -84,24 +86,21 @@ export const TitleContactBlock = () => {
             <Button onClick={handleContactUs}>
                 Связаться с нами
             </Button>
-            <div className={classes.contactsContaner}>
+            <div className={classes.contactsContainer}>
                 <div className={classes.contacts}>
                     <PhoneContact />
+                </div>
+                <div className={classes.contacts}>
                     <div className={classes.contact}>
                         <Typography color="secondary">
                             {CONTACTS.workTimeString}
                         </Typography>
-                        &nbsp;
+                        &nbsp;&nbsp;
                         <Typography>
                             Без выходных
                         </Typography>
                     </div>
-                </div>
-                <div className={classes.contacts}>
-                    <Link
-                        href={`mailto:${CONTACTS.email}`}
-                        className={clsx(classes.contact, classes.contactEmail)}
-                    >
+                    <Link href={`mailto:${CONTACTS.email}`} className={classes.contact}>
                         <AlternateEmail color="secondary" className={classes.contactIcon} />
                         {CONTACTS.email}
                     </Link>
