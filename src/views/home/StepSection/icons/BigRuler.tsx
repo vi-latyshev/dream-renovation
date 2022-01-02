@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-max-props-per-line */
 import { makeStyles, SvgIcon } from '@material-ui/core';
 import clsx from 'clsx';
 

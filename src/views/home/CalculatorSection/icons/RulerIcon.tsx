@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-max-props-per-line */
 import { SvgIcon } from '@material-ui/core';
 
 import type { SvgIconProps } from '@material-ui/core';

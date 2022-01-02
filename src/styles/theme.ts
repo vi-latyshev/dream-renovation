@@ -118,6 +118,14 @@ let muiTheme = createTheme({
         },
     },
     overrides: {
+        MuiCssBaseline: {
+            '@global': {
+                body: {
+                    // @TODO remove and fix it
+                    overflowX: 'hidden',
+                },
+            },
+        },
         MuiLink: {
             root: {
                 display: 'inline-block',

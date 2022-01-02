@@ -100,7 +100,11 @@ export const FinishStep = () => {
                 <DataValueBlock label="Чистовые материалы" data={`от ${clearlyMaterialsPrice} руб/м2`} />
                 <div className={classes.totalContainer}>
                     <Typography variant="h3">
-                        <Typography variant="h3" component="span" color="primary">
+                        <Typography
+                            variant="h3"
+                            component="span"
+                            color="primary"
+                        >
                             Итого:
                         </Typography>{' '}
                         от {price + dirtyMaterialsPrice + clearlyMaterialsPrice} руб/м2

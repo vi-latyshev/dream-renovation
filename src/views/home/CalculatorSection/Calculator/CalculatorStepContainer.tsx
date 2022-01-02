@@ -81,7 +81,11 @@ export const CalculatorStepContainer: React.FC = ({ children }) => {
                         valueLabelDisplay="on"
                         valueLabelFormat={valueLabelSliderFormat}
                     />
-                    <Fade in={step > 0} unmountOnExit timeout={buttonFadeTimeout}>
+                    <Fade
+                        in={step > 0}
+                        unmountOnExit
+                        timeout={buttonFadeTimeout}
+                    >
                         <Button
                             color="default"
                             variant="outlined"
