@@ -1,8 +1,8 @@
 import { makeStyles, Typography } from '@material-ui/core';
+import clsx from 'clsx';
 
 import { CONTACTS } from 'constants/contacts';
 import { Link } from 'components/controls';
-import clsx from 'clsx';
 
 const useStyles = makeStyles(({ typography, spacing }) => ({
     contact: {
