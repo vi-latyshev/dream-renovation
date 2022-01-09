@@ -37,23 +37,14 @@ export const ContactForm = () => {
     return (
         <form className={classes.contactForm}>
             <div className={classes.inputContainer}>
-                {FORM_INPUTS.map(({ name, label, required }) => (
+                {FORM_INPUTS.map((imputProps) => (
                     <Input
                         fullWidth
-                        key={name}
-                        name={name}
-                        label={label}
-                        required={required}
+                        key={imputProps.name}
                         className={classes.input}
+                        {...imputProps}
                     />
                 ))}
-                <Input
-                    variant="standard"
-                    fullWidth
-                    name="2"
-                    required
-                    className={classes.input}
-                />
             </div>
             <Button
                 type="submit"

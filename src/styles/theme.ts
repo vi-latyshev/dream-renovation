@@ -25,6 +25,9 @@ const palette = createPalette({
     backgroundSecondary: {
         main: '#F2F2F2',
     },
+    error: {
+        main: '#F42C00',
+    },
 });
 
 const breakpoints = createBreakpoints({
@@ -123,6 +126,12 @@ let muiTheme = createTheme({
         MuiTextField: {
             variant: 'outlined',
         },
+        MuiInputLabel: {
+            shrink: true,
+        },
+        MuiOutlinedInput: {
+            notched: false,
+        },
     },
     overrides: {
         MuiCssBaseline: {
@@ -193,29 +202,37 @@ let muiTheme = createTheme({
                 },
             },
         },
-        MuiInput: {
+        MuiOutlinedInput: {
             root: {
-                fontWeight: 'bold',
-                // '&$underline': {
-                //     '&:not($disabled):before': {
-                //         transitionProperty: 'border-bottom-color, border-bottom-width',
-                //         borderBottomColor: palette.common.white,
-                //     },
-                //     '&:hover:not($disabled):before': {
-                //         borderBottomColor: alpha(palette.common.white, 0.5),
-                //     },
-                //     '&:after': {
-                //         borderBottomColor: alpha(palette.common.white, 0.7),
-                //     },
-                // },
+                borderWidth: 1,
+                borderRadius: 10,
+                backgroundColor: palette.background.default,
+                borderColor: palette.action.disabledBackground,
+                transition: '0.15s',
+                '& $notchedOutline': {
+                    borderColor: palette.action.disabledBackground,
+                },
+                '&:hover $notchedOutline': {
+                    borderColor: palette.action.disabledBackground,
+                },
+                '&$focused $notchedOutline': {
+                    borderWidth: 1,
+                    borderColor: palette.action.disabledBackground,
+                },
+                '&$disabled $notchedOutline': {
+                    backgroundColor: palette.action.disabledBackground,
+                },
+                '&$error $notchedOutline': {
+                    borderWidth: 2,
+                },
+            },
+            input: {
+                padding: 20,
             },
         },
         MuiInputLabel: {
             root: {
-                color: palette.common.white,
-                '&$focused:not($error)': {
-                    color: palette.common.white,
-                },
+                fontSize: 0,
             },
         },
         MuiSlider: {
