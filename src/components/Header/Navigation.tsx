@@ -7,13 +7,12 @@ import {
     ABOUNT_SECTION_ID,
     PRICING_SECTION_ID,
     SERVICES_SECTION_ID,
-    CALCULATOR_SECTION_ID,
 } from 'views/home';
 
 const NAVIGATION_LIST = [
     { text: 'О нас', to: ABOUNT_SECTION_ID },
     { text: 'Услуги', to: SERVICES_SECTION_ID },
-    { text: 'Калькулятор', to: CALCULATOR_SECTION_ID },
+    { text: 'Калькулятор' },
     { text: 'Цены', to: PRICING_SECTION_ID },
 ];
 
@@ -52,7 +51,7 @@ export const Navigation = () => {
         <nav className={classes.nav}>
             {NAVIGATION_LIST.map(({ text, to }) => (
                 <Link
-                    key={to}
+                    key={text + to}
                     href={`#${to}`}
                     onClick={scrollToSection}
                     className={classes.link}

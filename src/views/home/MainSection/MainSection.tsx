@@ -38,7 +38,7 @@ const useStyles = makeStyles(() => ({
     // },
     backgroundCard: {
         width: '100%',
-        '& > div': {
+        '& > span': {
             boxShadow: '0px 10px 50px rgba(0, 0, 0, 0.2)',
         },
     },

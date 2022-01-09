@@ -11,6 +11,7 @@ export const Input = ({
     name,
     label,
     error,
+    required,
     ...rest
 }: InputProps) => (
     <TextField
@@ -18,9 +19,10 @@ export const Input = ({
         name={name}
         type="text"
         label={label}
+        placeholder={`${label}${(required ? ' *' : '')}`}
         {...(error && {
             error: true,
-            helperText: error,
+            // helperText: error, // no need now
         })}
         {...rest}
     />

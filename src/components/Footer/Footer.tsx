@@ -1,29 +1,25 @@
 import { Container, makeStyles } from '@material-ui/core';
 
-import { ContactsBlock } from './ContactBlock';
-import { SocialShareBlock } from './SocialShareBlock';
+import { LogoIcon } from 'icons/Logo';
 
-const useStyles = makeStyles({
+import { ContactsBlock } from './ContactBlock';
+
+const useStyles = makeStyles(({ spacing }) => ({
     footer: {
         display: 'flex',
-        paddingTop: 50,
-        paddingBottom: 50,
+        flexDirection: 'row',
+        alignItems: 'center',
+        padding: spacing(5, 0),
     },
-});
+}));
 
 export const Footer = () => {
     const classes = useStyles();
 
     return (
-        <Container
-            maxWidth="xl"
-            component="footer"
-            className={classes.footer}
-        >
+        <Container component="footer" className={classes.footer}>
+            <LogoIcon />
             <ContactsBlock />
-            {process.env.NODE_ENV === 'production' && (
-                <SocialShareBlock />
-            )}
         </Container>
     );
 };

@@ -106,6 +106,12 @@ module.exports = {
             4,
         ],
         'react/jsx-props-no-spreading': 'off',
+        'react/jsx-max-props-per-line': ['error', {
+            maximum: {
+                single: 2,
+                multi: 1,
+            },
+        }],
         'react/prop-types': 'off',
         'react/jsx-one-expression-per-line': 'off',
         'react/no-unescaped-entities': 'warn',

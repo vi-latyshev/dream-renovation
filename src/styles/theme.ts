@@ -25,6 +25,9 @@ const palette = createPalette({
     backgroundSecondary: {
         main: '#F2F2F2',
     },
+    error: {
+        main: '#F42C00',
+    },
 });
 
 const breakpoints = createBreakpoints({
@@ -60,6 +63,10 @@ const typography = createTypography(palette, {
     h3: {
         ...defaultTypographyHeadings,
         fontSize: '1.5rem', // 24px
+    },
+    h4: {
+        ...defaultTypographyHeadings,
+        fontSize: '1.25rem', // 20px
     },
     body1: {
         fontSize: '1rem', // 16px
@@ -116,8 +123,25 @@ let muiTheme = createTheme({
         MuiSvgIcon: {
             color: 'primary',
         },
+        MuiTextField: {
+            variant: 'outlined',
+        },
+        MuiInputLabel: {
+            shrink: true,
+        },
+        MuiOutlinedInput: {
+            notched: false,
+        },
     },
     overrides: {
+        MuiCssBaseline: {
+            '@global': {
+                body: {
+                    // @TODO remove and fix it
+                    overflowX: 'hidden',
+                },
+            },
+        },
         MuiLink: {
             root: {
                 display: 'inline-block',
@@ -135,6 +159,7 @@ let muiTheme = createTheme({
                 fontSize: '1.25rem', // 20px
             },
             contained: {
+                borderRadius: 5,
                 padding: '10px 40px',
             },
             containedPrimary: {
@@ -143,62 +168,71 @@ let muiTheme = createTheme({
             // not used
             // containedSecondary: {},
             outlined: {
-                borderWidth: 2,
+                borderWidth: 3,
+                borderRadius: 10,
                 padding: '8px 40px',
                 color: palette.text.secondary,
                 '&:hover': {
-                    borderWidth: 2,
+                    borderWidth: 3,
                 },
                 '&$disabled': {
-                    borderWidth: 2,
+                    borderWidth: 3,
                 },
             },
             outlinedPrimary: {
-                borderWidth: 2,
+                borderWidth: 3,
                 '&:hover': {
-                    borderWidth: 2,
+                    borderWidth: 3,
                 },
                 '&$disabled': {
-                    borderWidth: 2,
+                    borderWidth: 3,
                 },
             },
             outlinedSecondary: {
-                borderWidth: 2,
+                borderWidth: 3,
                 color: palette.common.white,
                 borderColor: palette.common.white,
                 '&:hover': {
-                    borderWidth: 2,
+                    borderWidth: 3,
                     borderColor: alpha(palette.common.white, 0.8),
                     backgroundColor: alpha(palette.common.white, 0.05),
                 },
                 '&$disabled': {
-                    borderWidth: 2,
+                    borderWidth: 3,
                 },
             },
         },
-        MuiInput: {
+        MuiOutlinedInput: {
             root: {
-                fontWeight: 'bold',
-                '&$underline': {
-                    '&:not($disabled):before': {
-                        transitionProperty: 'border-bottom-color, border-bottom-width',
-                        borderBottomColor: palette.common.white,
-                    },
-                    '&:hover:not($disabled):before': {
-                        borderBottomColor: alpha(palette.common.white, 0.5),
-                    },
-                    '&:after': {
-                        borderBottomColor: alpha(palette.common.white, 0.7),
-                    },
+                borderWidth: 1,
+                borderRadius: 10,
+                backgroundColor: palette.background.default,
+                borderColor: palette.action.disabledBackground,
+                transition: '0.15s',
+                '& $notchedOutline': {
+                    borderColor: palette.action.disabledBackground,
                 },
+                '&:hover $notchedOutline': {
+                    borderColor: palette.action.disabledBackground,
+                },
+                '&$focused $notchedOutline': {
+                    borderWidth: 1,
+                    borderColor: palette.action.disabledBackground,
+                },
+                '&$disabled $notchedOutline': {
+                    backgroundColor: palette.action.disabledBackground,
+                },
+                '&$error $notchedOutline': {
+                    borderWidth: 2,
+                },
+            },
+            input: {
+                padding: 20,
             },
         },
         MuiInputLabel: {
             root: {
-                color: palette.common.white,
-                '&$focused:not($error)': {
-                    color: palette.common.white,
-                },
+                fontSize: 0,
             },
         },
         MuiSlider: {
