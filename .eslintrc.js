@@ -108,7 +108,7 @@ module.exports = {
         'react/jsx-props-no-spreading': 'off',
         'react/jsx-max-props-per-line': ['error', {
             maximum: {
-                single: 2,
+                single: 3,
                 multi: 1,
             },
         }],

@@ -4,24 +4,24 @@ import {
     StepSection,
     PricingSection,
     ServicesSection,
-    ContactUsSection,
+    // ContactUsSection,
     AboutCompanySection,
 } from 'views/home';
 
 import type { PageMetaProps } from 'components/Page';
 
 const meta: PageMetaProps = {
-    description: 'Ремонт мечты',
+    title: 'Качественный ремонт в Москве',
 };
 
 const IndexPage = () => (
     <Page meta={meta}>
         <MainSection />
         <ServicesSection />
-        <AboutCompanySection />
         <StepSection />
         <PricingSection />
-        <ContactUsSection />
+        <AboutCompanySection />
+        {/* <ContactUsSection /> */}
     </Page>
 );
 

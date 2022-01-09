@@ -1,12 +1,10 @@
 import { makeStyles } from '@material-ui/core';
-import { Instagram, WhatsApp, YouTube } from '@material-ui/icons';
+import { WhatsApp } from '@material-ui/icons';
 
 import { Link } from 'components/controls';
 import { SOCIALS } from 'constants/socials';
 
 const SOCIALS_LINKS = [
-    { href: SOCIALS.intagram, icon: Instagram },
-    { href: SOCIALS.youtube, icon: YouTube },
     { href: SOCIALS.whatsapp, icon: WhatsApp },
 ];
 

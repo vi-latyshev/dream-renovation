@@ -4,8 +4,8 @@ const workTime = {
 };
 
 export const CONTACTS = {
-    email: 'remont_me4ti@info.ru',
-    tel: '+7 123 456 78 90',
+    email: 'remont.me4ti@gmail.com',
+    tel: '+7 965 172 80 73',
     workTime,
     workTimeString: Object.values(workTime).join(' - '),
 };
