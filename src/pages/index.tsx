@@ -5,7 +5,6 @@ import {
     PricingSection,
     ServicesSection,
     ContactUsSection,
-    CalculatorSection,
     AboutCompanySection,
 } from 'views/home';
 
@@ -21,7 +20,6 @@ const IndexPage = () => (
         <ServicesSection />
         <AboutCompanySection />
         <StepSection />
-        <CalculatorSection />
         <PricingSection />
         <ContactUsSection />
     </Page>
