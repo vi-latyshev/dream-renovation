@@ -21,7 +21,7 @@ interface PriceCardProps {
 
 const useStyles = makeStyles(({ spacing, typography }) => ({
     pricePaper: {
-        width: 365,
+        width: 380,
         textAlign: 'center',
         padding: spacing(4),
     },
