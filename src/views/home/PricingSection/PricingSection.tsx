@@ -19,7 +19,7 @@ const useStyles = makeStyles(({ spacing }) => ({
 const priceCards = [
     {
         image: majorImg,
-        title: 'Капитальный ремонт',
+        title: 'Косметический ремонт',
         price: '7-10 000',
         optionsFeatures: [
             'Натяжные потолки',

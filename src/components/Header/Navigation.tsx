@@ -12,7 +12,6 @@ import {
 const NAVIGATION_LIST = [
     { text: 'О нас', to: ABOUNT_SECTION_ID },
     { text: 'Услуги', to: SERVICES_SECTION_ID },
-    { text: 'Калькулятор' },
     { text: 'Цены', to: PRICING_SECTION_ID },
 ];
 

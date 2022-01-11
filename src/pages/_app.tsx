@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import Head from 'next/head';
 import { CssBaseline, ThemeProvider, StylesProvider } from '@material-ui/core';
 
 import { theme } from 'styles';
@@ -14,22 +13,13 @@ const App = ({ Component, pageProps }: AppProps) => {
     }, []);
 
     return (
-        <>
-            <Head>
-                {/* required meta tags */}
-                <meta charSet="utf-8" />
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-
-                {/* other meta */}
-            </Head>
-            <StylesProvider injectFirst>
-                <ThemeProvider theme={theme}>
-                    <CssBaseline />
-                    <Component {...pageProps} />
-                    <BackToTop />
-                </ThemeProvider>
-            </StylesProvider>
-        </>
+        <StylesProvider injectFirst={false}>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <Component {...pageProps} />
+                <BackToTop />
+            </ThemeProvider>
+        </StylesProvider>
     );
 };
 
