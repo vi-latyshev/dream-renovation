@@ -1,7 +1,5 @@
-const IS_VERCEL = process.env.VERCEL === '1';
 const IS_PRODUCTION = process.env.VERCEL_ENV === 'production';
-const HOST = IS_VERCEL ? process.env.VERCEL_URL : 'localhost';
-const DOMAIN = IS_VERCEL ? `https://${HOST}` : 'http://localhost:3000';
+const DOMAIN = process.env.NEXT_PUBLIC_URL;
 
 /**
  * @type {import('next').NextConfig}
@@ -20,7 +18,6 @@ const nextConfig = {
     poweredByHeader: false,
     env: {
         IS_PRODUCTION,
-        HOST,
         DOMAIN,
     },
     eslint: {
