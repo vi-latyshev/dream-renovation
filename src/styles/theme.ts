@@ -235,6 +235,14 @@ let muiTheme = createTheme({
                 fontSize: 0,
             },
         },
+        MuiFormHelperText: {
+            contained: {
+                textAlign: 'right',
+                '& > span': {
+                    display: 'block',
+                },
+            },
+        },
         MuiSlider: {
             track: {
                 height: 5,
