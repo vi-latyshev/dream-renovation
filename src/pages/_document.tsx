@@ -18,11 +18,6 @@ export default class MyDocument extends Document {
             <Head>
                 <meta name="theme-color" content={theme.palette.primary.main} />
                 <link
-                    rel="preconnect"
-                    crossOrigin="anonymous"
-                    href="https://fonts.gstatic.com"
-                />
-                <link
                     rel="stylesheet"
                     href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&family=Montserrat:wght@700&subset=cyrillic&display=swap"
                 />

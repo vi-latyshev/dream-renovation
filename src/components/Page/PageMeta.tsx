@@ -13,42 +13,45 @@ const KEYWORDS = ['ремонт мечты', 'недорого', 'качеств
 const DOMAIN_URL = process.env.DOMAIN;
 
 export const PageMeta = ({
-    title,
-    description,
+    title: pageTitle,
+    description = DEFAULT_DESCRIPTION,
 }: PageMetaProps) => {
     const { pathname } = useRouter();
+
+    const title = pageTitle ? `${pageTitle} - ${DEFAULT_TITLE}` : DEFAULT_TITLE;
+    const fullPath = `${DOMAIN_URL}${pathname}`;
 
     return (
         <Head>
             {/* required */}
             <meta key="charSet" charSet="utf-8" />
 
-            <title>{title ? `${title} - ${DEFAULT_TITLE}` : DEFAULT_TITLE}</title>
+            <title>{title}</title>
 
             {/* Primary */}
-            <meta name="description" content={description ?? DEFAULT_DESCRIPTION} />
+            <meta name="description" content={description} />
             {/* required meta tags */}
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             <meta name="keywords" content={KEYWORDS} />
-            <meta name="url" content={`${DOMAIN_URL}${pathname}`} />
+            <meta name="url" content={fullPath} />
 
             {/* Open Graph / Facebook */}
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
             <meta property="og:locale" content="ru_RU" />
             <meta property="og:type" content="website" />
-            <meta property="og:url" content={`${DOMAIN_URL}${pathname}`} />
-            <meta property="og:image" content={`${DOMAIN_URL}/favicon.ico`} />
+            <meta property="og:url" content={fullPath} />
+            <meta property="og:image" content={`${fullPath}/favicon.ico`} />
 
             {/* Twitter */}
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:card" content="summary" />
-            <meta name="twitter:url" content={`${DOMAIN_URL}${pathname}`} />
-            <meta name="twitter:image" content={`${DOMAIN_URL}/favicon.ico`} />
+            <meta name="twitter:url" content={fullPath} />
+            <meta name="twitter:image" content={`${fullPath}/favicon.ico`} />
 
             {/* icons */}
-            <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+            <link rel="icon" type="image/x-icon" href={`${fullPath}/favicon.ico`} />
         </Head>
     );
 };
