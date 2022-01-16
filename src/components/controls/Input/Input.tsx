@@ -1,29 +1,55 @@
 import { TextField } from '@material-ui/core';
+import { Controller } from 'react-hook-form';
 
+import type { FieldValues, UseControllerProps } from 'react-hook-form';
 import type { TextFieldProps } from '@material-ui/core';
 
-export interface InputProps extends Omit<TextFieldProps, 'error' | 'label'> {
-    error?: string;
-    label?: string;
+type HookUseControllerProps<T> = Omit<UseControllerProps<T>, 'rules'>;
+
+type MaterialTexFieldProps = Omit<TextFieldProps, 'name' | 'error' | 'label' | 'placeholder' | 'defaultValue'>;
+
+export interface InputProps<T> extends HookUseControllerProps<T>, MaterialTexFieldProps {
+    label: string;
 }
 
-export const Input = ({
-    name,
-    label,
-    error,
-    required,
-    ...rest
-}: InputProps) => (
-    <TextField
-        id={name}
-        name={name}
-        type="text"
-        label={label}
-        placeholder={`${label}${(required ? ' *' : '')}`}
-        {...(error && {
-            error: true,
-            // helperText: error, // no need now
-        })}
-        {...rest}
-    />
-);
+export const Input = <T extends FieldValues>(props: InputProps<T>) => {
+    const {
+        name, label, required, disabled,
+        control, shouldUnregister,
+        defaultValue = '' as InputProps<T>['defaultValue'],
+        ...rest
+    } = props;
+
+    return (
+        <Controller
+            name={name}
+            control={control}
+            shouldUnregister={shouldUnregister}
+            defaultValue={defaultValue}
+            render={({
+                field,
+                fieldState: { error },
+                formState: { isSubmitting },
+            }) => {
+                const helperText = error?.message
+                    ?.split('\n')
+                    .map((str) => <span key={str}>{str}</span>) ?? ' ';
+
+                return (
+                    <TextField
+                        fullWidth
+                        id={name}
+                        type="text"
+                        label={label}
+                        placeholder={`${label}${(required ? ' *' : '')}`}
+                        disabled={isSubmitting || disabled}
+                        error={error !== undefined}
+                        helperText={helperText}
+                        {...field}
+                        {...rest}
+                    />
+                );
+            }}
+        />
+    );
+};

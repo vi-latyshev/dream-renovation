@@ -3,6 +3,7 @@
 ## Sections
 1. [Links](#links)
 1. [Requirements](#requirements)
+1. [Technology stack](#technology-stack)
 1. [Install](#install)
 1. [Start developing](#start-developing)
 1. [Scripts commands](#scripts-commands)
@@ -12,7 +13,7 @@
     * [Commits](#commits)
         * [Examples](#examples)
     * [Pull Requests](#pull-requests)
-1. [Build](#build)
+1. [Build/Start app](#buildstart-app)
 1. [Start app](#start-app)
 1. [Deploy](#deploy)
 
@@ -20,12 +21,23 @@
 
 ### Site urls:
 
-* https://dream-renovation.vercel.app/ - test site (developing)
+* https://dream-renovation.ru/ - main site
+* https://dream-renovation.vercel.app/ - test site (preview)
 
 ## Requirements
 
 * node `^15.0.0` - [install](https://nodejs.org/en/download/)
 * yarn `^1.22.0` - [install](https://yarnpkg.com/en/docs/install/)
+
+## Technology stack
+
+* [React 16.8+](https://reactjs.org/) ─ base of app. Using functional components with hooks
+* [Next.js](https://nextjs.org/) ─ framework for ssr and api
+* [Typescript](https://www.typescriptlang.org/) - static type definitions
+* [Material-UI](https://material-ui.com/) ─ components of user interface
+* [axios](https://github.com/axios/axios) ─ xhr requests
+* [react-hook-form](https://react-hook-form.com/) ─ react forms
+* [superstruct](https://docs.superstructjs.org/) - validation of form fields, using for client and server side
 
 ## Install
 
@@ -50,10 +62,9 @@ This starts the development server on http://localhost:3000.
 |`yarn <script>`    |Description|
 |-------------------|-----------|
 |`dev`              |Run app in develop mode|
-|`lint`             |Run lint and type code check|
-|`build`            |[Build app](#build) in production mode|
-|`start`            |[Build and start app](#start-app) in production mode|
-|`deploy`           |[Build and deploy](#deploy) app on production server|
+|`test`             |Run lint and type code check and test app|
+|`build`            |[Build app](#buildstart-ap) in production mode|
+|`start`            |[Build and start app](#buildstart-ap) in production mode|
 
 ## Structure
 
@@ -163,14 +174,21 @@ chore(next-config): add rewrite for redirect in next config
 The development process ends with a Pull Request of the development branch in the `develop` branch on [github.com](https://github.com/vi-latyshev/dream-renovation).
 * If the `develop` branch has gone ahead during development, it is necessary to `rebase` from it.
 
-## Build
+## Build/Start app
 
-* **TODO**
-
-## Start app
-
-* **TODO**
+Builds app:
+```bash
+yarn build
+```
+or Start app
+```bash
+yarn start
+```
+App will be build and start on http://localhost:3000 with production mode.
 
 ## Deploy
 
-* **TODO**
+Every commit pushed to the any branch will trigger a some deployment on [Vercel](https://vercel.com/):
+* `master` - Production Deployment on [main site](#links)
+* `develop` - Preview Deployment on [test site](#links)
+* `any other branch` - Preview Deployment will available on `https://dream-renovation-[GIT_BRANCH_NAME]-vi-latyshev.vercel.app/`

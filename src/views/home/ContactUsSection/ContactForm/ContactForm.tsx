@@ -1,12 +1,14 @@
 import { Button, makeStyles } from '@material-ui/core';
 
+import {
+    object,
+    optional,
+    NameScruct,
+    EmailStruct,
+    PhoneStruct,
+} from 'lib/superstruct';
 import { Input } from 'components/controls';
-
-const FORM_INPUTS = [
-    { name: 'name', label: 'Ваше имя', required: true },
-    { name: 'phone', label: 'Телефон', required: true },
-    { name: 'email', label: 'Почта' },
-];
+import { useReactForm } from 'components/controls/hooks';
 
 const useStyles = makeStyles(() => ({
     contactForm: {
@@ -19,11 +21,8 @@ const useStyles = makeStyles(() => ({
         display: 'flex',
         marginTop: 100,
         width: '100%',
-    },
-    input: {
-        marginRight: 100,
-        '&:last-child': {
-            marginRight: 0,
+        '& > div:not(:last-child)': {
+            marginRight: 100,
         },
     },
     button: {
@@ -31,25 +30,54 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
+const apiEndpoint = 'contact_form';
+
+const formSchema = object({
+    name: NameScruct,
+    phone: PhoneStruct,
+    email: optional(EmailStruct),
+});
+
 export const ContactForm = () => {
     const classes = useStyles();
 
+    const { control, handleSubmitForm, formState } = useReactForm({ apiEndpoint, formSchema });
+
+    const handleContactForm = handleSubmitForm({
+        onSuccessSubmit: async () => {
+
+        },
+        onErrorSubmit: async () => {
+
+        },
+    });
+
     return (
-        <form className={classes.contactForm}>
+        <form onSubmit={handleContactForm} className={classes.contactForm}>
             <div className={classes.inputContainer}>
-                {FORM_INPUTS.map((imputProps) => (
-                    <Input
-                        fullWidth
-                        key={imputProps.name}
-                        className={classes.input}
-                        {...imputProps}
-                    />
-                ))}
+                <Input
+                    required
+                    name="name"
+                    label="Ваше имя"
+                    control={control}
+                />
+                <Input
+                    required
+                    name="phone"
+                    label="Телефон"
+                    control={control}
+                />
+                <Input
+                    name="email"
+                    label="Почта"
+                    control={control}
+                />
             </div>
             <Button
                 type="submit"
                 color="secondary"
                 variant="outlined"
+                disabled={formState.isSubmitting}
                 className={classes.button}
             >
                 Связаться с нами
