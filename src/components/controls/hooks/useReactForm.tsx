@@ -2,35 +2,43 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
-import { hookFormResolver } from 'lib/superstruct';
+import { hookFormSchemaResolver, transformErrorsToClient } from 'lib/superstruct';
 
-import type { FieldValues, UseFormReturn, DefaultValues } from 'react-hook-form';
-import type { Infer, Struct } from 'lib/superstruct';
+import type {
+    Path,
+    FieldValues,
+    UseFormReturn,
+    DefaultValues,
+} from 'react-hook-form';
+import type { Infer, Struct, FieldErrors } from 'lib/superstruct';
+import type { APIErrorJSON } from 'lib/api/error';
+import type { FormNames } from 'lib/api/routes/forms';
 
-type SubmitHandlersType<R extends unknown = void, E extends unknown = void> = {
-    onSuccessSubmit?: (response: R extends void ? undefined : R) => Promise<void>,
-    onErrorSubmit?: (response: E) => Promise<void>,
-};
-
-type HandleSubmitForm = <R extends unknown = void, E extends unknown = void>(
-    handlers: SubmitHandlersType<R, E>
+type HandleSubmitForm = (
+    handlers: {
+        onSuccessSubmit?: () => Promise<void>,
+        onErrorSubmit?: () => Promise<void>,
+    },
 ) => (e?: React.BaseSyntheticEvent) => Promise<void>;
 
 interface UseReactFormProps<T, S> {
-    apiEndpoint: string,
-    formSchema: Struct<T, S>,
+    formName: FormNames,
+    schema: Struct<T, S>,
 }
 
 interface UseReactFormReturn<T extends FieldValues> extends Omit<UseFormReturn<T>, 'handleSubmit'> {
     handleSubmitForm: HandleSubmitForm;
 }
 
+const FORM_ENDPOINT_API = 'api/forms';
+
 export const useReactForm = <T, S, I = Infer<Struct<T, S>>>({
-    apiEndpoint,
-    formSchema,
+    formName,
+    schema,
 }: UseReactFormProps<T, S>): UseReactFormReturn<I> => {
     const {
         reset,
+        setError,
         formState,
         getValues,
         handleSubmit,
@@ -38,10 +46,11 @@ export const useReactForm = <T, S, I = Infer<Struct<T, S>>>({
     } = useForm<I>({
         mode: 'onSubmit',
         reValidateMode: 'onChange',
-        resolver: hookFormResolver(formSchema, { coerce: true }),
+        resolver: hookFormSchemaResolver(schema),
     });
 
     // reset all fields after success submit
+    // @TODO mb find another way to reset?
     useEffect(() => {
         if (!formState.isSubmitSuccessful) {
             return;
@@ -57,16 +66,27 @@ export const useReactForm = <T, S, I = Infer<Struct<T, S>>>({
         onSuccessSubmit, onErrorSubmit,
     }) => (e) => handleSubmit(async (formData) => {
         try {
-            const resp = await axios.post(apiEndpoint, formData);
-
-            await onSuccessSubmit?.(resp?.data);
+            await axios.post(FORM_ENDPOINT_API, formData, {
+                params: { form: formName },
+            });
+            await onSuccessSubmit?.();
         } catch (error) {
             try {
                 if (!axios.isAxiosError(error)) {
                     throw Error(`Unexpected error: ${error}`);
                 }
-                await onErrorSubmit?.(error.response?.data);
+                const { errors } = error.response?.data as APIErrorJSON<FieldErrors>;
+
+                const parsedErrors = transformErrorsToClient(errors!);
+
+                parsedErrors.forEach(({ field, type, message }) => {
+                    setError(field as Path<I>, {
+                        type,
+                        message,
+                    });
+                });
             } catch (err) {
+                await onErrorSubmit?.();
                 throw new Error(`Error in submit form: ${err}`);
             }
             throw new Error(`Error in submit form: ${error}`);
@@ -79,6 +99,7 @@ export const useReactForm = <T, S, I = Infer<Struct<T, S>>>({
 
     return {
         reset,
+        setError,
         formState,
         getValues,
         handleSubmitForm,

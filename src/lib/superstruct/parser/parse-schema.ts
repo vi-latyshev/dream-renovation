@@ -16,7 +16,7 @@ export type FieldError = {
     validationValues?: ValidationValues;
 };
 
-export type ParsedErrors = FieldError[];
+export type FieldErrors = FieldError[];
 
 /**
  * idk for why, but i wanted to
@@ -32,11 +32,11 @@ const renameMessage = {
  * parse errors from schema,
  * uses for client and server side
  */
-export const parseErrorSchema = (errors: StructError): ParsedErrors => {
+export const parseErrorSchema = (errors: StructError): FieldErrors => {
     const failures = errors.failures();
 
     const allFields: { [field: string]: boolean; } = {};
-    const parsedErrors: ParsedErrors = [];
+    const parsedErrors: FieldErrors = [];
 
     failures.forEach((error) => {
         const fieldName = error.path.join('.');

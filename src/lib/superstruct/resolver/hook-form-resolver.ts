@@ -1,28 +1,42 @@
-import { toNestError, validateFieldsNatively } from '@hookform/resolvers';
-
 import { validate } from '../base';
-
 import { parseErrorSchema } from '../parser';
+
 import { humanErrorsMsg } from './constants';
 
-import type { FieldErrors } from 'react-hook-form';
-import type { Resolver } from '@hookform/resolvers/superstruct';
-import type { StructError } from '../base';
+import type { FieldErrors as ReactHookFieldErrors, UnpackNestedValue } from 'react-hook-form';
+import type { FieldError, FieldErrors } from '../parser';
+import type { StructDataValues, DataValues } from './types';
 
-export const parseErrorsToClient = (errors: StructError): FieldErrors => {
-    const parsedErrors = parseErrorSchema(errors);
+export type {
+    FieldErrors,
+};
 
-    const fieldErrors: FieldErrors = {};
+export type ClientFieldError = Omit<FieldError, 'message'> & {
+    message: string;
+};
 
-    parsedErrors.forEach((error) => {
-        const {
-            field,
-            message: errorMessage,
-            validationValues,
-            type,
-        } = error;
+type HookFormResolver = (struct: StructDataValues) => (formValues: DataValues) => UnpackNestedValue<DataValues>;
 
-        const message = humanErrorsMsg[errorMessage]?.(validationValues, type) ?? errorMessage;
+export const transformErrorsToClient = (
+    errors: FieldErrors,
+): ClientFieldError[] => errors.map((error) => {
+    const { message: errorMessage, validationValues, type } = error;
+
+    const message = humanErrorsMsg[errorMessage]?.(validationValues, type) ?? errorMessage;
+
+    const clientErrors: ClientFieldError = {
+        ...error,
+        message,
+    };
+
+    return clientErrors;
+});
+
+const parseErrorsToResolver = (errors: ClientFieldError[]): ReactHookFieldErrors => {
+    const fieldErrors: ReactHookFieldErrors = {};
+
+    errors.forEach((error) => {
+        const { field, message, type } = error;
 
         fieldErrors[field] = {
             type,
@@ -36,18 +50,15 @@ export const parseErrorsToClient = (errors: StructError): FieldErrors => {
 /**
  * redefined of @hookform/resolvers/superstruct
  */
-export const hookFormResolver: Resolver = (struct, factoryOtions) => (formValues, _, options) => {
-    const [errors, values] = validate(formValues, struct, factoryOtions);
+export const hookFormSchemaResolver: HookFormResolver = (struct) => (formValues) => {
+    const [errors, values] = validate(formValues, struct, { coerce: true });
 
     if (errors) {
         return {
             values: {},
-            errors: toNestError(parseErrorsToClient(errors), options),
+            errors: parseErrorsToResolver(transformErrorsToClient(parseErrorSchema(errors))),
         };
     }
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    options.shouldUseNativeValidation && validateFieldsNatively({}, options);
 
     return {
         values,

@@ -1,12 +1,6 @@
 import { Button, makeStyles } from '@material-ui/core';
 
-import {
-    object,
-    optional,
-    NameScruct,
-    EmailStruct,
-    PhoneStruct,
-} from 'lib/superstruct';
+import { FormNames, contactUsSchema } from 'lib/api/routes/forms';
 import { Input } from 'components/controls';
 import { useReactForm } from 'components/controls/hooks';
 
@@ -30,18 +24,13 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-const apiEndpoint = 'contact_form';
-
-const formSchema = object({
-    name: NameScruct,
-    phone: PhoneStruct,
-    email: optional(EmailStruct),
-});
-
 export const ContactForm = () => {
     const classes = useStyles();
 
-    const { control, handleSubmitForm, formState } = useReactForm({ apiEndpoint, formSchema });
+    const { control, handleSubmitForm, formState } = useReactForm({
+        formName: FormNames.CONTACT_US_FORM,
+        schema: contactUsSchema,
+    });
 
     const handleContactForm = handleSubmitForm({
         onSuccessSubmit: async () => {
