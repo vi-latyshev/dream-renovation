@@ -26,7 +26,7 @@ const palette = createPalette({
         main: '#F2F2F2',
     },
     error: {
-        main: '#F42C00',
+        main: '#FF6464',
     },
 });
 
@@ -237,7 +237,24 @@ let muiTheme = createTheme({
         },
         MuiFormHelperText: {
             contained: {
-                textAlign: 'right',
+                '&$error': {
+                    position: 'absolute',
+                    margin: 0,
+                    bottom: -30,
+                    backgroundColor: palette.error.main,
+                    color: palette.common.white,
+                    borderRadius: 10,
+                    width: '100%',
+                    padding: '8px 16px',
+                    fontSize: '0.875rem', // 14px
+                    // '&:after': {
+                    //     content: ' ',
+                    //     top: -12,
+                    //     border: '6px solid transparent',
+                    //     borderTopColor: 'transparent',
+                    //     borderBottomColor: 'rgba( 0, 0, 0, .6)',
+                    // },
+                },
                 '& > span': {
                     display: 'block',
                 },
