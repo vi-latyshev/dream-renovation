@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 export interface PageMetaProps {
-    title?: string;
+    title: string;
     description?: string;
 }
 
@@ -18,7 +18,9 @@ export const PageMeta = ({
 }: PageMetaProps) => {
     const { pathname } = useRouter();
 
-    const title = pageTitle ? `${pageTitle} - ${DEFAULT_TITLE}` : DEFAULT_TITLE;
+    const title = pathname === '/'
+        ? `${DEFAULT_TITLE} - ${pageTitle}`
+        : `${pageTitle} - ${DEFAULT_TITLE}`;
     const fullPath = `${DOMAIN_URL}${pathname}`;
 
     return (
@@ -41,17 +43,17 @@ export const PageMeta = ({
             <meta property="og:locale" content="ru_RU" />
             <meta property="og:type" content="website" />
             <meta property="og:url" content={fullPath} />
-            <meta property="og:image" content={`${fullPath}/favicon.ico`} />
+            <meta property="og:image" content={`${DOMAIN_URL}/favicon.ico`} />
 
             {/* Twitter */}
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:url" content={fullPath} />
-            <meta name="twitter:image" content={`${fullPath}/favicon.ico`} />
+            <meta name="twitter:image" content={`${DOMAIN_URL}/favicon.ico`} />
 
             {/* icons */}
-            <link rel="icon" type="image/x-icon" href={`${fullPath}/favicon.ico`} />
+            <link rel="icon" type="image/x-icon" href={`${DOMAIN_URL}/favicon.ico`} />
 
             {/* links */}
             <link rel="canonical" href={fullPath} />

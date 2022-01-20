@@ -38,7 +38,7 @@ export const ServicesContainer = ({ title, children }: ServicesContainerProps) =
             <Container className={classes.container}>
                 <Link href={`/#${SERVICES_SECTION_ID}`} className={classes.link}>
                     <KeyboardBackspaceRounded color="inherit" className={classes.iconBack} />
-                    <Typography variant="h1" component="h2" className={classes.title}>
+                    <Typography variant="h1" className={classes.title}>
                         {title}
                     </Typography>
                 </Link>

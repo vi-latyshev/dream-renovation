@@ -7,7 +7,6 @@ import type { PageMetaProps } from 'components/Page';
 
 const meta: PageMetaProps = {
     title: 'Кухня, коридор',
-    description: '',
 };
 
 const KitchenPage = () => (
