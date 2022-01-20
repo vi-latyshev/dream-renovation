@@ -32,7 +32,7 @@ const features: ServicesCardProps[] = [
     {
         title: 'Квартира целиком',
         img: fullApartamentImg,
-        url: '/full_apartament',
+        url: '/full-apartament',
     },
 ];
 

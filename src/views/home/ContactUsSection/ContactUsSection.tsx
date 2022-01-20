@@ -21,7 +21,7 @@ export const ContactUsSection = () => {
             id={CONTACT_US_SECTION_ID}
             className={classes.contact}
         >
-            <Typography variant="h1">
+            <Typography variant="h1" component="h2">
                 Оставьте заявку - обсудим с вами детали
             </Typography>
             <ContactForm />

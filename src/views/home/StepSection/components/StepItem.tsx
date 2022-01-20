@@ -39,7 +39,7 @@ export const StepItem = ({ step, title, children }: StepItemProps) => {
             alignItems="center"
             className={classes.itemContainer}
         >
-            <Typography variant="h1" className={classes.stepTitle}>
+            <Typography variant="h1" component="h2" className={classes.stepTitle}>
                 {step}
                 <GearIcon
                     fontSize="large"

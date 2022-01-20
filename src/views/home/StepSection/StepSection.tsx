@@ -20,7 +20,7 @@ export const StepSection = () => {
 
     return (
         <SectionWithContainer maxWidth="xl">
-            <Typography variant="h1">
+            <Typography variant="h1" component="h2">
                 Пройдём следующие этапы:
             </Typography>
             <Grid

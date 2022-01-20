@@ -52,6 +52,9 @@ export const PageMeta = ({
 
             {/* icons */}
             <link rel="icon" type="image/x-icon" href={`${fullPath}/favicon.ico`} />
+
+            {/* links */}
+            <link rel="canonical" href={fullPath} />
         </Head>
     );
 };

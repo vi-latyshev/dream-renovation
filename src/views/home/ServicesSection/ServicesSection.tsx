@@ -24,7 +24,7 @@ export const ServicesSection = () => {
             maxWidth="xl"
             id={SERVICES_SECTION_ID}
         >
-            <Typography variant="h1" className={classes.title}>
+            <Typography variant="h1" component="h2" className={classes.title}>
                 Наши услуги
             </Typography>
             <Typography className={classes.titleDescription}>

@@ -64,7 +64,7 @@ export const PricingSection = () => {
 
     return (
         <SectionWithContainer maxWidth="xl" id={PRICING_SECTION_ID}>
-            <Typography variant="h1">
+            <Typography variant="h1" component="h2">
                 Доступные пакеты
             </Typography>
             <Grid
