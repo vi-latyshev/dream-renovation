@@ -1,25 +1,14 @@
 import { APIError } from 'lib/api/error';
+import { handleApiError } from 'lib/api/error/handle-api-error';
 import { serverSchemaResolver } from 'lib/superstruct/resolver/server-resolver';
+import { sendMail } from 'lib/mail';
 
-import { FormNames } from './constants';
-import { contactUsSchema } from './schemas';
+import { FormNames, formsHandler } from './constants';
+import { formTemplate } from './mails';
 
 import type { NextApiRequest as Req, NextApiResponse as Res } from 'next';
-import type { StructDataValues } from 'lib/superstruct/resolver/types';
 
 export type HandleFormsRes = void;
-
-type FormHandlerType = {
-    [T in FormNames]: {
-        schema: StructDataValues;
-    };
-};
-
-const formsHandler: FormHandlerType = {
-    [FormNames.CONTACT_US_FORM]: {
-        schema: contactUsSchema,
-    },
-};
 
 export const handleFormsAPI = async (req: Req, res: Res<HandleFormsRes>) => {
     try {
@@ -31,14 +20,15 @@ export const handleFormsAPI = async (req: Req, res: Res<HandleFormsRes>) => {
         if (foundForm === undefined) {
             throw new APIError(`Invalid form name: '${formName}'`, 400);
         }
-        const { schema } = foundForm;
+        const { schema, subject } = foundForm;
 
-        serverSchemaResolver(schema, body);
+        const values = serverSchemaResolver(schema, body);
 
-        // @TODO send mail with parsed values by formName
+        const mail = formTemplate({ subject, values });
+        await sendMail(mail);
 
         res.status(200).end();
     } catch (e) {
-        APIError.handle(e, res);
+        handleApiError(e, res, { formName: req.query.form });
     }
 };

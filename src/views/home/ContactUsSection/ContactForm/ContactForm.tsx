@@ -1,6 +1,6 @@
 import { Button, makeStyles } from '@material-ui/core';
 
-import { FormNames } from 'lib/api/routes/forms/constants';
+import { FormNames, fieldHumanNames } from 'lib/api/routes/forms/constants';
 import { contactUsSchema } from 'lib/api/routes/forms/schemas';
 import { Input } from 'components/controls';
 import { useReactForm } from 'components/controls/hooks';
@@ -48,19 +48,19 @@ export const ContactForm = () => {
                 <Input
                     required
                     name="name"
-                    label="Ваше имя"
                     control={control}
+                    label={fieldHumanNames}
                 />
                 <Input
                     required
                     name="phone"
-                    label="Телефон"
                     control={control}
+                    label={fieldHumanNames}
                 />
                 <Input
                     name="email"
-                    label="Почта"
                     control={control}
+                    label={fieldHumanNames}
                 />
             </div>
             <Button

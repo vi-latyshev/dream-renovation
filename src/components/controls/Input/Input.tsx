@@ -9,16 +9,18 @@ type HookUseControllerProps<T> = Omit<UseControllerProps<T>, 'rules'>;
 type MaterialTexFieldProps = Omit<TextFieldProps, 'name' | 'error' | 'label' | 'placeholder' | 'defaultValue'>;
 
 export interface InputProps<T> extends HookUseControllerProps<T>, MaterialTexFieldProps {
-    label: string;
+    label: string | Record<string, string>;
 }
 
 export const Input = <T extends FieldValues>(props: InputProps<T>) => {
     const {
-        name, label, required, disabled,
+        name, label: labelProp, required, disabled,
         control, shouldUnregister,
         defaultValue = '' as InputProps<T>['defaultValue'],
         ...rest
     } = props;
+
+    const label = typeof labelProp === 'object' ? (labelProp[name] ?? name) : labelProp;
 
     return (
         <Controller
