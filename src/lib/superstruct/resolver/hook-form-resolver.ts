@@ -51,7 +51,7 @@ const parseErrorsToResolver = (errors: ClientFieldError[]): ReactHookFieldErrors
  * redefined of @hookform/resolvers/superstruct
  */
 export const hookFormSchemaResolver: HookFormResolver = (struct) => (formValues) => {
-    const [errors, values] = validate(formValues, struct, { coerce: true });
+    const [errors, validatedValues] = validate(formValues, struct, { coerce: true });
 
     if (errors) {
         return {
@@ -59,6 +59,14 @@ export const hookFormSchemaResolver: HookFormResolver = (struct) => (formValues)
             errors: parseErrorsToResolver(transformErrorsToClient(parseErrorSchema(errors))),
         };
     }
+
+    const values: { [field: string]: string; } = {};
+
+    Object.keys(validatedValues).forEach((field) => {
+        if (validatedValues[field] !== '') {
+            values[field] = validatedValues[field];
+        }
+    });
 
     return {
         values,

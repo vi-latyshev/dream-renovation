@@ -4,7 +4,7 @@ const workTime = {
 };
 
 export const CONTACTS = {
-    email: 'remont.me4ti@gmail.com',
+    email: 'support@dream-renovation.ru',
     tel: '+7 965 172 80 73',
     workTime,
     workTimeString: Object.values(workTime).join(' - '),

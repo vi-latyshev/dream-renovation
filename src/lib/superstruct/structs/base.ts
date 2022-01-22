@@ -4,14 +4,19 @@ import {
     trimmed,
     pattern,
     nonempty,
+    undefinedToEmptyStr,
 } from '../base';
 
-const trimmedStr = trimmed(string());
+const baseStrStruct = nonempty(
+    trimmed(
+        undefinedToEmptyStr(
+            string(),
+        ),
+    ),
+);
 
 export const NameScruct = size(
-    nonempty(
-        trimmedStr,
-    ),
+    baseStrStruct,
     1,
     50,
 );
@@ -23,9 +28,7 @@ const mailRegExp = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-
 
 export const EmailStruct = pattern(
     size(
-        nonempty(
-            trimmedStr,
-        ),
+        baseStrStruct,
         6,
         30,
     ),
@@ -37,9 +40,7 @@ const phoneRegExp = /^(\+)?([0-9-\s])+$/;
 
 export const PhoneStruct = pattern(
     size(
-        nonempty(
-            trimmedStr,
-        ),
+        baseStrStruct,
         7,
         30,
     ),

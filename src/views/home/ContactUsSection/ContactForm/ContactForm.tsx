@@ -1,6 +1,7 @@
 import { Button, makeStyles } from '@material-ui/core';
 
-import { FormNames, contactUsSchema } from 'lib/api/routes/forms';
+import { FormNames } from 'lib/api/routes/forms/constants';
+import { contactUsSchema } from 'lib/api/routes/forms/schemas';
 import { Input } from 'components/controls';
 import { useReactForm } from 'components/controls/hooks';
 

@@ -2,17 +2,13 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
-import { hookFormSchemaResolver, transformErrorsToClient } from 'lib/superstruct';
+import { hookFormSchemaResolver, transformErrorsToClient } from 'lib/superstruct/resolver/hook-form-resolver';
 
-import type {
-    Path,
-    FieldValues,
-    UseFormReturn,
-    DefaultValues,
-} from 'react-hook-form';
-import type { Infer, Struct, FieldErrors } from 'lib/superstruct';
+import type { Path, FieldValues, UseFormReturn } from 'react-hook-form';
+import type { FieldErrors } from 'lib/superstruct/resolver/hook-form-resolver';
+import type { Infer, Struct } from 'lib/superstruct/base';
 import type { APIErrorJSON } from 'lib/api/error';
-import type { FormNames } from 'lib/api/routes/forms';
+import type { FormNames } from 'lib/api/routes/forms/constants';
 
 type HandleSubmitForm = (
     handlers: {
@@ -49,17 +45,11 @@ export const useReactForm = <T, S, I = Infer<Struct<T, S>>>({
         resolver: hookFormSchemaResolver(schema),
     });
 
-    // reset all fields after success submit
-    // @TODO mb find another way to reset?
     useEffect(() => {
         if (!formState.isSubmitSuccessful) {
             return;
         }
-        const values = getValues();
-        const defaultValues = Object.keys(values)
-            .reduce((acc, key) => ({ ...acc, [key]: '' }), {});
-
-        reset(defaultValues as DefaultValues<I>);
+        reset();
     }, [formState, getValues, reset]);
 
     const handleSubmitForm: UseReactFormReturn<I>['handleSubmitForm'] = ({

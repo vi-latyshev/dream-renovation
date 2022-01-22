@@ -24,6 +24,8 @@ export type PatternErrorType = {
 
 export type ValidationValues = MinErrorType | MaxErrorType | SizeErrorType | PatternErrorType;
 
+/* ------------ Redefine base functions ant types ------------ */
+
 export type Failure = S.Failure & {
     validationValues?: ValidationValues;
 };
@@ -128,3 +130,16 @@ export const optional = <T, S>(struct: S.Struct<T, S>): S.Struct<T | undefined, 
         value === undefined || getSize(value) === 0 || struct.refiner(value, ctx)
     ),
 });
+
+export const string = (): S.Struct<string, null> => (
+    S.define('string', (value) => (
+        (value === undefined || typeof value === 'string')
+        || `Expected a string, but received: ${value}`
+    ))
+);
+
+/* ------------ Custom ------------ */
+
+export const undefinedToEmptyStr = <T, S>(struct: S.Struct<T, S>) => (
+    S.coerce(struct, string(), (value) => value ?? '')
+);

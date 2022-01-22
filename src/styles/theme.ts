@@ -237,14 +237,14 @@ let muiTheme = createTheme({
         },
         MuiFormHelperText: {
             contained: {
+                position: 'absolute',
+                top: 75,
+                width: '100%',
                 '&$error': {
-                    position: 'absolute',
                     margin: 0,
-                    bottom: -30,
                     backgroundColor: palette.error.main,
                     color: palette.common.white,
                     borderRadius: 10,
-                    width: '100%',
                     padding: '8px 16px',
                     fontSize: '0.875rem', // 14px
                     // '&:after': {

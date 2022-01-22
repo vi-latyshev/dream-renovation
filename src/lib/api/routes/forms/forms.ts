@@ -1,11 +1,11 @@
 import { APIError } from 'lib/api/error';
-import { serverSchemaResolver } from 'lib/superstruct';
+import { serverSchemaResolver } from 'lib/superstruct/resolver/server-resolver';
 
 import { FormNames } from './constants';
 import { contactUsSchema } from './schemas';
 
 import type { NextApiRequest as Req, NextApiResponse as Res } from 'next';
-import type { StructDataValues } from 'lib/superstruct';
+import type { StructDataValues } from 'lib/superstruct/resolver/types';
 
 export type HandleFormsRes = void;
 
