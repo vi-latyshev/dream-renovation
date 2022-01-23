@@ -238,7 +238,7 @@ let muiTheme = createTheme({
         MuiFormHelperText: {
             contained: {
                 position: 'absolute',
-                top: 75,
+                top: 70,
                 width: '100%',
                 '&$error': {
                     margin: 0,
@@ -247,13 +247,14 @@ let muiTheme = createTheme({
                     borderRadius: 10,
                     padding: '8px 16px',
                     fontSize: '0.875rem', // 14px
-                    // '&:after': {
-                    //     content: ' ',
-                    //     top: -12,
-                    //     border: '6px solid transparent',
-                    //     borderTopColor: 'transparent',
-                    //     borderBottomColor: 'rgba( 0, 0, 0, .6)',
-                    // },
+                    '&:after': {
+                        content: '""',
+                        position: 'absolute',
+                        top: -16,
+                        border: '8px solid transparent',
+                        borderTopColor: 'transparent',
+                        borderBottomColor: palette.error.main,
+                    },
                 },
                 '& > span': {
                     display: 'block',
