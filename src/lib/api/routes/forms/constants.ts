@@ -10,8 +10,9 @@ type FieldHumanNamesType = Record<string, string>;
 
 export const fieldHumanNames: FieldHumanNamesType = {
     name: 'Ваше имя',
-    phone: 'Телефон',
-    email: 'Почта',
+    phone: 'Ваш телефон',
+    email: 'Ваша почта',
+    message: 'Ваше сообщение',
 };
 
 type FormHandlerType = {

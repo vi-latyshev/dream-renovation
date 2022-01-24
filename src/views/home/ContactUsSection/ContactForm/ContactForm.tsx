@@ -5,7 +5,7 @@ import { contactUsSchema } from 'lib/api/routes/forms/schemas';
 import { Input } from 'components/controls';
 import { useReactForm } from 'components/controls/hooks';
 
-const useStyles = makeStyles(({ spacing }) => ({
+const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     contactForm: {
         display: 'flex',
         flexDirection: 'column',
@@ -22,6 +22,9 @@ const useStyles = makeStyles(({ spacing }) => ({
         '& > div:not(:last-child)': {
             marginRight: 100,
         },
+    },
+    messageInput: {
+        maxWidth: breakpoints.values.md,
     },
 }));
 
@@ -61,10 +64,11 @@ export const ContactForm = () => {
                 />
             </div>
             <Input
-                rows={2}
+                rows={3}
                 multiline
                 name="message"
                 control={control}
+                className={classes.messageInput}
             />
             <Button
                 type="submit"

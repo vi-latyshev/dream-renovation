@@ -4,6 +4,7 @@ import createBreakpoints from '@material-ui/core/styles/createBreakpoints';
 import createSpacing from '@material-ui/core/styles/createSpacing';
 import createTypography from '@material-ui/core/styles/createTypography';
 import createMixins from '@material-ui/core/styles/createMixins';
+import zIndex from '@material-ui/core/styles/zIndex';
 
 import type { TypographyStyleOptions } from '@material-ui/core/styles/createTypography';
 
@@ -231,6 +232,13 @@ let muiTheme = createTheme({
             },
             multiline: {
                 padding: 20,
+                paddingRight: 0,
+                minHeight: 88,
+                overflowY: 'auto',
+                resize: 'vertical',
+            },
+            inputMultiline: {
+                height: '100%',
             },
         },
         MuiInputLabel: {
@@ -241,9 +249,9 @@ let muiTheme = createTheme({
         MuiFormHelperText: {
             contained: {
                 position: 'absolute',
-                top: 'calc(10px + 100%)',
-                maxWidth: 300,
-                width: '100%',
+                top: `calc(${spacing(1)}px + 100%)`,
+                maxWidth: '100%',
+                zIndex: zIndex.tooltip,
                 '&$error': {
                     margin: 0,
                     backgroundColor: palette.error.main,

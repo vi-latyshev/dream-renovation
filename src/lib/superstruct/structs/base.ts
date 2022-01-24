@@ -47,3 +47,9 @@ export const PhoneStruct = pattern(
     phoneRegExp,
     '+7 123 456 789',
 );
+
+export const MessageStruct = size(
+    baseStrStruct,
+    2,
+    10000,
+);
