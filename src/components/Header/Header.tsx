@@ -1,5 +1,6 @@
 import { Container, makeStyles } from '@material-ui/core';
 
+import { Link } from 'components/controls';
 import { LogoIcon } from 'icons/Logo';
 
 import { Navigation } from './Navigation';
@@ -23,7 +24,9 @@ export const Header = () => {
     return (
         <Container component="header" className={classes.header}>
             <div className={classes.container}>
-                <LogoIcon />
+                <Link href="/">
+                    <LogoIcon />
+                </Link>
                 <Navigation />
                 <Socials />
             </div>

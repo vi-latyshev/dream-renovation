@@ -1,4 +1,4 @@
-import { PageBase } from 'components/Page';
+import { Page } from 'components/Page';
 
 import { ServicesContainer } from 'views/services/components';
 import { BathroomView } from 'views/services/bathroom';
@@ -10,11 +10,11 @@ const meta: PageMetaProps = {
 };
 
 const BathroomPage = () => (
-    <PageBase meta={meta}>
+    <Page meta={meta}>
         <ServicesContainer title={meta.title!}>
             <BathroomView />
         </ServicesContainer>
-    </PageBase>
+    </Page>
 );
 
 export default BathroomPage;
