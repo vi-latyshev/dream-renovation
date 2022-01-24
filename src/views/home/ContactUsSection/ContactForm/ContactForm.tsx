@@ -5,12 +5,15 @@ import { contactUsSchema } from 'lib/api/routes/forms/schemas';
 import { Input } from 'components/controls';
 import { useReactForm } from 'components/controls/hooks';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(({ spacing }) => ({
     contactForm: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         width: '100%',
+        '& > div:not(:last-child)': {
+            marginBottom: spacing(8),
+        },
     },
     inputContainer: {
         display: 'flex',
@@ -19,9 +22,6 @@ const useStyles = makeStyles(() => ({
         '& > div:not(:last-child)': {
             marginRight: 100,
         },
-    },
-    button: {
-        marginTop: 100,
     },
 }));
 
@@ -49,18 +49,15 @@ export const ContactForm = () => {
                     required
                     name="name"
                     control={control}
-                    label={fieldHumanNames}
                 />
                 <Input
                     required
                     name="phone"
                     control={control}
-                    label={fieldHumanNames}
                 />
                 <Input
                     name="email"
                     control={control}
-                    label={fieldHumanNames}
                 />
             </div>
             <Button
@@ -68,7 +65,6 @@ export const ContactForm = () => {
                 color="secondary"
                 variant="outlined"
                 disabled={formState.isSubmitting}
-                className={classes.button}
             >
                 Связаться с нами
             </Button>

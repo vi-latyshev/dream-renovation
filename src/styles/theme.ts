@@ -229,6 +229,9 @@ let muiTheme = createTheme({
             input: {
                 padding: 20,
             },
+            multiline: {
+                padding: 20,
+            },
         },
         MuiInputLabel: {
             root: {
@@ -238,7 +241,8 @@ let muiTheme = createTheme({
         MuiFormHelperText: {
             contained: {
                 position: 'absolute',
-                top: 70,
+                top: 'calc(10px + 100%)',
+                maxWidth: 300,
                 width: '100%',
                 '&$error': {
                     margin: 0,
