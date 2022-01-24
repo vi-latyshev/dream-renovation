@@ -1,6 +1,8 @@
 import { TextField } from '@material-ui/core';
 import { Controller } from 'react-hook-form';
 
+import { fieldHumanNames } from 'lib/api/routes/forms/constants';
+
 import type { FieldValues, UseControllerProps } from 'react-hook-form';
 import type { TextFieldProps } from '@material-ui/core';
 
@@ -9,7 +11,7 @@ type HookUseControllerProps<T> = Omit<UseControllerProps<T>, 'rules'>;
 type MaterialTexFieldProps = Omit<TextFieldProps, 'name' | 'error' | 'label' | 'placeholder' | 'defaultValue'>;
 
 export interface InputProps<T> extends HookUseControllerProps<T>, MaterialTexFieldProps {
-    label: string | Record<string, string>;
+    label?: string;
 }
 
 export const Input = <T extends FieldValues>(props: InputProps<T>) => {
@@ -20,7 +22,7 @@ export const Input = <T extends FieldValues>(props: InputProps<T>) => {
         ...rest
     } = props;
 
-    const label = typeof labelProp === 'object' ? (labelProp[name] ?? name) : labelProp;
+    const label = labelProp ?? (fieldHumanNames[name] ?? name);
 
     return (
         <Controller

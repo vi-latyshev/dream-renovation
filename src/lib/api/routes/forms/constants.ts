@@ -6,7 +6,9 @@ export enum FormNames {
     CONTACT_US_FORM = 'contact_us',
 }
 
-export const fieldHumanNames = {
+type FieldHumanNamesType = Record<string, string>;
+
+export const fieldHumanNames: FieldHumanNamesType = {
     name: 'Ваше имя',
     phone: 'Телефон',
     email: 'Почта',
