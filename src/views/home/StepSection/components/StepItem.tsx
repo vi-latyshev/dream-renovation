@@ -10,7 +10,7 @@ interface StepItemProps {
 
 const useStyles = makeStyles(({ palette, spacing }) => ({
     itemContainer: {
-        width: 455,
+        width: 440,
         textAlign: 'center',
     },
     stepTitle: {
@@ -20,8 +20,8 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
     },
     stepTitleIcon: {
         position: 'absolute',
-        right: -15,
-        bottom: -5,
+        right: -10,
+        bottom: -2,
     },
     title: {
         marginBottom: spacing(1),
@@ -41,11 +41,7 @@ export const StepItem = ({ step, title, children }: StepItemProps) => {
         >
             <Typography variant="h1" component="h2" className={classes.stepTitle}>
                 {step}
-                <GearIcon
-                    fontSize="large"
-                    color="secondary"
-                    className={classes.stepTitleIcon}
-                />
+                <GearIcon color="secondary" className={classes.stepTitleIcon} />
             </Typography>
             <Typography variant="h3" className={classes.title}>
                 {title}

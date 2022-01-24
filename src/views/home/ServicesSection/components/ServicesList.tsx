@@ -8,10 +8,10 @@ export interface ServicesCardListProps {
     items: ServicesCardProps[];
 }
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(({ spacing }) => ({
     list: {
-        marginTop: 60,
-        marginBottom: 60,
+        marginTop: spacing(8),
+        marginBottom: spacing(8),
     },
 }));
 

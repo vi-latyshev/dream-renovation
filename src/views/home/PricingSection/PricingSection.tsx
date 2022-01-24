@@ -12,7 +12,7 @@ export const PRICING_SECTION_ID = 'pricing';
 
 const useStyles = makeStyles(({ spacing }) => ({
     itemsContainer: {
-        margin: spacing(10),
+        marginTop: spacing(10),
     },
 }));
 

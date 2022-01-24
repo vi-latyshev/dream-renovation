@@ -7,9 +7,7 @@ interface PriceFeatureItemContainerProps {
 const useStyles = makeStyles(({ spacing }) => ({
     item: {
         display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        margin: spacing(2, 0),
+        margin: spacing(2, 1),
         textAlign: 'left',
     },
 }));

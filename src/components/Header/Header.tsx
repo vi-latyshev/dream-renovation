@@ -5,11 +5,15 @@ import { LogoIcon } from 'icons/Logo';
 import { Navigation } from './Navigation';
 import { Socials } from './Socials';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     header: {
         display: 'flex',
         marginTop: 30,
         marginBottom: 30,
+    },
+    container: {
+        display: 'flex',
+        width: breakpoints.values.xl - ((breakpoints.values.xl - breakpoints.values.lg) / 2 + spacing(3)),
     },
 }));
 
@@ -18,9 +22,11 @@ export const Header = () => {
 
     return (
         <Container component="header" className={classes.header}>
-            <LogoIcon />
-            <Navigation />
-            <Socials />
+            <div className={classes.container}>
+                <LogoIcon />
+                <Navigation />
+                <Socials />
+            </div>
         </Container>
     );
 };

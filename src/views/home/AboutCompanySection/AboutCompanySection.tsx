@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { makeStyles, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 
-import aboutCompanyImg from 'images/about-image.png';
+import aboutCompanyImg from './images/about-image.png';
 import { SectionWithContainer } from 'components/Section';
 
 export const ABOUNT_SECTION_ID = 'about';

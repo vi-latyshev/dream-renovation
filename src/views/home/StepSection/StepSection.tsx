@@ -8,9 +8,10 @@ import { StepItem } from './components';
 const useStyles = makeStyles(({ spacing }) => ({
     stepsContainer: {
         margin: spacing(8, 0),
+        maxWidth: `calc(100% - ${spacing(7)}px)`,
     },
     ruleIcon: {
-        width: 1420,
+        width: '100%',
         height: 90,
     },
 }));
@@ -19,20 +20,14 @@ export const StepSection = () => {
     const classes = useStyles();
 
     return (
-        <SectionWithContainer maxWidth="xl">
+        <SectionWithContainer>
             <Typography variant="h1" component="h2">
                 Пройдём следующие этапы:
             </Typography>
-            <Grid
-                container
-                direction="column"
-                className={classes.stepsContainer}
-            >
+            <Grid container className={classes.stepsContainer}>
                 <Grid
-                    item
                     container
                     spacing={10}
-                    direction="row"
                     justifyContent="flex-start"
                 >
                     <StepItem step="1" title="Заявка на услуги">
@@ -49,10 +44,8 @@ export const StepSection = () => {
                     </StepItem>
                 </Grid>
                 <Grid
-                    item
                     container
                     spacing={10}
-                    direction="row"
                     justifyContent="flex-end"
                 >
                     <StepItem step="2" title="Выезд замерщика">

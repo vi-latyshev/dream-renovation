@@ -34,10 +34,10 @@ const palette = createPalette({
 const breakpoints = createBreakpoints({
     values: {
         xs: 0,
-        sm: 576,
-        md: 894,
-        lg: 1150,
-        xl: 1480,
+        sm: 600,
+        md: 960,
+        lg: 1260,
+        xl: 1520,
     },
 });
 
@@ -106,7 +106,7 @@ let muiTheme = createTheme({
     },
     props: {
         MuiContainer: {
-            maxWidth: 'lg',
+            maxWidth: 'xl',
         },
         MuiLink: {
             variant: 'body1',
@@ -135,14 +135,6 @@ let muiTheme = createTheme({
         },
     },
     overrides: {
-        MuiCssBaseline: {
-            '@global': {
-                body: {
-                    // @TODO remove and fix it
-                    overflowX: 'hidden',
-                },
-            },
-        },
         MuiLink: {
             root: {
                 display: 'inline-block',
@@ -154,14 +146,14 @@ let muiTheme = createTheme({
         },
         MuiButton: {
             root: {
-                minWidth: 260,
+                minWidth: 320,
                 textTransform: 'unset',
                 fontWeight: 'bold',
                 fontSize: '1.25rem', // 20px
             },
             contained: {
                 borderRadius: 5,
-                padding: '10px 40px',
+                padding: '12px 40px',
             },
             containedPrimary: {
                 color: palette.common.white,

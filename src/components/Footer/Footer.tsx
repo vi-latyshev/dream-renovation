@@ -11,6 +11,10 @@ const useStyles = makeStyles(({ spacing }) => ({
         alignItems: 'center',
         padding: spacing(5, 0),
     },
+    logo: {
+        width: 222,
+        height: 99,
+    },
 }));
 
 export const Footer = () => {
@@ -18,7 +22,7 @@ export const Footer = () => {
 
     return (
         <Container component="footer" className={classes.footer}>
-            <LogoIcon />
+            <LogoIcon className={classes.logo} />
             <ContactsBlock />
         </Container>
     );

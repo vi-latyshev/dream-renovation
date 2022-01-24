@@ -5,13 +5,13 @@ export interface SectionProps extends ContainerProps {
     withoutVerticalPadding?: boolean;
 }
 
-const useStyles = makeStyles(({ mixins }) => ({
+const useStyles = makeStyles(({ mixins, spacing }) => ({
     section: {
         ...mixins.flexCenter,
     },
     verticalPadding: {
-        paddingTop: 120,
-        paddingBottom: 120,
+        paddingTop: spacing(12),
+        paddingBottom: spacing(12),
     },
 }));
 

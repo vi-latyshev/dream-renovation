@@ -9,8 +9,9 @@ interface PriceFeatureItemProps {
 
 const useStyles = makeStyles(({ spacing }) => ({
     icon: {
+        marginTop: 2,
         marginLeft: spacing(1),
-        marginRight: spacing(1),
+        marginRight: spacing(2),
     },
 }));
 

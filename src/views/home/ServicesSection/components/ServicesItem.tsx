@@ -14,12 +14,16 @@ export interface ServicesCardProps {
     url: string;
 }
 
-const useStyles = makeStyles(({ spacing }) => ({
+const useStyles = makeStyles(({ spacing, palette }) => ({
     paper: {
         padding: spacing(2),
+        '&:hover $title': {
+            color: palette.primary.main,
+        },
     },
     title: {
-        marginBottom: spacing(2),
+        transition: 'color .3s',
+        marginBottom: spacing(4),
     },
 }));
 
@@ -36,7 +40,7 @@ export const ServicesCard = ({ title, img, url }: ServicesCardProps) => {
                     <Image
                         src={img}
                         alt={title}
-                        width={200}
+                        width={235}
                         height={177}
                         objectFit="cover"
                         placeholder="blur"
