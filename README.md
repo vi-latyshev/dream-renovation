@@ -38,6 +38,7 @@
 * [axios](https://github.com/axios/axios) ─ xhr requests
 * [react-hook-form](https://react-hook-form.com/) ─ react forms
 * [superstruct](https://docs.superstructjs.org/) - validation of form fields, using for client and server side
+* [nodemailer](https://nodemailer.com/) - for sending mails from backend
 
 ## Install
 

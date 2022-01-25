@@ -12,7 +12,7 @@ declare namespace NodeJS {
         readonly DOMAIN: string;
 
         // .env
-        readonly ACCOUNT_NAME_MAIL: string;
-        readonly ACCOUNT_PASS_MAIL: string;
+        readonly MAIL_ACCOUNT_NAME: string;
+        readonly MAIL_ACCOUNT_PASS: string;
     }
 }

@@ -5,8 +5,8 @@ export const HOST = 'smtp.beget.com';
 
 export const PORT = 465;
 
-export const ACCOUNT = process.env.ACCOUNT_NAME_MAIL;
+export const ACCOUNT = process.env.MAIL_ACCOUNT_NAME;
 
-export const ACCOUNT_PASS = process.env.ACCOUNT_PASS_MAIL;
+export const ACCOUNT_PASS = process.env.MAIL_ACCOUNT_PASS;
 
 export const FROM_TITLE_DEFAULT = 'Ремонт Мечты';

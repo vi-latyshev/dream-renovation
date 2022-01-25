@@ -3,7 +3,7 @@ import { APIError } from './error';
 import type { ServerResponse } from 'http';
 
 /**
- * @TODO more info to log
+ * @TODO add Sentry or smth else
  */
 const sendError = (e: APIError, res: ServerResponse) => {
     const internalError = e.internalError ? `${JSON.stringify(e.internalError)}\n` : '';

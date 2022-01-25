@@ -10,20 +10,18 @@ import type { Infer, Struct } from 'lib/superstruct/base';
 import type { APIErrorJSON } from 'lib/api/error';
 import type { FormNames } from 'lib/api/routes/forms/constants';
 
-type HandleSubmitForm = (
-    handlers: {
-        onSuccessSubmit?: () => Promise<void>,
-        onErrorSubmit?: () => Promise<void>,
-    },
-) => (e?: React.BaseSyntheticEvent) => Promise<void>;
-
 interface UseReactFormProps<T, S> {
     formName: FormNames,
     schema: Struct<T, S>,
 }
 
 interface UseReactFormReturn<T extends FieldValues> extends Omit<UseFormReturn<T>, 'handleSubmit'> {
-    handleSubmitForm: HandleSubmitForm;
+    handleSubmitForm: (
+        handlers: {
+            onSuccessSubmit?: () => Promise<void>,
+            onErrorSubmit?: () => Promise<void>,
+        },
+    ) => (e?: React.BaseSyntheticEvent) => Promise<void>;
 }
 
 const FORM_ENDPOINT_API = 'api/forms';

@@ -37,7 +37,7 @@ export const Input = <T extends FieldValues>(props: InputProps<T>) => {
             }) => {
                 const helperText = error?.message
                     ?.split('\n')
-                    .map((str) => <span key={str}>{str}</span>) ?? ' ';
+                    .map((str) => <span key={str}>{str}</span>);
 
                 return (
                     <TextField
