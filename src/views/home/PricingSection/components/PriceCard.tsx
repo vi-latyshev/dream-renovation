@@ -21,9 +21,12 @@ interface PriceCardProps {
 
 const useStyles = makeStyles(({ spacing, typography }) => ({
     pricePaper: {
-        width: 380,
+        width: 392,
         textAlign: 'center',
-        padding: spacing(4),
+        padding: spacing(4, 1),
+    },
+    decrContainer: {
+        margin: spacing(2, 3),
     },
     title: {
         margin: spacing(2, 0),
@@ -74,40 +77,42 @@ export const PriceCard = ({
                 <Image
                     src={image}
                     alt={title}
-                    width={305}
+                    width={366}
                     height={200}
                     objectFit="cover"
                 />
-                <Typography variant="h3" className={classes.title}>
-                    {title}
-                </Typography>
-                <Typography
-                    variant="h3"
-                    color="primary"
-                    className={classes.price}
-                >
-                    от {price} руб м<sup>2</sup>
-                </Typography>
-                <Typography className={classes.types}>
-                    Какие работы входят:
-                </Typography>
-                <div className={classes.featuresList}>
-                    {featuresItems.map((feature) => (
-                        <PriceFeatureItem key={feature}>
-                            {feature}
-                        </PriceFeatureItem>
-                    ))}
-                </div>
-                <PriceOptionsButton onClick={handleClickOpen} />
-                <Collapse in={isOpened}>
+                <div className={classes.decrContainer}>
+                    <Typography variant="h3" className={classes.title}>
+                        {title}
+                    </Typography>
+                    <Typography
+                        variant="h3"
+                        color="primary"
+                        className={classes.price}
+                    >
+                        от {price} руб м<sup>2</sup>
+                    </Typography>
+                    <Typography className={classes.types}>
+                        Какие работы входят:
+                    </Typography>
                     <div className={classes.featuresList}>
-                        {optionsFeatures.map((feature) => (
-                            <PriceOptionsFeatureItem key={feature}>
+                        {featuresItems.map((feature) => (
+                            <PriceFeatureItem key={feature}>
                                 {feature}
-                            </PriceOptionsFeatureItem>
+                            </PriceFeatureItem>
                         ))}
                     </div>
-                </Collapse>
+                    <PriceOptionsButton onClick={handleClickOpen} />
+                    <Collapse in={isOpened}>
+                        <div className={classes.featuresList}>
+                            {optionsFeatures.map((feature) => (
+                                <PriceOptionsFeatureItem key={feature}>
+                                    {feature}
+                                </PriceOptionsFeatureItem>
+                            ))}
+                        </div>
+                    </Collapse>
+                </div>
             </Paper>
         </Grid>
     );

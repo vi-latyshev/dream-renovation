@@ -20,17 +20,15 @@ const useStyles = makeStyles(({ palette, mixins, spacing }) => ({
         ...mixins.flexCenter,
         '&:hover': {
             '& $linkBackground': {
-                // @TODO fix transition
-                transition: '.3s',
                 backgroundColor: palette.primary.dark,
             },
             '& $linkIcon path': {
-                transition: '.3s',
                 fill: palette.primary.dark,
             },
         },
     },
     linkBackground: {
+        transition: '.3s',
         width: 40,
         height: 40,
         borderRadius: 100,
@@ -39,6 +37,9 @@ const useStyles = makeStyles(({ palette, mixins, spacing }) => ({
     },
     linkIcon: {
         position: 'absolute',
+        '& path': {
+            transition: '.3s',
+        },
     },
 }));
 

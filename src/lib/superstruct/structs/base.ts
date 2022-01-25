@@ -50,6 +50,6 @@ export const PhoneStruct = pattern(
 
 export const MessageStruct = size(
     baseStrStruct,
-    2,
+    1,
     10000,
 );

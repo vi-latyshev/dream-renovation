@@ -9,6 +9,7 @@ interface PriceOptionsFeatureItemProps {
 
 const useStyles = makeStyles(({ spacing, typography }) => ({
     icon: {
+        marginTop: spacing(1),
         fontSize: '0.5rem',
         marginLeft: spacing(2),
         marginRight: spacing(2),

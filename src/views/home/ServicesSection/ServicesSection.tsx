@@ -20,10 +20,7 @@ export const ServicesSection = () => {
     const classes = useStyles();
 
     return (
-        <SectionWithContainer
-            maxWidth="xl"
-            id={SERVICES_SECTION_ID}
-        >
+        <SectionWithContainer id={SERVICES_SECTION_ID}>
             <Typography variant="h1" component="h2" className={classes.title}>
                 Наши услуги
             </Typography>

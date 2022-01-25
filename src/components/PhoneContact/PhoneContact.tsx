@@ -4,14 +4,14 @@ import { PhoneEnabledSharp } from '@material-ui/icons';
 import { CONTACTS } from 'constants/contacts';
 import { Link } from 'components/controls';
 
-const useStyles = makeStyles(({ typography }) => ({
+const useStyles = makeStyles(({ typography, spacing }) => ({
     phone: {
         display: 'flex',
         alignItems: 'center',
         fontWeight: typography.fontWeightBold,
     },
     contactIcon: {
-        marginRight: 10,
+        marginRight: spacing(1),
     },
 }));
 

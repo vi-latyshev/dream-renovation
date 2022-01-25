@@ -18,6 +18,7 @@ export const ContactUsSection = () => {
 
     return (
         <SectionWithContainer
+            maxWidth="lg"
             id={CONTACT_US_SECTION_ID}
             className={classes.contact}
         >

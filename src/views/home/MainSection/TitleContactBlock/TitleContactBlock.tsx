@@ -15,31 +15,31 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
         position: 'absolute',
         flexDirection: 'column',
         alignItems: 'flex-start',
-        padding: '40px 90px 20px',
-        marginLeft: -90,
+        marginTop: spacing(6),
+        padding: spacing(5, 18, 5, 11),
         borderRadius: 5,
         backgroundColor: palette.background.default,
         boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.07)',
     },
     title: {
-        marginBottom: 50,
+        marginBottom: spacing(4),
     },
     benefits: {
-        '& > *': {
-            marginBottom: 30,
+        marginBottom: spacing(4),
+        '& > *:not(:last-child)': {
+            marginBottom: spacing(3),
         },
     },
     contactsContainer: {
         display: 'flex',
         flexDirection: 'row',
-        marginTop: 20,
+        marginTop: spacing(4),
         '& > *:not(:last-child)': {
             marginRight: spacing(8),
         },
     },
     contacts: {
         display: 'flex',
-        marginBottom: 20,
         flexDirection: 'column',
         '& > *:not(:first-child)': {
             marginTop: spacing(2),
@@ -50,7 +50,7 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
         alignItems: 'center',
     },
     contactIcon: {
-        marginRight: 10,
+        marginRight: spacing(1),
     },
 }));
 

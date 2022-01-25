@@ -15,15 +15,15 @@ const NAVIGATION_LIST = [
     { text: 'Цены', to: PRICING_SECTION_ID },
 ];
 
-const useStyles = makeStyles(({ typography }) => ({
+const useStyles = makeStyles(({ typography, spacing }) => ({
     nav: {
         display: 'flex',
         alignItems: 'center',
-        marginLeft: 100,
+        marginLeft: spacing(14),
     },
     link: {
         fontWeight: typography.fontWeightBold,
-        marginRight: 40,
+        marginRight: spacing(8),
         paddingLeft: 5,
         paddingRight: 5,
     },
