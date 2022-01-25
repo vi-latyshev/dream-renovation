@@ -10,5 +10,9 @@ declare namespace NodeJS {
         // next.config.js
         readonly IS_PRODUCTION: boolean;
         readonly DOMAIN: string;
+
+        // .env
+        readonly MAIL_ACCOUNT_NAME: string;
+        readonly MAIL_ACCOUNT_PASS: string;
     }
 }

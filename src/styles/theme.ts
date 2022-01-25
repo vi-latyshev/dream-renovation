@@ -4,6 +4,7 @@ import createBreakpoints from '@material-ui/core/styles/createBreakpoints';
 import createSpacing from '@material-ui/core/styles/createSpacing';
 import createTypography from '@material-ui/core/styles/createTypography';
 import createMixins from '@material-ui/core/styles/createMixins';
+import zIndex from '@material-ui/core/styles/zIndex';
 
 import type { TypographyStyleOptions } from '@material-ui/core/styles/createTypography';
 
@@ -26,7 +27,7 @@ const palette = createPalette({
         main: '#F2F2F2',
     },
     error: {
-        main: '#F42C00',
+        main: '#FF6464',
     },
 });
 
@@ -229,10 +230,47 @@ let muiTheme = createTheme({
             input: {
                 padding: 20,
             },
+            multiline: {
+                padding: 20,
+                paddingRight: 0,
+                minHeight: 88,
+                overflowY: 'auto',
+                resize: 'vertical',
+            },
+            inputMultiline: {
+                height: '100%',
+            },
         },
         MuiInputLabel: {
             root: {
                 fontSize: 0,
+            },
+        },
+        MuiFormHelperText: {
+            contained: {
+                position: 'absolute',
+                top: `calc(${spacing(1)}px + 100%)`,
+                maxWidth: '100%',
+                zIndex: zIndex.tooltip,
+                '&$error': {
+                    margin: 0,
+                    backgroundColor: palette.error.main,
+                    color: palette.common.white,
+                    borderRadius: 10,
+                    padding: '8px 16px',
+                    fontSize: '0.875rem', // 14px
+                    '&:after': {
+                        content: '""',
+                        position: 'absolute',
+                        top: -16,
+                        border: '8px solid transparent',
+                        borderTopColor: 'transparent',
+                        borderBottomColor: palette.error.main,
+                    },
+                },
+                '& > span': {
+                    display: 'block',
+                },
             },
         },
         MuiSlider: {
