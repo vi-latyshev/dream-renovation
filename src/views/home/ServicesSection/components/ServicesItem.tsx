@@ -40,8 +40,8 @@ export const ServicesCard = ({ title, img, url }: ServicesCardProps) => {
                     <Image
                         src={img}
                         alt={title}
-                        width={235}
-                        height={177}
+                        width={200}
+                        height={150}
                         objectFit="cover"
                         placeholder="blur"
                     />

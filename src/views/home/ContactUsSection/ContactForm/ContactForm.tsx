@@ -17,14 +17,14 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     },
     inputContainer: {
         display: 'flex',
-        marginTop: 100,
+        marginTop: spacing(12),
         width: '100%',
         '& > div:not(:last-child)': {
-            marginRight: 100,
+            marginRight: spacing(12),
         },
     },
     messageInput: {
-        maxWidth: breakpoints.values.md,
+        maxWidth: breakpoints.values.sm,
     },
 }));
 
