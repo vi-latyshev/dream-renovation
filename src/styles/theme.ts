@@ -6,6 +6,7 @@ import createTypography from '@material-ui/core/styles/createTypography';
 import createMixins from '@material-ui/core/styles/createMixins';
 import zIndex from '@material-ui/core/styles/zIndex';
 
+import type { TransitionsOptions } from '@material-ui/core';
 import type { TypographyStyleOptions } from '@material-ui/core/styles/createTypography';
 
 const palette = createPalette({
@@ -92,18 +93,20 @@ const mixins = createMixins(breakpoints, spacing, {
     },
 });
 
+const transitions: TransitionsOptions = {
+    duration: {
+        enteringScreen: 700,
+        leavingScreen: 700 / 1.5,
+    },
+};
+
 let muiTheme = createTheme({
     palette,
     breakpoints,
     spacing,
     typography,
     mixins,
-    transitions: {
-        duration: {
-            enteringScreen: 700,
-            leavingScreen: 700 / 1.2,
-        },
-    },
+    transitions,
     props: {
         MuiContainer: {
             maxWidth: 'xl',
@@ -132,6 +135,14 @@ let muiTheme = createTheme({
         },
         MuiOutlinedInput: {
             notched: false,
+        },
+        MuiModal: {
+            BackdropProps: {
+                timeout: {
+                    enter: transitions.duration!.enteringScreen,
+                    exit: transitions.duration!.leavingScreen,
+                },
+            },
         },
     },
     overrides: {

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { CssBaseline, ThemeProvider, StylesProvider } from '@material-ui/core';
 
 import { theme } from 'styles';
+import { ModalProvider } from 'components/Modal';
 import { BackToTop } from 'components/BackToTop';
 
 import type { AppProps } from 'next/app';
@@ -16,7 +17,9 @@ const App = ({ Component, pageProps }: AppProps) => {
         <StylesProvider injectFirst={false}>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
-                <Component {...pageProps} />
+                <ModalProvider>
+                    <Component {...pageProps} />
+                </ModalProvider>
                 <BackToTop />
             </ThemeProvider>
         </StylesProvider>
