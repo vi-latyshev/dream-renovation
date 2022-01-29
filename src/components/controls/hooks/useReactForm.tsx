@@ -4,21 +4,27 @@ import axios from 'axios';
 
 import { hookFormSchemaResolver, transformErrorsToClient } from 'lib/superstruct/resolver/hook-form-resolver';
 
-import type { Path, FieldValues, UseFormReturn } from 'react-hook-form';
+import type {
+    Path,
+    FieldValues,
+    UseFormReturn,
+    UnpackNestedValue,
+} from 'react-hook-form';
 import type { FieldErrors } from 'lib/superstruct/resolver/hook-form-resolver';
 import type { Infer, Struct } from 'lib/superstruct/base';
 import type { APIErrorJSON } from 'lib/api/error';
 import type { FormNames } from 'lib/api/routes/forms/constants';
 
 interface UseReactFormProps<T, S> {
-    formName: FormNames,
+    formName?: FormNames,
     schema: Struct<T, S>,
 }
 
 interface UseReactFormReturn<T extends FieldValues> extends Omit<UseFormReturn<T>, 'handleSubmit'> {
     handleSubmitForm: (
-        handlers: {
-            onSuccessSubmit?: () => Promise<void>,
+        submitFormOptions: {
+            withoutRequest?: boolean;
+            onSuccessSubmit?: (formData: UnpackNestedValue<T>) => Promise<void>,
             onErrorSubmit?: () => Promise<void>,
         },
     ) => (e?: React.BaseSyntheticEvent) => Promise<void>;
@@ -51,13 +57,17 @@ export const useReactForm = <T, S, I = Infer<Struct<T, S>>>({
     }, [formState, getValues, reset]);
 
     const handleSubmitForm: UseReactFormReturn<I>['handleSubmitForm'] = ({
-        onSuccessSubmit, onErrorSubmit,
+        withoutRequest,
+        onSuccessSubmit,
+        onErrorSubmit,
     }) => (e) => handleSubmit(async (formData) => {
         try {
-            await axios.post(FORM_ENDPOINT_API, formData, {
-                params: { form: formName },
-            });
-            await onSuccessSubmit?.();
+            if (!withoutRequest) {
+                await axios.post(FORM_ENDPOINT_API, formData, {
+                    params: { form: formName },
+                });
+            }
+            await onSuccessSubmit?.(formData);
         } catch (error) {
             try {
                 if (!axios.isAxiosError(error)) {
@@ -81,6 +91,7 @@ export const useReactForm = <T, S, I = Infer<Struct<T, S>>>({
         }
     })(e).catch((error) => {
         if (!process.env.IS_PRODUCTION) {
+            // @TODO logger
             console.error(error); // eslint-disable-line no-console
         }
     });

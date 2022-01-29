@@ -65,6 +65,7 @@ const typography = createTypography(palette, {
     h3: {
         ...defaultTypographyHeadings,
         fontSize: '1.5rem', // 24px
+        lineHeight: 1.3,
     },
     h4: {
         ...defaultTypographyHeadings,
@@ -138,7 +139,7 @@ let muiTheme = createTheme({
         },
         MuiModal: {
             BackdropProps: {
-                timeout: {
+                transitionDuration: {
                     enter: transitions.duration!.enteringScreen,
                     exit: transitions.duration!.leavingScreen,
                 },
@@ -210,7 +211,7 @@ let muiTheme = createTheme({
             root: {
                 borderWidth: 1,
                 borderRadius: 10,
-                backgroundColor: palette.background.default,
+                backgroundColor: palette.common.white,
                 borderColor: palette.action.disabledBackground,
                 transition: '0.15s',
                 '& $notchedOutline': {

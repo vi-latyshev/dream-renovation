@@ -8,6 +8,7 @@ const useStyles = makeStyles(({ spacing, palette, breakpoints }) => ({
     footer: {
         display: 'flex',
         justifyContent: 'center',
+        marginTop: spacing(2),
         boxShadow: `0px -6px 8px ${alpha(palette.text.primary, 0.06)}`,
     },
     container: {

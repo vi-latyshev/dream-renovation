@@ -10,19 +10,19 @@ type Payload = {
 
 type ActionType = ActionMap<Payload>[keyof ActionMap<Payload>];
 
-export const initialState: ModalState = {
+export const initialState = {
     isOpen: false,
 };
 
 export const modalReducer = (state: ModalState, action: ActionType) => {
     switch (action.type) {
         case Action.SHOW: {
-            const { component, props } = action.payload;
+            const { component, modalProps } = action.payload;
 
             return {
                 isOpen: true,
                 component,
-                props,
+                modalProps,
             };
         }
         case Action.HIDE: {

@@ -8,18 +8,17 @@ export enum Action {
 
 export type ModalComponentProps = {
     isError?: boolean;
-    title: string;
 };
 
-export type ModalProps<T> = T & ModalComponentProps;
+export type ModalProps<T extends ModalComponentProps = {}> = T;
 
 export type ModalState<T = ModalComponentProps> = Partial<ModalComponentState<T>> & {
     isOpen: boolean;
 };
 
 export type ModalComponentState<T = {}, Props = T & ModalComponentProps> = {
-    component: FunctionComponent<Omit<Props, 'title'>>;
-    props?: Props;
+    component: FunctionComponent<Props>;
+    modalProps: Props;
 };
 
 export type ActionMap<M extends Record<string, unknown>> = {

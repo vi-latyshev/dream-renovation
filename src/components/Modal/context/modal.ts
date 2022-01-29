@@ -5,12 +5,12 @@ import type { ModalComponentState } from '../types';
 export interface ModalContextState {
     showModal: <T>(
         component: ModalComponentState<T>['component'],
-        props?: ModalComponentState<T>['props'],
+        modalProps?: ModalComponentState<T>['modalProps'],
     ) => void;
     hideModal: () => void;
 }
 
-const initialModalContextState = {
+const initialModalContextState: ModalContextState = {
     showModal: () => { },
     hideModal: () => { },
 };

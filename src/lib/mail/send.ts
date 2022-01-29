@@ -19,6 +19,12 @@ export interface SendMailProps {
 }
 
 export const sendMail = async ({ fromTitle, subject, template }: SendMailProps) => {
+    if (process.env.NODE_ENV !== 'production') {
+        // @TODO logger
+        console.info(`skip send mail: ${subject}`); // eslint-disable-line no-console
+
+        return;
+    }
     try {
         const transporter = nodemailer.createTransport({
             host: HOST,

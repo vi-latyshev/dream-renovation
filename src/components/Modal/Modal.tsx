@@ -4,7 +4,6 @@ import {
     Modal as MaterialModal,
     useTheme,
     makeStyles,
-    Typography,
 } from '@material-ui/core';
 import { CloseRounded } from '@material-ui/icons';
 
@@ -14,42 +13,44 @@ interface ModalProps extends ModalState {
     onClose: () => void;
 }
 
-const useStyles = makeStyles(({ breakpoints, spacing }) => ({
+const useStyles = makeStyles(({ breakpoints, spacing, palette }) => ({
     modal: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
     },
     paper: {
+        position: 'relative',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        textAlign: 'center',
         width: breakpoints.values.lg,
-        padding: spacing(4, 6),
+        backgroundColor: palette.background.default,
+        padding: spacing(10),
     },
     iconClose: {
         position: 'absolute',
-        alignSelf: 'flex-end',
         cursor: 'pointer',
+        top: spacing(6),
+        right: spacing(6),
     },
 }));
 
 export const Modal = ({
     component: Component,
-    props,
     isOpen,
     onClose,
+    modalProps,
 }: ModalProps) => {
     const classes = useStyles();
     const theme = useTheme();
 
-    const { title, ...restProps } = props ?? {};
-
     return (
         <MaterialModal
-            closeAfterTransition
             open={isOpen}
             onClose={onClose}
+            closeAfterTransition
             className={classes.modal}
         >
             <Fade
@@ -63,14 +64,11 @@ export const Modal = ({
                 <Paper className={classes.paper}>
                     <CloseRounded
                         fontSize="large"
-                        color={props?.isError ? 'error' : 'primary'}
-                        className={classes.iconClose}
                         onClick={onClose}
+                        color={modalProps?.isError ? 'error' : 'primary'}
+                        className={classes.iconClose}
                     />
-                    <Typography variant="h1" color={props?.isError ? 'error' : 'primary'}>
-                        {title}
-                    </Typography>
-                    {Component && <Component {...restProps} />}
+                    {Component && <Component {...modalProps} />}
                 </Paper>
             </Fade>
         </MaterialModal>

@@ -4,7 +4,7 @@ import { FormNames } from 'lib/api/routes/forms/constants';
 import { contactUsSchema } from 'lib/api/routes/forms/schemas';
 import { Input } from 'components/controls';
 import { useReactForm } from 'components/controls/hooks';
-import { useModal } from 'components/Modal';
+import { useModal, ModalBodyFormResp } from 'components/Modal';
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     contactForm: {
@@ -38,21 +38,12 @@ export const ContactForm = () => {
         schema: contactUsSchema,
     });
 
-    const handleClick = () => {
-        // const Test = ({ test }: { test: string; }) => (
-        //     <>
-        //         {test}
-        //     </>
-        // );
-        showModal(ContactForm);
-    };
-
     const handleContactForm = handleSubmitForm({
         onSuccessSubmit: async () => {
-
+            showModal(ModalBodyFormResp);
         },
         onErrorSubmit: async () => {
-
+            showModal(ModalBodyFormResp, { isError: true });
         },
     });
 
@@ -85,7 +76,6 @@ export const ContactForm = () => {
                 type="submit"
                 color="secondary"
                 variant="outlined"
-                onClick={handleClick}
                 disabled={formState.isSubmitting}
             >
                 Связаться с нами

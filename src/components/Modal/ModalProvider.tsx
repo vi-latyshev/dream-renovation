@@ -12,12 +12,12 @@ interface ModalProviderProps {
 export const ModalProvider = ({ children }: ModalProviderProps) => {
     const [state, dispatch] = useReducer(modalReducer, initialState);
 
-    const showModal = useCallback((component, props) => {
+    const showModal = useCallback((component, modalProps = {}) => {
         dispatch({
             type: Action.SHOW,
             payload: {
                 component,
-                props,
+                modalProps,
             },
         });
     }, []);
