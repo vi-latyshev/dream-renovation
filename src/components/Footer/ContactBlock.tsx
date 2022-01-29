@@ -9,7 +9,6 @@ const useStyles = makeStyles(({ typography, spacing }) => ({
         display: 'flex',
         flexDirection: 'row',
         marginLeft: 'auto',
-        marginRight: spacing(5),
     },
     contactName: {
         display: 'flex',

@@ -4,6 +4,7 @@ import { FormNames } from 'lib/api/routes/forms/constants';
 import { contactUsSchema } from 'lib/api/routes/forms/schemas';
 import { Input } from 'components/controls';
 import { useReactForm } from 'components/controls/hooks';
+import { useModal, ModalBodyFormResp } from 'components/Modal';
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     contactForm: {
@@ -17,19 +18,20 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     },
     inputContainer: {
         display: 'flex',
-        marginTop: 100,
+        marginTop: spacing(12),
         width: '100%',
         '& > div:not(:last-child)': {
-            marginRight: 100,
+            marginRight: spacing(12),
         },
     },
     messageInput: {
-        maxWidth: breakpoints.values.md,
+        maxWidth: breakpoints.values.sm,
     },
 }));
 
 export const ContactForm = () => {
     const classes = useStyles();
+    const { showModal } = useModal();
 
     const { control, handleSubmitForm, formState } = useReactForm({
         formName: FormNames.CONTACT_US_FORM,
@@ -38,10 +40,10 @@ export const ContactForm = () => {
 
     const handleContactForm = handleSubmitForm({
         onSuccessSubmit: async () => {
-
+            showModal(ModalBodyFormResp);
         },
         onErrorSubmit: async () => {
-
+            showModal(ModalBodyFormResp, { isError: true });
         },
     });
 

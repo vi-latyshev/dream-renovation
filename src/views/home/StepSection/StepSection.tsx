@@ -12,7 +12,7 @@ const useStyles = makeStyles(({ spacing }) => ({
     },
     ruleIcon: {
         width: '100%',
-        height: 90,
+        height: '100%',
     },
 }));
 
