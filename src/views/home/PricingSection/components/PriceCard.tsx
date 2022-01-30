@@ -79,6 +79,7 @@ export const PriceCard = ({
                     alt={title}
                     width={366}
                     height={200}
+                    placeholder="blur"
                     objectFit="cover"
                 />
                 <div className={classes.decrContainer}>

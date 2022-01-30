@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
@@ -56,7 +56,7 @@ export const useReactForm = <T, S, I = Infer<Struct<T, S>>>({
         reset();
     }, [formState, getValues, reset]);
 
-    const handleSubmitForm: UseReactFormReturn<I>['handleSubmitForm'] = ({
+    const handleSubmitForm = useCallback<UseReactFormReturn<I>['handleSubmitForm']>(({
         withoutRequest,
         onSuccessSubmit,
         onErrorSubmit,
@@ -94,7 +94,7 @@ export const useReactForm = <T, S, I = Infer<Struct<T, S>>>({
             // @TODO logger
             console.error(error); // eslint-disable-line no-console
         }
-    });
+    }), [formName, handleSubmit, setError]);
 
     return {
         reset,

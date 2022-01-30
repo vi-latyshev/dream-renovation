@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+import { useCallback } from 'react';
 import { makeStyles } from '@material-ui/core';
 import { scroller } from 'react-scroll';
 
@@ -31,11 +33,15 @@ const useStyles = makeStyles(({ typography, spacing }) => ({
 
 export const Navigation = () => {
     const classes = useStyles();
+    const router = useRouter();
 
-    const scrollToSection = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-        event.preventDefault();
+    const scrollToSection = useCallback(async (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        const { hash, href, pathname: targetPathname } = event.target as HTMLAnchorElement;
 
-        const { hash } = event.target as HTMLAnchorElement;
+        if (router.pathname !== targetPathname) {
+            await router.push(href);
+        }
+
         const containerId = hash.replace('#', '');
 
         scroller.scrollTo(containerId, {
@@ -44,14 +50,14 @@ export const Navigation = () => {
             isDynamic: true,
             duration: theme.transitions.duration.enteringScreen,
         });
-    };
+    }, [router]);
 
     return (
         <nav className={classes.nav}>
             {NAVIGATION_LIST.map(({ text, to }) => (
                 <Link
                     key={text + to}
-                    href={`#${to}`}
+                    href={`/#${to}`}
                     onClick={scrollToSection}
                     className={classes.link}
                 >

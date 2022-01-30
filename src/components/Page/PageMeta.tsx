@@ -16,12 +16,12 @@ export const PageMeta = ({
     title: pageTitle,
     description = DEFAULT_DESCRIPTION,
 }: PageMetaProps) => {
-    const { pathname } = useRouter();
+    const router = useRouter();
 
-    const title = pathname === '/'
+    const title = router.pathname === '/'
         ? `${DEFAULT_TITLE} - ${pageTitle}`
         : `${pageTitle} - ${DEFAULT_TITLE}`;
-    const fullPath = `${DOMAIN_URL}${pathname}`;
+    const fullPath = `${DOMAIN_URL}${router.pathname}`;
 
     return (
         <Head>

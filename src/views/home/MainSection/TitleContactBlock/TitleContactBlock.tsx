@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { Button, makeStyles, Typography } from '@material-ui/core';
 import { AlternateEmail } from '@material-ui/icons';
 import { scroller } from 'react-scroll';
@@ -57,13 +58,13 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
 export const TitleContactBlock = () => {
     const classes = useStyles();
 
-    const handleClickContactUs = () => {
+    const handleClickContactUs = useCallback(() => {
         scroller.scrollTo(CONTACT_US_SECTION_ID, {
             smooth: true,
             isDynamic: true,
             duration: theme.transitions.duration.enteringScreen,
         });
-    };
+    }, []);
 
     return (
         <div className={classes.contactBlock}>
