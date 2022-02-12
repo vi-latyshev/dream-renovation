@@ -1,4 +1,4 @@
-import { useReducer, useCallback } from 'react';
+import { useReducer, useCallback, useMemo } from 'react';
 
 import { Action } from './types';
 import { ModalContext } from './context/modal';
@@ -28,13 +28,13 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
         });
     }, []);
 
+    const modalValue = useMemo(() => ({
+        showModal,
+        hideModal,
+    }), [showModal, hideModal]);
+
     return (
-        <ModalContext.Provider
-            value={{
-                showModal,
-                hideModal,
-            }}
-        >
+        <ModalContext.Provider value={modalValue}>
             {children}
             <Modal onClose={hideModal} {...state} />
         </ModalContext.Provider>

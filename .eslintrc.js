@@ -7,8 +7,7 @@ module.exports = {
     extends: [
         'airbnb',
         'airbnb-typescript',
-        'plugin:import/typescript',
-        'next',
+        'plugin:@next/next/recommended',
     ],
     env: {
         browser: true,
@@ -118,6 +117,9 @@ module.exports = {
         'react/react-in-jsx-scope': 'off',
         'react/require-default-props': 'off',
         'react/display-name': 'off',
+        'react/function-component-definition': ['error', {
+            namedComponents: 'arrow-function',
+        }],
         'react-hooks/exhaustive-deps': 'off',
 
         // jsx-a11y
