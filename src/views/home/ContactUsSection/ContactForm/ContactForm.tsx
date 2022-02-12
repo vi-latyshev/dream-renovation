@@ -66,8 +66,9 @@ export const ContactForm = () => {
                 />
             </div>
             <Input
-                rows={3}
                 multiline
+                minRows={3}
+                maxRows={6}
                 name="message"
                 control={control}
                 className={classes.messageInput}

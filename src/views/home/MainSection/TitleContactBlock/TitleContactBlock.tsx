@@ -1,9 +1,6 @@
-import { useCallback } from 'react';
 import { Button, makeStyles, Typography } from '@material-ui/core';
 import { AlternateEmail } from '@material-ui/icons';
-import { scroller } from 'react-scroll';
 
-import { theme } from 'styles';
 import { CONTACTS } from 'constants/contacts';
 import { Link } from 'components/controls';
 import { PhoneContact } from 'components/PhoneContact';
@@ -58,14 +55,6 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
 export const TitleContactBlock = () => {
     const classes = useStyles();
 
-    const handleClickContactUs = useCallback(() => {
-        scroller.scrollTo(CONTACT_US_SECTION_ID, {
-            smooth: true,
-            isDynamic: true,
-            duration: theme.transitions.duration.enteringScreen,
-        });
-    }, []);
-
     return (
         <div className={classes.contactBlock}>
             <Typography variant="h1" className={classes.title}>
@@ -84,7 +73,7 @@ export const TitleContactBlock = () => {
                     Профессионалы с многолетним опытом работы
                 </Typography>
             </div>
-            <Button onClick={handleClickContactUs}>
+            <Button component={Link} href={`#${CONTACT_US_SECTION_ID}`}>
                 Связаться с нами
             </Button>
             <div className={classes.contactsContainer}>

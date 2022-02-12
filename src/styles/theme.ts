@@ -1,3 +1,4 @@
+import { Backdrop } from '@material-ui/core';
 import { createTheme, alpha, responsiveFontSizes } from '@material-ui/core/styles';
 import createPalette from '@material-ui/core/styles/createPalette';
 import createBreakpoints from '@material-ui/core/styles/createBreakpoints';
@@ -138,6 +139,7 @@ let muiTheme = createTheme({
             notched: false,
         },
         MuiModal: {
+            BackdropComponent: Backdrop,
             BackdropProps: {
                 transitionDuration: {
                     enter: transitions.duration!.enteringScreen,
@@ -162,6 +164,7 @@ let muiTheme = createTheme({
                 textTransform: 'unset',
                 fontWeight: 'bold',
                 fontSize: '1.25rem', // 20px
+                textAlign: 'center',
             },
             contained: {
                 borderRadius: 5,
@@ -169,6 +172,10 @@ let muiTheme = createTheme({
             },
             containedPrimary: {
                 color: palette.common.white,
+                // for component={Link}
+                '& > span': {
+                    color: palette.common.white,
+                },
             },
             // not used
             // containedSecondary: {},
@@ -237,9 +244,6 @@ let muiTheme = createTheme({
             multiline: {
                 padding: 20,
                 paddingRight: 0,
-                minHeight: 88,
-                overflowY: 'auto',
-                resize: 'vertical',
             },
             inputMultiline: {
                 height: '100%',
