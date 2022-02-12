@@ -1,8 +1,7 @@
 const fs = require('fs').promises;
 const path = require('path');
 const waitOn = require('wait-on');
-
-const defaultUrl = 'http://localhost:3000/';
+const next = require('@next/env');
 
 const getOptions = (resources) => ({
     resources,
@@ -18,11 +17,17 @@ const getOptions = (resources) => ({
  * @TODO SWR - mb remove it after adding SWR?
  */
 (async () => {
+    console.info('precompile - start');
+
+    next.loadEnvConfig(process.cwd(), true);
+    const defaultUrl = process.env.NEXT_PUBLIC_URL ?? 'http://localhost:3000';
+
     const files = await fs.readdir('src/pages/api', { withFileTypes: true });
 
     const resources = files.map((value) => (
-        `${defaultUrl}api/${path.parse(value.name).name}/`
+        `${defaultUrl}/api/${path.parse(value.name).name}/`
     ));
+
     resources.unshift(defaultUrl);
 
     const opts = getOptions(resources);

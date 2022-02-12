@@ -12,7 +12,6 @@ const sendError = (e: APIError, res: ServerResponse) => {
     const stringified = JSON.stringify(e);
 
     res.setHeader('Content-Type', 'application/json; charset=utf-8');
-    res.setHeader('Content-Length', Buffer.byteLength(stringified));
     res.statusCode = e.code;
     res.end(stringified);
 };
