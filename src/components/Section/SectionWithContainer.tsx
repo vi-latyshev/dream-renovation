@@ -19,7 +19,10 @@ const useStyles = makeStyles<typeof theme, SectionWithContainerStyle>(({ breakpo
         display: 'flex',
         flexDirection: 'column',
         width: '100%',
-        maxWidth: breakpoints.values[typeof maxWidth === 'string' ? maxWidth : (props?.MuiContainer?.maxWidth || 'lg')],
+        maxWidth: (maxWidth === false
+            ? '100%'
+            : breakpoints.values[typeof maxWidth === 'string' ? maxWidth : (props?.MuiContainer?.maxWidth || 'lg')]
+        ),
     }),
     center: {
         ...mixins.flexCenter,

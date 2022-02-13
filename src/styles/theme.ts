@@ -283,20 +283,20 @@ let muiTheme = createTheme({
         },
         MuiSlider: {
             track: {
-                height: 5,
+                height: 8,
                 borderRadius: 2,
             },
             rail: {
-                height: 5,
+                height: 8,
                 borderRadius: 2,
                 opacity: 1,
                 backgroundColor: palette.action.disabledBackground,
             },
             thumb: {
-                width: 22,
-                height: 22,
+                width: 25,
+                height: 25,
                 marginTop: -8.5,
-                marginLeft: -11,
+                marginLeft: -12.5,
                 backgroundColor: palette.common.white,
                 borderWidth: 2,
                 borderStyle: 'solid',
@@ -306,9 +306,10 @@ let muiTheme = createTheme({
             },
             valueLabel: {
                 top: 35,
-                left: 'calc(-50% + 2px)',
+                left: 'calc(-50% - 25px)',
                 fontSize: '1rem',
-                '& *': {
+                '& > *': {
+                    width: 100,
                     background: 'transparent',
                     color: palette.text.primary,
                 },

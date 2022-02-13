@@ -5,6 +5,7 @@ import {
     PricingSection,
     ServicesSection,
     ContactUsSection,
+    CalculatorSection,
     AboutCompanySection,
 } from 'views/home';
 
@@ -19,6 +20,7 @@ const IndexPage = () => (
         <MainSection />
         <ServicesSection />
         <StepSection />
+        <CalculatorSection />
         <PricingSection />
         <AboutCompanySection />
         <ContactUsSection />
