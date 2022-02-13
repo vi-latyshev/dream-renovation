@@ -1,15 +1,22 @@
 import { Fragment } from 'react';
 
+import type { FieldHumanType } from 'lib/api/routes/forms/constants';
+
 interface FieldsInputsMailProps {
-    humanNames: Record<string, string>;
+    humanNames: FieldHumanType;
+    humanValues: FieldHumanType;
     values: Record<string, unknown>;
 }
 
-export const FieldsInputsMail = ({ humanNames: fieldsHumanName, values }: FieldsInputsMailProps) => (
+export const FieldsInputsMail = ({
+    values,
+    humanNames,
+    humanValues,
+}: FieldsInputsMailProps) => (
     <>
         {Object.keys(values).map((valueName) => {
-            const fieldName = fieldsHumanName[valueName] ?? valueName;
-            const fieldValue = values[valueName];
+            const fieldName = humanNames[valueName] ?? valueName;
+            const fieldValue = humanValues[valueName];
 
             return (
                 <Fragment key={valueName}>

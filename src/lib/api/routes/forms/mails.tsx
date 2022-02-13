@@ -1,6 +1,6 @@
 import { FieldsInputsMail, LayoutMail } from 'lib/mail';
 
-import { fieldHumanNames } from './constants';
+import { fieldHumanNames, fieldHumanValues } from './constants';
 
 import type { DataValues } from 'lib/superstruct/resolver/types';
 import type { SendMailProps } from 'lib/mail';
@@ -18,6 +18,7 @@ export const formTemplate = ({ subject, values }: FormTemplateProps): SendMailPr
             <FieldsInputsMail
                 values={values}
                 humanNames={fieldHumanNames}
+                humanValues={fieldHumanValues}
             />
         </LayoutMail>
     ),

@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import {
     Slider,
     Button,
@@ -5,11 +6,11 @@ import {
     makeStyles,
     InputAdornment,
 } from '@material-ui/core';
-import { Input } from 'components/controls';
 
+import { calculatorSchema } from 'lib/api/routes/forms/schemas';
+import { Input, Select } from 'components/controls';
 import { useFormBase } from 'components/controls/hooks';
 import { useModal } from 'components/Modal';
-import { useCallback } from 'react';
 
 const useStyles = makeStyles(({ spacing, breakpoints }) => ({
     form: {
@@ -62,7 +63,7 @@ export const CalculatorForm = () => {
     const { showModal } = useModal();
 
     const { control, handleSubmit, formState } = useFormBase({
-        // schema: contactUsSchema,
+        schema: calculatorSchema,
     });
 
     const handleCalculatorForm = useCallback(handleSubmit((formData) => {
@@ -77,9 +78,10 @@ export const CalculatorForm = () => {
                     <Typography variant="h3" className={classes.title}>
                         Где делаем ремонт?
                     </Typography>
-                    <Input
+                    <Select
+                        name="whereRepair"
                         control={control}
-                        className={classes.input}
+                        options={['apartment', 'house', 'office', 'shop']}
                     />
                 </div>
                 <div>
@@ -88,7 +90,6 @@ export const CalculatorForm = () => {
                     </Typography>
                     <Input
                         control={control}
-                        className={classes.input}
                     />
                 </div>
                 <div className={classes.priceContainer}>
@@ -116,7 +117,6 @@ export const CalculatorForm = () => {
                         InputProps={{
                             endAdornment: <InputAdornment position="end">м<sup>2</sup></InputAdornment>,
                         }}
-                        className={classes.input}
                     />
                 </div>
                 <div className={classes.areaContainer}>

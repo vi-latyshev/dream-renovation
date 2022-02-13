@@ -25,8 +25,6 @@ const useStyles = makeStyles(({
     calculator: {
         position: 'relative',
         maxWidth: '100%',
-        // maxWidth: ,
-        // margin: spacing(0, 3),
         [breakpoints.up('md')]: {
             width: breakpoints.values.sm,
         },

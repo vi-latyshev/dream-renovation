@@ -6,6 +6,7 @@ import createSpacing from '@material-ui/core/styles/createSpacing';
 import createTypography from '@material-ui/core/styles/createTypography';
 import createMixins from '@material-ui/core/styles/createMixins';
 import zIndex from '@material-ui/core/styles/zIndex';
+import { ExpandMoreOutlined } from '@material-ui/icons';
 
 import type { TransitionsOptions } from '@material-ui/core';
 import type { TypographyStyleOptions } from '@material-ui/core/styles/createTypography';
@@ -131,6 +132,10 @@ let muiTheme = createTheme({
         },
         MuiTextField: {
             variant: 'outlined',
+        },
+        MuiSelect: {
+            variant: 'outlined',
+            IconComponent: ExpandMoreOutlined,
         },
         MuiInputLabel: {
             shrink: true,
@@ -278,6 +283,13 @@ let muiTheme = createTheme({
                 },
                 '& > span': {
                     display: 'block',
+                },
+            },
+        },
+        MuiSelect: {
+            select: {
+                '&:focus': {
+                    backgroundColor: 'unset',
                 },
             },
         },

@@ -1,18 +1,30 @@
-import { contactUsSchema } from './schemas';
+import {
+    contactUsSchema,
+    calculatorSchema,
+} from './schemas';
 
 import type { StructDataValues } from 'lib/superstruct/resolver/types';
 
 export enum FormNames {
     CONTACT_US_FORM = 'contact_us',
+    CALCULATOR_FORM = 'calculator',
 }
 
-type FieldHumanNamesType = Record<string, string>;
+export type FieldHumanType = Record<string, string | number>;
 
-export const fieldHumanNames: FieldHumanNamesType = {
+export const fieldHumanNames: FieldHumanType = {
     name: 'Ваше имя',
     phone: 'Ваш телефон',
     email: 'Ваша почта',
     message: 'Ваше сообщение',
+    whereRepair: 'Где делаем ремонт',
+};
+
+export const fieldHumanValues: FieldHumanType = {
+    apartment: 'Квартира',
+    house: 'Дом',
+    office: 'Офис',
+    shop: 'Магазин',
 };
 
 type FormHandlerType = {
@@ -26,5 +38,9 @@ export const formsHandler: FormHandlerType = {
     [FormNames.CONTACT_US_FORM]: {
         subject: 'Связаться с нами',
         schema: contactUsSchema,
+    },
+    [FormNames.CALCULATOR_FORM]: {
+        subject: 'Калькулятор стоимости',
+        schema: calculatorSchema,
     },
 };

@@ -1,5 +1,6 @@
 import {
     size,
+    enums,
     string,
     trimmed,
     pattern,
@@ -53,3 +54,10 @@ export const MessageStruct = size(
     1,
     10000,
 );
+
+export const SelectValues = enums([
+    'apartment',
+    'house',
+    'office',
+    'shop',
+]);
