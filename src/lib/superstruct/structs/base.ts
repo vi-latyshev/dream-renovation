@@ -55,9 +55,14 @@ export const MessageStruct = size(
     10000,
 );
 
-export const SelectValues = enums([
+export const SelectValuesStruct = enums([
     'apartment',
     'house',
     'office',
     'shop',
+    'cosmetic',
+    'euro',
+    'design',
 ]);
+export type SelectValuesStructType = Infer<typeof SelectValuesStruct>;
+

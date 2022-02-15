@@ -6,15 +6,14 @@ import { fieldHumanValues } from 'lib/api/routes/forms/constants';
 
 import type { FieldValues, UseControllerProps } from 'react-hook-form';
 import type { SelectProps as MuiSelectProps } from '@material-ui/core';
-import type { Infer } from 'lib/superstruct/base';
-import type { SelectValues } from 'lib/superstruct/structs';
+import type { SelectValuesStructType } from 'lib/superstruct/structs';
 
 type HookUseControllerProps<T> = Omit<UseControllerProps<T>, 'rules'>;
 
 type MaterialSelectProps = Omit<MuiSelectProps, 'name' | 'error' | 'label' | 'placeholder' | 'defaultValue' | 'required'>;
 
 export interface SelectProps<T> extends HookUseControllerProps<T>, MaterialSelectProps {
-    options: Infer<typeof SelectValues>[];
+    options: SelectValuesStructType[];
 }
 
 export const Select = <T extends FieldValues>(props: SelectProps<T>) => {

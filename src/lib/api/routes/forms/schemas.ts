@@ -10,8 +10,7 @@ import {
     MessageStruct,
 } from 'lib/superstruct/structs';
 
-import type { Infer } from 'lib/superstruct/base';
-import type { SelectValues } from 'lib/superstruct/structs';
+import type { SelectValuesStructType } from 'lib/superstruct/structs';
 
 export const contactUsSchema = object({
     name: NameScruct,
@@ -23,5 +22,15 @@ export const contactUsSchema = object({
 export const calculatorSchema = object({
     // name: NameScruct,
     // phone: PhoneStruct,
-    whereRepair: enums<Infer<typeof SelectValues>>(['apartment']),
+    placeRepair: enums<SelectValuesStructType>([
+        'apartment',
+        'house',
+        'office',
+        'shop',
+    ]),
+    styleRepair: enums<SelectValuesStructType>([
+        'cosmetic',
+        'euro',
+        'design',
+    ]),
 });

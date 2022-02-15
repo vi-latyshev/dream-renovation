@@ -79,7 +79,7 @@ export const CalculatorForm = () => {
                         Где делаем ремонт?
                     </Typography>
                     <Select
-                        name="whereRepair"
+                        name="placeRepair"
                         control={control}
                         options={['apartment', 'house', 'office', 'shop']}
                     />
@@ -88,8 +88,10 @@ export const CalculatorForm = () => {
                     <Typography variant="h3" className={classes.title}>
                         Вид ремонта?
                     </Typography>
-                    <Input
+                    <Select
+                        name="styleRepair"
                         control={control}
+                        options={['cosmetic', 'euro', 'design']}
                     />
                 </div>
                 <div className={classes.priceContainer}>

@@ -17,7 +17,8 @@ export const fieldHumanNames: FieldHumanType = {
     phone: 'Ваш телефон',
     email: 'Ваша почта',
     message: 'Ваше сообщение',
-    whereRepair: 'Где делаем ремонт',
+    placeRepair: 'Где делаем ремонт',
+    styleRepair: 'Вид ремонта',
 };
 
 export const fieldHumanValues: FieldHumanType = {
@@ -25,6 +26,9 @@ export const fieldHumanValues: FieldHumanType = {
     house: 'Дом',
     office: 'Офис',
     shop: 'Магазин',
+    cosmetic: 'Косметический',
+    euro: 'Евроремонт',
+    design: 'Дизайнерский',
 };
 
 type FormHandlerType = {
