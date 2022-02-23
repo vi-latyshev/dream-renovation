@@ -1,3 +1,5 @@
+const withPlugins = require('next-compose-plugins');
+
 const IS_PRODUCTION = process.env.VERCEL_ENV === 'production';
 const DOMAIN = process.env.NEXT_PUBLIC_URL;
 
@@ -65,4 +67,6 @@ const nextConfig = {
     swcMinify: true,
 };
 
-module.exports = nextConfig;
+module.exports = withPlugins([
+
+], nextConfig);
