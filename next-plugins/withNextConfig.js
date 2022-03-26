@@ -1,7 +1,5 @@
 /**
- * Add environment variables to all app
- *
- * NOTE: Destructure process.env variables won't work due to the nature of webpack DefinePlugin
+ * Default next config
  *
  * @type {import('./plugins').NextPluginType}
  */

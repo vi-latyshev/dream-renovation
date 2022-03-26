@@ -29,9 +29,7 @@ const waitPrecompilePaths = async (basePath) => {
 };
 
 /**
- * Add environment variables to all app
- *
- * NOTE: Destructure process.env variables won't work due to the nature of webpack DefinePlugin
+ * Precompile index page and /api routes
  *
  * @type {import('./plugins').NextPluginType}
  */
