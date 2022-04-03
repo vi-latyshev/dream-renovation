@@ -1,9 +1,8 @@
-// Beget prevents sending emails to self account from admin email addresses
 export const TO = 'remont.me4ti@gmail.com';
 
-export const HOST = 'smtp.beget.com';
+export const HOST = process.env.MAIL_HOST;
 
-export const PORT = 465;
+export const PORT = parseInt(process.env.MAIL_PORT);
 
 export const ACCOUNT = process.env.MAIL_ACCOUNT_NAME;
 

@@ -35,7 +35,7 @@
         ".*.js",
         "**/*.ts",
         "**/*.tsx",
-        "scripts/**/*.js",
+        "next-plugins/**/*.js",
         "**/.eslintrc.js",
     ]
 }
