@@ -26,7 +26,6 @@
         "axios": "^0.26.1",
         "clsx": "^1.1.1",
         "next": "^12.1.0",
-        "next-compose-plugins": "^2.2.1",
         "nodemailer": "^6.7.2",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
@@ -37,6 +36,7 @@
     },
     "devDependencies": {
         "@commitlint/cli": "^16.2.1",
+        "@next/bundle-analyzer": "^12.1.1",
         "@next/env": "^12.1.0",
         "@types/node": "^17.0.21",
         "@types/nodemailer": "^6.4.4",
@@ -52,6 +52,7 @@
         "eslint-plugin-import": "^2.25.4",
         "eslint-plugin-jsx-a11y": "^6.5.1",
         "husky": "^7.0.4",
+        "next-compose-plugins": "^2.2.1",
         "typescript": "^4.6.2",
         "wait-on": "^6.0.1",
         "yarn-upgrade-all": "^0.6.1"

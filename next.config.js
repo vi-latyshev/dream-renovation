@@ -1,4 +1,7 @@
 const withPlugins = require('next-compose-plugins');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: process.env.ANALYZE === 'true',
+});
 const {
     PHASE_DEVELOPMENT_SERVER,
 } = require('next/constants');
@@ -13,4 +16,5 @@ module.exports = withPlugins([
     withCheckRequiredEnv,
     withEnv,
     [withDevPrecompile, [PHASE_DEVELOPMENT_SERVER]],
+    withBundleAnalyzer,
 ]);

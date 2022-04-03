@@ -43,6 +43,12 @@ module.exports = {
         'import/prefer-default-export': 'off',
         // not supported 'import type'
         'import/order': 'off',
+        'import/no-extraneous-dependencies': [
+            'error',
+            {
+                devDependencies: ['next.config.js'],
+            },
+        ],
 
         // using @typescript-eslint/...
         'no-duplicate-imports': 'off',
