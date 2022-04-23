@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { CssBaseline, ThemeProvider, StylesProvider } from '@material-ui/core';
 
 import { theme } from 'styles';
+import { GTMScript } from 'lib/gtm';
 import { ModalProvider } from 'components/Modal';
 import { BackToTop } from 'components/BackToTop';
 import { useScrollToHash } from 'hooks/useScrollToHash';
@@ -17,15 +18,18 @@ const App = ({ Component, pageProps }: AppProps) => {
     }, []);
 
     return (
-        <StylesProvider injectFirst={false}>
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <ModalProvider>
-                    <Component {...pageProps} />
-                </ModalProvider>
-                <BackToTop />
-            </ThemeProvider>
-        </StylesProvider>
+        <>
+            <GTMScript />
+            <StylesProvider injectFirst={false}>
+                <ThemeProvider theme={theme}>
+                    <CssBaseline />
+                    <ModalProvider>
+                        <Component {...pageProps} />
+                    </ModalProvider>
+                    <BackToTop />
+                </ThemeProvider>
+            </StylesProvider>
+        </>
     );
 };
 

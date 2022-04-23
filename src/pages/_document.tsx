@@ -8,6 +8,7 @@ import Document, {
 import { ServerStyleSheets } from '@material-ui/core';
 
 import { theme } from 'styles';
+import { GTMNoScript } from 'lib/gtm';
 
 const IS_PROD = process.env.IS_PRODUCTION;
 
@@ -26,6 +27,7 @@ export default class MyDocument extends Document {
                 )}
             </Head>
             <body>
+                <GTMNoScript />
                 <Main />
                 <NextScript />
                 <div
