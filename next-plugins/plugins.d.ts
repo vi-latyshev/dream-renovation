@@ -9,7 +9,9 @@ type NextConfigType = NextConfig & {
  */
 type NextComposePluginType = {
     nextComposePlugins: true,
-    // Next.js phases
+    /**
+     * Next.js phases
+     */
     phase: string;
 };
 

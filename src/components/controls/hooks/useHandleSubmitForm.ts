@@ -45,9 +45,12 @@ export const useHandleSubmitForm = <T>(
                 if (!axios.isAxiosError(error)) {
                     throw Error(`Unexpected error: ${error}`);
                 }
-                const { errors } = error.response?.data as APIErrorJSON<FieldErrors>;
+                const { errors, message: respMsg } = error.response?.data as APIErrorJSON<FieldErrors>;
 
-                const parsedErrors = transformErrorsToClient(errors!);
+                if (!errors) {
+                    throw Error(respMsg);
+                }
+                const parsedErrors = transformErrorsToClient(errors);
 
                 parsedErrors.forEach(({ field, type, message }) => {
                     setError(field as Path<T>, {
@@ -56,10 +59,11 @@ export const useHandleSubmitForm = <T>(
                     });
                 });
             } catch (err) {
+                throw new Error(`Handling response error: ${err}`);
+            } finally {
                 await onErrorSubmit?.();
-                throw new Error(`Error in submit form: ${err}`);
             }
-            throw new Error(`Error in submit form: ${error}`);
+            throw new Error(`Submit form: ${error}`);
         }
     })(e).catch((error) => {
         if (!process.env.IS_PRODUCTION) {

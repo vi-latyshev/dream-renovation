@@ -2,7 +2,9 @@ import * as S from 'superstruct';
 
 export * from 'superstruct';
 
-// redefine default functions of superstruct for change some logic
+/**
+ * redefine default functions of superstruct for change some logic
+ */
 
 type MinBaseParams = Parameters<typeof S.min>;
 type MaxBaseParams = Parameters<typeof S.max>;

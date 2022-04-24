@@ -1,24 +1,18 @@
-import type { FunctionComponent } from 'react';
-
 export enum Action {
     SHOW = 'SHOW',
     HIDE = 'HIDE',
     UNKNOWN = 'UNKNOWN',
 }
 
-export type ModalComponentProps = {
-    isError?: boolean;
-};
+export type ModalProps<T = {}> = T;
 
-export type ModalProps<T extends ModalComponentProps = {}> = T;
-
-export type ModalState<T = ModalComponentProps> = Partial<ModalComponentState<T>> & {
+export type ModalState<T = {}> = Partial<ModalComponentState<T>> & {
     isOpen: boolean;
 };
 
-export type ModalComponentState<T = {}, Props = T & ModalComponentProps> = {
-    component: FunctionComponent<Props>;
-    modalProps: Props;
+export type ModalComponentState<T = {}> = {
+    component: (props: T) => JSX.Element;
+    modalProps: T;
 };
 
 export type ActionMap<M extends Record<string, unknown>> = {

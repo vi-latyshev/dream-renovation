@@ -4,7 +4,7 @@
  * @type {import('./plugins').NextPluginType}
  */
 module.exports = (nextConfig, _nextComposePlugins = {}) => ({
-    // reactStrictMode: true,
+    // reactStrictMode: true, // @TODO update MUI to v5 and turn on
     async redirects() {
         return [
             {

@@ -5,7 +5,9 @@ import type { ModalComponentState } from '../types';
 export interface ModalContextState {
     showModal: <T>(
         component: ModalComponentState<T>['component'],
-        modalProps?: ModalComponentState<T>['modalProps'],
+        ...modalProps: Parameters<ModalComponentState<T>['component']>[0] extends object
+            ? [ModalComponentState<T>['modalProps']]
+            : [never?]
     ) => void;
     hideModal: () => void;
 }

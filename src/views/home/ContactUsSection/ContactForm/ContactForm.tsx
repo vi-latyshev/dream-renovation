@@ -5,7 +5,7 @@ import { FormNames } from 'lib/api/routes/forms/constants';
 import { contactUsSchema } from 'lib/api/routes/forms/schemas';
 import { Input } from 'components/controls';
 import { useReactForm } from 'components/controls/hooks';
-import { useModal, ModalBodyFormResp } from 'components/Modal';
+import { useModal, ModalFormRespSuccess, ModalFormRespError } from 'components/Modal';
 import { FormAcceptPolicy } from 'components/FormAcceptPolicy';
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
@@ -43,10 +43,10 @@ export const ContactForm = () => {
 
     const handleContactForm = useCallback(handleSubmit({
         onSuccessSubmit: async () => {
-            showModal(ModalBodyFormResp);
+            showModal(ModalFormRespSuccess);
         },
         onErrorSubmit: async () => {
-            showModal(ModalBodyFormResp, { isError: true });
+            showModal(ModalFormRespError);
         },
     }), []);
 
