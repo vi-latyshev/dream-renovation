@@ -67,6 +67,8 @@ This starts the development server on http://localhost:3000.
 |`build`            |[Build app](#buildstart-ap) in production mode|
 |`start`            |[Build and start app](#buildstart-ap) in production mode|
 
+Others commands are used by auto services for build/deploy the project.
+
 ## Structure
 
 ### The project structure has both flat and [fractal structure](https://github.com/davezuko/react-redux-starter-kit/wiki/Fractal-Project-Structure)s.
