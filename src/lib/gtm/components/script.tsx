@@ -9,7 +9,7 @@ import { gtag } from '../gtag';
 const IS_PROD = process.env.IS_PRODUCTION;
 
 const GTMPageView = (url: string) => {
-    gtag('gtm.historyChange', { page: url });
+    gtag('pageview', { page: url });
 };
 
 export const GTMScript = () => {
