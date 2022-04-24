@@ -34,7 +34,7 @@ export const GTMScript = () => {
                 <link rel="preconnect" href="https://www.googletagmanager.com/" />
                 <link rel="preload" href={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`} as="script" />
             </Head>
-            <Script id="gtm-data-layer" strategy="beforeInteractive">
+            <Script id="gtm-data-layer" strategy="afterInteractive">
                 {"window.dataLayer=window.dataLayer||[];window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});"}
             </Script>
             <Script
