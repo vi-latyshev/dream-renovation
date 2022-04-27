@@ -9,37 +9,36 @@ import type { FieldErrors } from 'lib/superstruct/resolver/hook-form-resolver';
 import type { FormNames } from 'lib/api/routes/forms/constants';
 import type { UseFormBaseReturn } from './useFormBase';
 
-export interface UseHandleSubmitFormProps {
+export interface UseHandleSendFormProps {
     formName?: FormNames;
 }
 
-interface SubmitFormHandlers<T extends FieldValues> {
+interface UseHandleSendFormFullProps<T extends FieldValues> extends UseHandleSendFormProps,
+    Pick<UseFormBaseReturn<T>, 'setError'> { }
+
+interface SendFormHandlers<T extends FieldValues> {
     onSuccessSubmit?: (formData: UnpackNestedValue<T>) => Promise<void>,
-    onErrorSubmit?: () => Promise<void>,
+    onErrorSubmit?: (formData: UnpackNestedValue<T>) => Promise<void>,
 }
 
-export interface UseHandleSubmitFormReturn<T extends FieldValues> {
-    handleSubmit: (submitFormOptions: SubmitFormHandlers<T>) => (e?: React.BaseSyntheticEvent) => Promise<void>;
-}
+export type UseHandleSendFormReturn<T extends FieldValues> = (
+    submitFormOptions: SendFormHandlers<T>
+) => (formData: UnpackNestedValue<T>) => Promise<void>;
 
 const FORM_ENDPOINT_API = 'api/forms';
 
-export const useHandleSubmitForm = <T>(
-    formHandleProps: UseHandleSubmitFormProps,
-    formBaseProps: UseFormBaseReturn<T>,
-): UseHandleSubmitFormReturn<T> => {
-    const { formName } = formHandleProps;
-    const { handleSubmit: handleSubmitBase, setError } = formBaseProps;
-
-    const handleSubmit = useCallback<UseHandleSubmitFormReturn<T>['handleSubmit']>(({
+export const useHandleSendForm = <T, P = {}>({
+    formName,
+    setError,
+}: UseHandleSendFormFullProps<T>): UseHandleSendFormReturn<T & P> => {
+    const handleSendForm = useCallback<UseHandleSendFormReturn<T & P>>(({
         onSuccessSubmit,
         onErrorSubmit,
-    }) => (e) => handleSubmitBase(async (formData) => {
+    }) => (async (formData) => {
         try {
             await axios.post(FORM_ENDPOINT_API, formData, {
                 params: { form: formName },
             });
-            await onSuccessSubmit?.(formData);
         } catch (error) {
             try {
                 if (!axios.isAxiosError(error)) {
@@ -61,18 +60,12 @@ export const useHandleSubmitForm = <T>(
             } catch (err) {
                 throw new Error(`Handling response error: ${err}`);
             } finally {
-                await onErrorSubmit?.();
+                await onErrorSubmit?.(formData);
             }
             throw new Error(`Submit form: ${error}`);
         }
-    })(e).catch((error) => {
-        if (!process.env.IS_PRODUCTION) {
-            // @TODO logger
-            console.error(error); // eslint-disable-line no-console
-        }
-    }), [formName, handleSubmitBase, setError]);
+        await onSuccessSubmit?.(formData);
+    }), [formName]);
 
-    return {
-        handleSubmit,
-    };
+    return handleSendForm;
 };

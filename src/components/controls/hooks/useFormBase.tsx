@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { hookFormSchemaResolver } from 'lib/superstruct/resolver/hook-form-resolver';
@@ -18,9 +18,10 @@ export const useFormBase = <T, S, I = Infer<Struct<T, S>>>({
     const {
         reset,
         formState,
+        handleSubmit: handleSubmitBase,
         ...rest
     } = useForm<I>({
-        mode: 'onSubmit',
+        mode: 'onBlur',
         reValidateMode: 'onChange',
         resolver: hookFormSchemaResolver(schema),
     });
@@ -32,9 +33,22 @@ export const useFormBase = <T, S, I = Infer<Struct<T, S>>>({
         reset();
     }, [formState, reset]);
 
+    const handleSubmit = useCallback<UseFormBaseReturn<I>['handleSubmit']>((
+        onValid,
+        onInvalid,
+    ) => (e) => (
+        handleSubmitBase(onValid, onInvalid)(e).catch((error) => {
+            if (!process.env.IS_PRODUCTION) {
+                // @TODO logger
+                console.error(error); // eslint-disable-line no-console
+            }
+        })
+    ), []);
+
     return {
         reset,
         formState,
+        handleSubmit,
         ...rest,
     };
 };
