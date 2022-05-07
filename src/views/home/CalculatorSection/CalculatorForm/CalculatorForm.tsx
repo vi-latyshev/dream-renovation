@@ -1,6 +1,5 @@
 import { useCallback } from 'react';
 import {
-    Slider,
     Button,
     Typography,
     makeStyles,
@@ -8,7 +7,7 @@ import {
 } from '@material-ui/core';
 
 import { calculatorDataSchema } from 'lib/api/routes/forms/schemas';
-import { Input, Select } from 'components/controls';
+import { Input, Select, Slider } from 'components/controls';
 import { useFormBase } from 'components/controls/hooks';
 import { useModal } from 'components/Modal';
 
@@ -129,6 +128,7 @@ export const CalculatorForm = () => {
                 <div className={classes.areaContainer}>
                     <Slider
                         name="squareArea"
+                        control={control}
                         min={40}
                         max={500}
                         defaultValue={40}

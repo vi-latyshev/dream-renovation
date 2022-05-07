@@ -245,6 +245,19 @@ let muiTheme = createTheme({
             },
             input: {
                 padding: 20,
+                // remove arrows for [type=number]: Chrome, Safari, Edge, Opera
+                '&::-webkit-outer-spin-button': {
+                    WebkitAppearance: 'none',
+                    margin: 0,
+                },
+                '&::-webkit-inner-spin-button': {
+                    WebkitAppearance: 'none',
+                    margin: 0,
+                },
+                // remove arrows for [type=number]: Firefox
+                '&[type=number]': {
+                    MozAppearance: 'textfield',
+                },
             },
             multiline: {
                 padding: 20,
