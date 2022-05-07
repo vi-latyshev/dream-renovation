@@ -1,6 +1,7 @@
 import {
     enums,
     object,
+    assign,
     optional,
 } from 'lib/superstruct/base';
 import {
@@ -8,6 +9,7 @@ import {
     EmailStruct,
     PhoneStruct,
     MessageStruct,
+    SquareAreaStruct,
 } from 'lib/superstruct/structs';
 
 import type { SelectValuesStructType } from 'lib/superstruct/structs';
@@ -19,9 +21,7 @@ export const contactUsSchema = object({
     message: optional(MessageStruct),
 });
 
-export const calculatorSchema = object({
-    // name: NameScruct,
-    // phone: PhoneStruct,
+export const calculatorDataSchema = object({
     placeRepair: enums<SelectValuesStructType>([
         'apartment',
         'house',
@@ -33,4 +33,15 @@ export const calculatorSchema = object({
         'euro',
         'design',
     ]),
+    squareArea: SquareAreaStruct,
 });
+
+export const calculatorContactSchema = object({
+    name: NameScruct,
+    phone: PhoneStruct,
+});
+
+export const calculatorFullSchema = assign(
+    calculatorDataSchema,
+    calculatorContactSchema,
+);

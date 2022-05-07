@@ -1,20 +1,27 @@
 import {
     size,
     enums,
+    number,
     string,
     trimmed,
     pattern,
     nonempty,
+    strToNumber,
     undefinedToEmptyStr,
 } from '../base';
 
-const baseStrStruct = nonempty(
+import type { Infer, Struct } from '../base';
+
+const toBaseStruct = <T, S>(struct: Struct<T, S>) => nonempty(
     trimmed(
         undefinedToEmptyStr(
-            string(),
+            struct,
         ),
     ),
 );
+
+const baseStrStruct = toBaseStruct(string());
+const baseNumberStruct = toBaseStruct(number());
 
 export const NameScruct = size(
     baseStrStruct,
@@ -66,3 +73,10 @@ export const SelectValuesStruct = enums([
 ]);
 export type SelectValuesStructType = Infer<typeof SelectValuesStruct>;
 
+export const SquareAreaStruct = strToNumber(
+    size(
+        baseNumberStruct,
+        30,
+        500,
+    ),
+);

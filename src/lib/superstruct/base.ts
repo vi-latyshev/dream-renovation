@@ -41,15 +41,17 @@ const getSize = (value: unknown): number => {
     if (value instanceof Map || value instanceof Set) {
         return value.size;
     }
+    if (typeof value === 'string') {
+        return value.length;
+    }
     if (typeof value === 'number') {
         return value;
     }
-    try {
-        return (value as string | unknown[]).length ?? 0;
-    } catch (e) {
-        // @TODO handle it
-        return 0;
-    }
+    // @TODO handle it
+    // eslint-disable-next-line no-console
+    console.warn(`superstruct getSize: ${typeof value} | `);
+
+    return 0;
 };
 
 /**
@@ -133,6 +135,19 @@ export const optional = <T, S>(struct: S.Struct<T, S>): S.Struct<T | undefined, 
     ),
 });
 
+export const nonempty = <T, S>(
+    struct: S.Struct<T, S>,
+) => S.refine(struct, 'nonempty', (value) => {
+    if (typeof value === 'number') {
+        return true;
+    }
+    const sizeOfValue = getSize(value);
+
+    return (
+        sizeOfValue > 0 || `Expected a nonempty ${struct.type} but received an empty one`
+    );
+});
+
 export const string = (): S.Struct<string, null> => (
     S.define('string', (value) => (
         (value === undefined || typeof value === 'string')
@@ -144,4 +159,13 @@ export const string = (): S.Struct<string, null> => (
 
 export const undefinedToEmptyStr = <T, S>(struct: S.Struct<T, S>) => (
     S.coerce(struct, string(), (value) => value ?? '')
+);
+
+export const strToNumber = (struct: S.Struct<number, unknown>) => (
+    S.coerce(struct, S.string(), (inputValue) => {
+        const parsedValue = parseFloat(inputValue);
+        const value = Number.isNaN(parsedValue) ? '' : parsedValue;
+
+        return value;
+    })
 );

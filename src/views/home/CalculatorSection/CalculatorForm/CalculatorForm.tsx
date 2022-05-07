@@ -7,10 +7,12 @@ import {
     InputAdornment,
 } from '@material-ui/core';
 
-import { calculatorSchema } from 'lib/api/routes/forms/schemas';
+import { calculatorDataSchema } from 'lib/api/routes/forms/schemas';
 import { Input, Select } from 'components/controls';
 import { useFormBase } from 'components/controls/hooks';
 import { useModal } from 'components/Modal';
+
+import type { InputProps } from 'components/controls';
 
 const useStyles = makeStyles(({ spacing, breakpoints }) => ({
     form: {
@@ -26,7 +28,6 @@ const useStyles = makeStyles(({ spacing, breakpoints }) => ({
         gridTemplateRows: 'repeat(2, 1fr)',
         justifyContent: 'space-between',
         gap: spacing(3, 10),
-        // gridAutoColumns: 350,
         [breakpoints.down('lg')]: {
             gridTemplateColumns: 'repeat(2, 1fr)',
             gridTemplateRows: 'repeat(3, 1fr)',
@@ -57,13 +58,16 @@ const useStyles = makeStyles(({ spacing, breakpoints }) => ({
 }));
 
 const valueLabelSliderFormat = (value: number) => (<>{value} м<sup>2</sup></>);
+const squareAreaInpitProps: InputProps<unknown>['InputProps'] = {
+    endAdornment: <InputAdornment position="end">м<sup>2</sup></InputAdornment>,
+};
 
 export const CalculatorForm = () => {
     const classes = useStyles();
     const { showModal } = useModal();
 
     const { control, handleSubmit, formState } = useFormBase({
-        schema: calculatorSchema,
+        schema: calculatorDataSchema,
     });
 
     const handleCalculatorForm = useCallback(handleSubmit((formData) => {
@@ -115,14 +119,19 @@ export const CalculatorForm = () => {
                         Площадь помещения:
                     </Typography>
                     <Input
+                        name="squareArea"
+                        defaultValue={40}
                         control={control}
-                        InputProps={{
-                            endAdornment: <InputAdornment position="end">м<sup>2</sup></InputAdornment>,
-                        }}
+                        type="number"
+                        InputProps={squareAreaInpitProps}
                     />
                 </div>
                 <div className={classes.areaContainer}>
                     <Slider
+                        name="squareArea"
+                        min={40}
+                        max={500}
+                        defaultValue={40}
                         valueLabelDisplay="on"
                         valueLabelFormat={valueLabelSliderFormat}
                     />

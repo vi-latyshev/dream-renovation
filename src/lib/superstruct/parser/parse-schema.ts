@@ -61,5 +61,11 @@ export const parseErrorSchema = (errors: StructError): FieldErrors => {
         parsedErrors.push(fieldError);
     });
 
+    if (process.env.NODE_ENV !== 'production') {
+        // @TODO logger
+        console.warn('"parseErrorSchema": ', failures); // eslint-disable-line no-console
+        console.warn('Parsed "parseErrorSchema":', parsedErrors); // eslint-disable-line no-console
+    }
+
     return parsedErrors;
 };

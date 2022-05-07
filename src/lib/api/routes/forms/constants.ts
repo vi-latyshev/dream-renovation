@@ -1,6 +1,6 @@
 import {
     contactUsSchema,
-    calculatorSchema,
+    calculatorFullSchema,
 } from './schemas';
 
 import type { StructDataValues } from 'lib/superstruct/resolver/types';
@@ -19,6 +19,7 @@ export const fieldHumanNames: FieldHumanType = {
     message: 'Ваше сообщение',
     placeRepair: 'Где делаем ремонт',
     styleRepair: 'Вид ремонта',
+    squareArea: 'Площадь помещения',
 };
 
 export const fieldHumanValues: FieldHumanType = {
@@ -45,6 +46,6 @@ export const formsHandler: FormHandlerType = {
     },
     [FormNames.CALCULATOR_FORM]: {
         subject: 'Калькулятор стоимости',
-        schema: calculatorSchema,
+        schema: calculatorFullSchema,
     },
 };

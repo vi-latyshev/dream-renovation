@@ -4,11 +4,10 @@ import { Controller } from 'react-hook-form';
 
 import { fieldHumanValues } from 'lib/api/routes/forms/constants';
 
-import type { FieldValues, UseControllerProps } from 'react-hook-form';
+import type { FieldValues } from 'react-hook-form';
 import type { SelectProps as MuiSelectProps } from '@material-ui/core';
 import type { SelectValuesStructType } from 'lib/superstruct/structs';
-
-type HookUseControllerProps<T> = Omit<UseControllerProps<T>, 'rules'>;
+import type { HookUseControllerProps } from '../types';
 
 type MaterialSelectProps = Omit<MuiSelectProps, 'name' | 'error' | 'label' | 'placeholder' | 'defaultValue' | 'required'>;
 
