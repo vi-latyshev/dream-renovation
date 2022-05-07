@@ -1,11 +1,12 @@
 import { Fragment } from 'react';
 
 import type { FieldHumanType } from 'lib/api/routes/forms/constants';
+import type { DataValues } from 'lib/superstruct/resolver/types';
 
 interface FieldsInputsMailProps {
     humanNames: FieldHumanType;
     humanValues: FieldHumanType;
-    values: Record<string, unknown>;
+    values: DataValues;
 }
 
 export const FieldsInputsMail = ({
@@ -15,12 +16,13 @@ export const FieldsInputsMail = ({
 }: FieldsInputsMailProps) => (
     <>
         {Object.keys(values).map((valueName) => {
-            const fieldName = humanNames[valueName] ?? valueName;
-            const fieldValue = humanValues[valueName];
+            const humanFieldName = humanNames[valueName] ?? valueName;
+            const filedValue = values[valueName];
+            const humanFieldValue = humanValues[filedValue] ?? filedValue;
 
             return (
                 <Fragment key={valueName}>
-                    <b>{fieldName}</b>: {fieldValue}
+                    <b>{humanFieldName}</b>: {humanFieldValue === '' ? '-' : humanFieldValue}
                     <br />
                 </Fragment>
             );

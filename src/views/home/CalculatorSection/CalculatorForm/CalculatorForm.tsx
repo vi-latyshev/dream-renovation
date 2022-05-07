@@ -11,6 +11,8 @@ import { Input, Select, Slider } from 'components/controls';
 import { useFormBase } from 'components/controls/hooks';
 import { useModal } from 'components/Modal';
 
+import { CalculatorContactForm } from './CalculatorContactForm';
+
 import type { InputProps } from 'components/controls';
 
 const useStyles = makeStyles(({ spacing, breakpoints }) => ({
@@ -69,9 +71,10 @@ export const CalculatorForm = () => {
         schema: calculatorDataSchema,
     });
 
-    const handleCalculatorForm = useCallback(handleSubmit((formData) => {
-        console.log(formData, 'formData');
-        // showModal();
+    const handleCalculatorForm = useCallback(handleSubmit((calculatorData) => {
+        showModal(CalculatorContactForm, {
+            calculatorData,
+        });
     }), []);
 
     return (

@@ -16,13 +16,5 @@ export const serverSchemaResolver = (
         throw new APIError('One or more fields have an error', 400, errors);
     }
 
-    const values: { [field: string]: string; } = {};
-
-    Object.keys(validatedValues).forEach((field) => {
-        if (validatedValues[field] !== '') {
-            values[field] = validatedValues[field];
-        }
-    });
-
-    return values;
+    return validatedValues;
 };
