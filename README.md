@@ -195,3 +195,4 @@ Every commit pushed to the any branch will trigger a some deployment on [Vercel]
 * `master` - Production Deployment on [main site](#links)
 * `develop` - Preview Deployment on [test site](#links)
 * `any other branch` - Preview Deployment will available on `https://dream-renovation-[GIT_BRANCH_NAME]-vi-latyshev.vercel.app/`
+    * for deploy Preview Deployment to `develop` use command [`vercel alias set [deployment-url] [custom-domain]`](#https://vercel.com/docs/cli#commands/alias)

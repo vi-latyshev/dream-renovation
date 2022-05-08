@@ -14,7 +14,7 @@ export const defaultCalculateData: CalculatorDataType = {
 };
 
 const priceData: PriceDataType = {
-    cosmetic: 4100,
+    cosmetic: 4250,
     euro: 7000,
     design: 11000,
 };
