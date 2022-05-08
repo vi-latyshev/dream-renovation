@@ -7,10 +7,12 @@ import {
 } from '@material-ui/core';
 
 import { calculatorDataSchema } from 'lib/api/routes/forms/schemas';
+import { defaultCalculateData } from 'lib/calculator/calculator-price';
 import { Input, Select, Slider } from 'components/controls';
 import { useFormBase } from 'components/controls/hooks';
 import { useModal } from 'components/Modal';
 
+import { CalculatorPrice } from './CalculatorPrice';
 import { CalculatorContactForm } from './CalculatorContactForm';
 
 import type { InputProps } from 'components/controls';
@@ -50,8 +52,10 @@ const useStyles = makeStyles(({ spacing, breakpoints }) => ({
         alignItems: 'flex-end',
         marginBottom: spacing(2),
     },
-    priceNumber: {
-        whiteSpace: 'nowrap',
+    priceNumberContainer: {
+        '& > span': {
+            whiteSpace: 'nowrap',
+        },
     },
     submitButton: {
         marginTop: spacing(5),
@@ -69,6 +73,7 @@ export const CalculatorForm = () => {
 
     const { control, handleSubmit, formState } = useFormBase({
         schema: calculatorDataSchema,
+        defaultValues: defaultCalculateData,
     });
 
     const handleCalculatorForm = useCallback(handleSubmit((calculatorData) => {
@@ -104,16 +109,9 @@ export const CalculatorForm = () => {
                     <Typography variant="h3" className={classes.title}>
                         Стоимость:
                     </Typography>
-                    <Typography>
+                    <Typography className={classes.priceNumberContainer}>
                         Ваша квартира мечты обойдется вам в{' '}
-                        <Typography
-                            color="secondary"
-                            variant="h3"
-                            component="span"
-                            className={classes.priceNumber}
-                        >
-                            170 000
-                        </Typography> рублей
+                        <CalculatorPrice control={control} /> рублей
                     </Typography>
                 </div>
                 <div>
@@ -122,7 +120,6 @@ export const CalculatorForm = () => {
                     </Typography>
                     <Input
                         name="squareArea"
-                        defaultValue={40}
                         control={control}
                         type="number"
                         InputProps={squareAreaInpitProps}
@@ -134,7 +131,6 @@ export const CalculatorForm = () => {
                         control={control}
                         min={40}
                         max={500}
-                        defaultValue={40}
                         valueLabelDisplay="on"
                         valueLabelFormat={valueLabelSliderFormat}
                     />

@@ -1,9 +1,11 @@
+import { calculatePrice } from 'lib/calculator/calculator-price';
+
 import {
     contactUsSchema,
     calculatorFullSchema,
 } from './schemas';
 
-import type { StructDataValues } from 'lib/superstruct/resolver/types';
+import type { DataValues, StructDataValues } from 'lib/superstruct/resolver/types';
 
 export enum FormNames {
     CONTACT_US_FORM = 'contact_us',
@@ -36,6 +38,7 @@ type FormHandlerType = {
     [T in FormNames]: {
         subject: string;
         schema: StructDataValues;
+        onPrepareSendValues?: (values: DataValues) => DataValues;
     };
 };
 
@@ -47,5 +50,9 @@ export const formsHandler: FormHandlerType = {
     [FormNames.CALCULATOR_FORM]: {
         subject: 'Калькулятор стоимости',
         schema: calculatorFullSchema,
+        onPrepareSendValues: (values: DataValues) => ({
+            ...values,
+            Стоимость: `${calculatePrice(values)} руб`,
+        }),
     },
 };

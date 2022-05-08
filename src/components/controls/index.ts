@@ -1,3 +1,4 @@
+export * from './types';
 export * from './Link';
 export * from './Input';
 export * from './Select';

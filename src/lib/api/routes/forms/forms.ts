@@ -20,9 +20,10 @@ export const handleFormsAPI = async (req: Req, res: Res<HandleFormsRes>) => {
         if (foundForm === undefined) {
             throw new APIError(`Invalid form name: '${formName}'`, 400);
         }
-        const { schema, subject } = foundForm;
+        const { schema, subject, onPrepareSendValues } = foundForm;
 
-        const values = serverSchemaResolver(schema, body);
+        const validatedValues = serverSchemaResolver(schema, body);
+        const values = onPrepareSendValues?.(validatedValues) ?? validatedValues;
 
         const mail = formTemplate({ subject, values });
         await sendMail(mail);

@@ -5,15 +5,18 @@ import { hookFormSchemaResolver } from 'lib/superstruct/resolver/hook-form-resol
 
 import type { FieldValues, UseFormReturn } from 'react-hook-form';
 import type { Infer, Struct } from 'lib/superstruct/base';
+import type { DataValues } from 'lib/superstruct/resolver/types';
 
 export interface UseFormBaseProps<T, S> {
     schema: Struct<T, S>,
+    defaultValues?: Partial<Infer<Struct<T, S>>>;
 }
 
 export interface UseFormBaseReturn<T extends FieldValues> extends UseFormReturn<T> { }
 
 export const useFormBase = <T, S, I = Infer<Struct<T, S>>>({
     schema,
+    defaultValues,
 }: UseFormBaseProps<T, S>): UseFormBaseReturn<I> => {
     const {
         reset,
@@ -24,6 +27,7 @@ export const useFormBase = <T, S, I = Infer<Struct<T, S>>>({
         mode: 'onBlur',
         reValidateMode: 'onChange',
         resolver: hookFormSchemaResolver(schema),
+        defaultValues: defaultValues as DataValues,
     });
 
     useEffect(() => {

@@ -16,8 +16,9 @@ interface UseReactFormReturn<T extends FieldValues> extends Omit<UseFormReturn<T
 export const useReactForm = <T, S>({
     formName,
     schema,
+    defaultValues,
 }: UseReactFormProps<T, S>): UseReactFormReturn<T> => {
-    const { handleSubmit, setError, ...formBase } = useFormBase<T, S>({ schema });
+    const { handleSubmit, setError, ...formBase } = useFormBase<T, S>({ schema, defaultValues });
 
     const handleSendForm = useHandleSendForm<T>({ formName, setError });
 

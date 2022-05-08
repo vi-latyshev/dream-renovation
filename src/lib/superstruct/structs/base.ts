@@ -1,6 +1,7 @@
 import {
     size,
     enums,
+    union,
     number,
     string,
     trimmed,
@@ -62,14 +63,22 @@ export const MessageStruct = size(
     10000,
 );
 
-export const SelectValuesStruct = enums([
+export const PlaceRepairValuesStruct = enums([
     'apartment',
     'house',
     'office',
     'shop',
+]);
+
+export const StyleRepairValuesStruct = enums([
     'cosmetic',
     'euro',
     'design',
+]);
+
+export const SelectValuesStruct = union([
+    PlaceRepairValuesStruct,
+    StyleRepairValuesStruct,
 ]);
 export type SelectValuesStructType = Infer<typeof SelectValuesStruct>;
 

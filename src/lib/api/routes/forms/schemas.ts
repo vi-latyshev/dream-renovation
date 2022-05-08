@@ -1,5 +1,4 @@
 import {
-    enums,
     object,
     assign,
     optional,
@@ -10,9 +9,9 @@ import {
     PhoneStruct,
     MessageStruct,
     SquareAreaStruct,
+    PlaceRepairValuesStruct,
+    StyleRepairValuesStruct,
 } from 'lib/superstruct/structs';
-
-import type { SelectValuesStructType } from 'lib/superstruct/structs';
 
 export const contactUsSchema = object({
     name: NameScruct,
@@ -22,17 +21,8 @@ export const contactUsSchema = object({
 });
 
 export const calculatorDataSchema = object({
-    placeRepair: enums<SelectValuesStructType>([
-        'apartment',
-        'house',
-        'office',
-        'shop',
-    ]),
-    styleRepair: enums<SelectValuesStructType>([
-        'cosmetic',
-        'euro',
-        'design',
-    ]),
+    placeRepair: PlaceRepairValuesStruct,
+    styleRepair: StyleRepairValuesStruct,
     squareArea: SquareAreaStruct,
 });
 

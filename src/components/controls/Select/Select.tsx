@@ -12,6 +12,7 @@ import type { HookUseControllerProps } from '../types';
 type MaterialSelectProps = Omit<MuiSelectProps, 'name' | 'error' | 'label' | 'placeholder' | 'defaultValue' | 'required'>;
 
 export interface SelectProps<T> extends HookUseControllerProps<T>, MaterialSelectProps {
+    // @TODO selecting only needed options after assign "name"
     options: SelectValuesStructType[];
 }
 
