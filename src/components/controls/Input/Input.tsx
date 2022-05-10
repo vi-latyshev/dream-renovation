@@ -3,26 +3,23 @@ import { Controller } from 'react-hook-form';
 
 import { fieldHumanNames } from 'lib/api/routes/forms/constants';
 
-import type { FieldValues, UseControllerProps } from 'react-hook-form';
+import type { FieldValues } from 'react-hook-form';
 import type { TextFieldProps } from '@material-ui/core';
-
-type HookUseControllerProps<T> = Omit<UseControllerProps<T>, 'rules'>;
+import type { HookUseControllerProps } from '../types';
 
 type MaterialTexFieldProps = Omit<TextFieldProps, 'name' | 'error' | 'label' | 'placeholder' | 'defaultValue'>;
 
-export interface InputProps<T> extends HookUseControllerProps<T>, MaterialTexFieldProps {
-    label?: string;
-}
+export interface InputProps<T> extends HookUseControllerProps<T>, MaterialTexFieldProps { }
 
 export const Input = <T extends FieldValues>(props: InputProps<T>) => {
     const {
-        name, label: labelProp, required, disabled,
+        name, required, disabled,
         control, shouldUnregister,
         defaultValue = '' as InputProps<T>['defaultValue'],
         ...rest
     } = props;
 
-    const label = labelProp ?? (fieldHumanNames[name] ?? name);
+    const label = fieldHumanNames[name] ?? name;
 
     return (
         <Controller

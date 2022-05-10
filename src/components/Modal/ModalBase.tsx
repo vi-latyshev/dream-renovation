@@ -65,7 +65,6 @@ export const Modal = ({
                     <CloseRounded
                         fontSize="large"
                         onClick={onClose}
-                        color={modalProps?.isError ? 'error' : 'primary'}
                         className={classes.iconClose}
                     />
                     {Component && <Component {...modalProps} />}

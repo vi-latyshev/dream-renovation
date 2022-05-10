@@ -1,6 +1,8 @@
 declare namespace NodeJS {
     interface ProcessEnv {
-        // -------- next.config.js
+        /**
+         * -------- next.config.js
+         */
 
         /**
          * also .env =true
@@ -19,7 +21,9 @@ declare namespace NodeJS {
          */
         readonly ANALYZE: boolean;
 
-        // -------- .env
+        /**
+         * -------- .env
+         */
 
         /**
          * Mail host for send email via nodemailer

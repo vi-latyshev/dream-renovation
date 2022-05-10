@@ -19,7 +19,6 @@ const App = ({ Component, pageProps }: AppProps) => {
 
     return (
         <>
-            <GTMScript />
             <StylesProvider injectFirst={false}>
                 <ThemeProvider theme={theme}>
                     <CssBaseline />
@@ -29,6 +28,7 @@ const App = ({ Component, pageProps }: AppProps) => {
                     <BackToTop />
                 </ThemeProvider>
             </StylesProvider>
+            <GTMScript />
         </>
     );
 };

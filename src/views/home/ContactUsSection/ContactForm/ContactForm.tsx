@@ -1,13 +1,16 @@
+import { useCallback } from 'react';
 import { Button, makeStyles } from '@material-ui/core';
 
 import { FormNames } from 'lib/api/routes/forms/constants';
 import { contactUsSchema } from 'lib/api/routes/forms/schemas';
 import { Input } from 'components/controls';
 import { useReactForm } from 'components/controls/hooks';
-import { useModal, ModalBodyFormResp } from 'components/Modal';
+import { useModal, ModalFormRespSuccess, ModalFormRespError } from 'components/Modal';
+import { FormAcceptPolicy } from 'components/FormAcceptPolicy';
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     contactForm: {
+        position: 'relative',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -33,19 +36,19 @@ export const ContactForm = () => {
     const classes = useStyles();
     const { showModal } = useModal();
 
-    const { control, handleSubmitForm, formState } = useReactForm({
+    const { control, handleSubmit, formState } = useReactForm({
         formName: FormNames.CONTACT_US_FORM,
         schema: contactUsSchema,
     });
 
-    const handleContactForm = handleSubmitForm({
+    const handleContactForm = useCallback(handleSubmit({
         onSuccessSubmit: async () => {
-            showModal(ModalBodyFormResp);
+            showModal(ModalFormRespSuccess);
         },
         onErrorSubmit: async () => {
-            showModal(ModalBodyFormResp, { isError: true });
+            showModal(ModalFormRespError);
         },
-    });
+    }), []);
 
     return (
         <form onSubmit={handleContactForm} className={classes.contactForm}>
@@ -81,6 +84,7 @@ export const ContactForm = () => {
             >
                 Связаться с нами
             </Button>
+            <FormAcceptPolicy />
         </form>
     );
 };

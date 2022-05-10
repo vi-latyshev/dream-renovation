@@ -3,7 +3,7 @@ import { useReducer, useCallback, useMemo } from 'react';
 import { Action } from './types';
 import { ModalContext } from './context/modal';
 import { initialState, modalReducer } from './reducer/modal';
-import { Modal } from './Modal';
+import { Modal } from './ModalBase';
 
 interface ModalProviderProps {
     children?: React.ReactNode;

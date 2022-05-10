@@ -1,2 +1,3 @@
 export * from './ModalTitle';
-export * from './ModalBodyFormResp';
+export * from './ModalFormRespSuccess';
+export * from './ModalFormRespError';

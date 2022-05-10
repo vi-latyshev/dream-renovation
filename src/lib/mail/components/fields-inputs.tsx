@@ -1,19 +1,28 @@
 import { Fragment } from 'react';
 
+import type { FieldHumanType } from 'lib/api/routes/forms/constants';
+import type { DataValues } from 'lib/superstruct/resolver/types';
+
 interface FieldsInputsMailProps {
-    humanNames: Record<string, string>;
-    values: Record<string, unknown>;
+    humanNames: FieldHumanType;
+    humanValues: FieldHumanType;
+    values: DataValues;
 }
 
-export const FieldsInputsMail = ({ humanNames: fieldsHumanName, values }: FieldsInputsMailProps) => (
+export const FieldsInputsMail = ({
+    values,
+    humanNames,
+    humanValues,
+}: FieldsInputsMailProps) => (
     <>
         {Object.keys(values).map((valueName) => {
-            const fieldName = fieldsHumanName[valueName] ?? valueName;
-            const fieldValue = values[valueName];
+            const humanFieldName = humanNames[valueName] ?? valueName;
+            const filedValue = values[valueName];
+            const humanFieldValue = humanValues[filedValue] ?? filedValue;
 
             return (
                 <Fragment key={valueName}>
-                    <b>{fieldName}</b>: {fieldValue}
+                    <b>{humanFieldName}</b>: {humanFieldValue === '' ? '-' : humanFieldValue}
                     <br />
                 </Fragment>
             );

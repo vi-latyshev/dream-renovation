@@ -4,3 +4,4 @@ export * from './AboutCompanySection';
 export * from './StepSection';
 export * from './PricingSection';
 export * from './ContactUsSection';
+export * from './CalculatorSection';

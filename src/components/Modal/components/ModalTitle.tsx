@@ -1,8 +1,7 @@
 import { makeStyles, Typography } from '@material-ui/core';
 
-import type { ModalComponentProps } from '../types';
-
-interface ModalTitleProps extends ModalComponentProps {
+interface ModalTitleProps {
+    isError?: boolean;
     children: string;
 }
 

@@ -60,7 +60,7 @@ export const hookFormSchemaResolver: HookFormResolver = (struct) => (formValues)
         };
     }
 
-    const values: { [field: string]: string; } = {};
+    const values: DataValues = {};
 
     Object.keys(validatedValues).forEach((field) => {
         if (validatedValues[field] !== '') {

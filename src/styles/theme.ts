@@ -6,6 +6,7 @@ import createSpacing from '@material-ui/core/styles/createSpacing';
 import createTypography from '@material-ui/core/styles/createTypography';
 import createMixins from '@material-ui/core/styles/createMixins';
 import zIndex from '@material-ui/core/styles/zIndex';
+import { ExpandMoreOutlined } from '@material-ui/icons';
 
 import type { TransitionsOptions } from '@material-ui/core';
 import type { TypographyStyleOptions } from '@material-ui/core/styles/createTypography';
@@ -132,6 +133,10 @@ let muiTheme = createTheme({
         MuiTextField: {
             variant: 'outlined',
         },
+        MuiSelect: {
+            variant: 'outlined',
+            IconComponent: ExpandMoreOutlined,
+        },
         MuiInputLabel: {
             shrink: true,
         },
@@ -240,6 +245,19 @@ let muiTheme = createTheme({
             },
             input: {
                 padding: 20,
+                // remove arrows for [type=number]: Chrome, Safari, Edge, Opera
+                '&::-webkit-outer-spin-button': {
+                    WebkitAppearance: 'none',
+                    margin: 0,
+                },
+                '&::-webkit-inner-spin-button': {
+                    WebkitAppearance: 'none',
+                    margin: 0,
+                },
+                // remove arrows for [type=number]: Firefox
+                '&[type=number]': {
+                    MozAppearance: 'textfield',
+                },
             },
             multiline: {
                 padding: 20,
@@ -281,22 +299,29 @@ let muiTheme = createTheme({
                 },
             },
         },
+        MuiSelect: {
+            select: {
+                '&:focus': {
+                    backgroundColor: 'unset',
+                },
+            },
+        },
         MuiSlider: {
             track: {
-                height: 5,
+                height: 8,
                 borderRadius: 2,
             },
             rail: {
-                height: 5,
+                height: 8,
                 borderRadius: 2,
                 opacity: 1,
                 backgroundColor: palette.action.disabledBackground,
             },
             thumb: {
-                width: 22,
-                height: 22,
+                width: 25,
+                height: 25,
                 marginTop: -8.5,
-                marginLeft: -11,
+                marginLeft: -12.5,
                 backgroundColor: palette.common.white,
                 borderWidth: 2,
                 borderStyle: 'solid',
@@ -306,9 +331,10 @@ let muiTheme = createTheme({
             },
             valueLabel: {
                 top: 35,
-                left: 'calc(-50% + 2px)',
+                left: 'calc(-50% - 25px)',
                 fontSize: '1rem',
-                '& *': {
+                '& > *': {
+                    width: 100,
                     background: 'transparent',
                     color: palette.text.primary,
                 },

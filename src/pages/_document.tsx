@@ -12,7 +12,6 @@ import { GTMNoScript } from 'lib/gtm';
 
 const IS_PROD = process.env.IS_PRODUCTION;
 
-// TODO: mb? https://github.com/vercel/next.js/issues/9794
 export default class MyDocument extends Document {
     render = () => (
         <Html lang="ru">
