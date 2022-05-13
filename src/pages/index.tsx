@@ -7,6 +7,7 @@ import {
     ContactUsSection,
     CalculatorSection,
     AboutCompanySection,
+    ExamplesWorks,
 } from 'views/home';
 
 import type { PageMetaProps } from 'components/Page';
@@ -19,6 +20,7 @@ const IndexPage = () => (
     <Page meta={meta}>
         <MainSection />
         <ServicesSection />
+        <ExamplesWorks />
         <StepSection />
         <CalculatorSection />
         <PricingSection />
