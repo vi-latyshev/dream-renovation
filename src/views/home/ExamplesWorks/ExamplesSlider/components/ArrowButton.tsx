@@ -3,8 +3,9 @@ import { IconButton, makeStyles } from '@material-ui/core';
 import type { IconButtonProps } from '@material-ui/core';
 import type { SvgIconComponent } from '@material-ui/icons';
 
-interface ArrowButtonProps extends IconButtonProps {
+interface ArrowButtonProps extends Omit<IconButtonProps, 'onClick'> {
     Icon: SvgIconComponent;
+    onClick: () => void;
 }
 
 const useStyles = makeStyles(({ spacing }) => ({
@@ -17,11 +18,12 @@ const useStyles = makeStyles(({ spacing }) => ({
     },
 }));
 
-export const ArrowButton = ({ Icon, ...props }: ArrowButtonProps) => {
+export const ArrowButton = ({ Icon, onClick, ...props }: ArrowButtonProps) => {
     const classes = useStyles();
 
     return (
         <IconButton
+            onClick={onClick}
             className={classes.arrowButton}
             {...props}
         >

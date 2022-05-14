@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { makeStyles } from '@material-ui/core';
+import { ButtonBase, makeStyles } from '@material-ui/core';
 import clsx from 'clsx';
 
 import type { ExampleWorkPhoto } from '../contants';
@@ -7,6 +7,7 @@ import type { ExampleWorkPhoto } from '../contants';
 interface PhotoItemProps {
     image: ExampleWorkPhoto;
     isActive: boolean;
+    onClick: () => void;
 }
 
 const useStyles = makeStyles(({ spacing, palette }) => ({
@@ -23,7 +24,7 @@ const useStyles = makeStyles(({ spacing, palette }) => ({
     },
 }));
 
-export const PhotoItem = ({ image, isActive }: PhotoItemProps) => {
+export const PhotoItem = ({ image, isActive, onClick }: PhotoItemProps) => {
     const classes = useStyles();
 
     const photoItemStyle = clsx(classes.photoItem, {
@@ -31,7 +32,7 @@ export const PhotoItem = ({ image, isActive }: PhotoItemProps) => {
     });
 
     return (
-        <div className={photoItemStyle}>
+        <ButtonBase onClick={onClick} className={photoItemStyle}>
             <Image
                 width={200}
                 height={100}
@@ -40,6 +41,6 @@ export const PhotoItem = ({ image, isActive }: PhotoItemProps) => {
                 placeholder="blur"
                 src={image}
             />
-        </div>
+        </ButtonBase>
     );
 };

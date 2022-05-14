@@ -70,7 +70,10 @@ export const ExamplesSlider = () => {
                     onClick={prevStep}
                     Icon={ArrowBackIosRounded}
                 />
-                <PhotosList photos={photos} />
+                <PhotosList
+                    photos={photos}
+                    handleEndPhotos={nextStep}
+                />
                 <ArrowButton
                     onClick={nextStep}
                     Icon={ArrowForwardIosRounded}

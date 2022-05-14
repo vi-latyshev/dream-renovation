@@ -28,24 +28,24 @@ export interface SliderOptions {
 export const useSlider = (stepCount: number, {
     autoSlide = false,
     autoSlideDelay = 10000,
-    trottleDelay = 2000,
+    trottleDelay = 1500,
 }: SliderOptions = {}) => {
     const [step, setThrottleStep] = useThrottleHandler(0, trottleDelay);
 
-    const prevStep = useCallback(() => {
+    const prevStep = useCallback((forceUpdate?: boolean) => {
         setThrottleStep((currentStep) => {
             const newStep = currentStep - 1;
 
             return modulo(newStep, stepCount);
-        });
+        }, forceUpdate);
     }, [stepCount]);
 
-    const nextStep = useCallback(() => {
+    const nextStep = useCallback((forceUpdate?: boolean) => {
         setThrottleStep((currentStep) => {
             const newStep = currentStep + 1;
 
             return modulo(newStep, stepCount);
-        });
+        }, forceUpdate);
     }, [stepCount]);
 
     const setStep = useCallback((value: number, forceUpdate?: boolean) => {
@@ -57,15 +57,17 @@ export const useSlider = (stepCount: number, {
     }, []);
 
     useEffect(() => {
-        if (autoSlide === false || stepCount <= 1) {
+        if (autoSlide === false) {
             return undefined;
         }
-        const handler = setTimeout(nextStep, autoSlideDelay);
+        const handler = setTimeout(() => {
+            nextStep(true);
+        }, autoSlideDelay);
 
         return () => {
             clearTimeout(handler);
         };
-    }, [stepCount, step, autoSlideDelay]);
+    });
 
     return {
         step,
