@@ -1,8 +1,12 @@
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { makeStyles } from '@material-ui/core';
 
+import { useSlider } from 'hooks/useSlider';
+
 import { PhotoItem } from './PhotoItem';
 
+import type { SliderOptions } from 'hooks/useSlider';
 import type { ExampleWorkPhotos } from '../contants';
 
 interface PhotosListProps {
@@ -29,10 +33,23 @@ const useStyles = makeStyles(({ spacing }) => ({
     },
 }));
 
+const sliderSettings: SliderOptions = {
+    autoSlide: true,
+};
+
 export const PhotosList = ({ photos }: PhotosListProps) => {
     const classes = useStyles();
 
-    const step = 0;
+    const lastPhotosLength = useRef<ExampleWorkPhotos>(photos);
+    const { step, resetStep } = useSlider(photos.length, sliderSettings);
+
+    useEffect(() => {
+        lastPhotosLength.current = photos;
+        resetStep(true);
+    }, [photos]);
+
+    // fix out of bounds on changing photos by waiting re-render with reset step to 0
+    const activeStep = step === 0 || lastPhotosLength.current === photos ? step : 0;
 
     return (
         <div className={classes.photoContainer}>
@@ -40,7 +57,7 @@ export const PhotosList = ({ photos }: PhotosListProps) => {
                 layout="fill"
                 objectFit="cover"
                 placeholder="blur"
-                src={photos[0]}
+                src={photos[activeStep]}
                 className={classes.photo}
             />
             <div className={classes.photoList}>
@@ -48,7 +65,7 @@ export const PhotosList = ({ photos }: PhotosListProps) => {
                     <PhotoItem
                         key={image.src}
                         image={image}
-                        isActive={step === index}
+                        isActive={activeStep === index}
                     />
                 ))}
             </div>

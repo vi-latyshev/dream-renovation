@@ -4,6 +4,7 @@ import { ArrowBackIosRounded, ArrowForwardIosRounded } from '@material-ui/icons'
 import { ArrowButton, DescriptionBlock } from './components';
 
 import { numberSplitTo3 } from 'utils/numberSplitTo3';
+import { useSlider } from 'hooks/useSlider';
 
 import { expamplesWorks } from './contants';
 import { PhotosList } from './PhotosList';
@@ -47,6 +48,7 @@ const useStyles = makeStyles(({ spacing, breakpoints }) => ({
 
 export const ExamplesSlider = () => {
     const classes = useStyles();
+    const { step, prevStep, nextStep } = useSlider(expamplesWorks.length);
 
     const {
         adress,
@@ -56,7 +58,7 @@ export const ExamplesSlider = () => {
         squareArea,
         photos,
         works,
-    } = expamplesWorks[0];
+    } = expamplesWorks[step];
 
     return (
         <div className={classes.slider}>
@@ -65,10 +67,12 @@ export const ExamplesSlider = () => {
             </Typography>
             <div className={classes.sliderContainer}>
                 <ArrowButton
+                    onClick={prevStep}
                     Icon={ArrowBackIosRounded}
                 />
                 <PhotosList photos={photos} />
                 <ArrowButton
+                    onClick={nextStep}
                     Icon={ArrowForwardIosRounded}
                 />
             </div>
