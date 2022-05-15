@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { ButtonBase, makeStyles } from '@material-ui/core';
 import clsx from 'clsx';
 
-import type { ExampleWorkPhoto } from '../contants';
+import type { ExampleWorkPhoto } from '../../contants';
 
 interface PhotoItemProps {
     image: ExampleWorkPhoto;

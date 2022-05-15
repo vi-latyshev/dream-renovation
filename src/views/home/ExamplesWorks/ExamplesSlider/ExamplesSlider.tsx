@@ -7,7 +7,7 @@ import { numberSplitTo3 } from 'utils/numberSplitTo3';
 import { useSlider } from 'hooks/useSlider';
 
 import { expamplesWorks } from './contants';
-import { PhotosList } from './PhotosList';
+import { PhotosSlider } from './PhotosSlider';
 import { WorksList } from './WorksList';
 
 const useStyles = makeStyles(({ spacing, breakpoints }) => ({
@@ -70,7 +70,7 @@ export const ExamplesSlider = () => {
                     onClick={prevStep}
                     Icon={ArrowBackIosRounded}
                 />
-                <PhotosList
+                <PhotosSlider
                     photos={photos}
                     handleEndPhotos={nextStep}
                 />
