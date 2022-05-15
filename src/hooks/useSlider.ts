@@ -1,4 +1,6 @@
-import { useCallback, useEffect } from 'react';
+import {
+    useCallback, useEffect, useState, useRef,
+} from 'react';
 
 import { modulo } from 'utils/modulo';
 
@@ -20,43 +22,76 @@ export interface SliderOptions {
     /**
      * Trottle before change after change step in ms.
      *
-     * @default 1500
+     * @default 500
      */
     trottleDelay?: number;
 }
 
 export const useSlider = (stepCount: number, {
     autoSlide = false,
-    autoSlideDelay = 10000,
-    trottleDelay = 1500,
+    autoSlideDelay = 5000,
+    trottleDelay = 500,
 }: SliderOptions = {}) => {
-    const [step, setThrottleStep] = useThrottleHandler(0, trottleDelay);
+    const [, forceRender] = useState({});
 
-    const prevStep = useCallback((forceUpdate?: boolean) => {
+    const [step, setThrottleStep] = useThrottleHandler(0, trottleDelay);
+    const newStepRef = useRef<number>(step);
+    const currentStepRef = useRef<number>(step);
+
+    const handleForceUpdate = useCallback((forceUpdate = false) => {
+        if (forceUpdate === false || newStepRef.current !== currentStepRef.current) {
+            return;
+        }
+        forceRender({});
+    }, []);
+
+    const prevStep = useCallback((forceSet?: boolean) => {
         setThrottleStep((currentStep) => {
             const newStep = currentStep - 1;
 
-            return modulo(newStep, stepCount);
-        }, forceUpdate);
+            const newValue = modulo(newStep, stepCount);
+            newStepRef.current = newValue;
+
+            return newValue;
+        }, forceSet);
+        handleForceUpdate(forceSet);
     }, [stepCount]);
 
-    const nextStep = useCallback((forceUpdate?: boolean) => {
+    const nextStep = useCallback((forceSet?: boolean) => {
         setThrottleStep((currentStep) => {
             const newStep = currentStep + 1;
 
-            return modulo(newStep, stepCount);
-        }, forceUpdate);
+            const newValue = modulo(newStep, stepCount);
+            newStepRef.current = newValue;
+
+            return newValue;
+        }, forceSet);
+        handleForceUpdate(forceSet);
     }, [stepCount]);
 
-    const setStep = useCallback((value: number, forceUpdate?: boolean) => {
-        setThrottleStep(Math.min(Math.max(value, 0), stepCount), forceUpdate);
+    const setStep = useCallback((value: number, forceSet?: boolean) => {
+        setThrottleStep(() => {
+            const newValue = Math.min(Math.max(value, 0), stepCount);
+            newStepRef.current = newValue;
+
+            return newValue;
+        }, forceSet);
+        handleForceUpdate(forceSet);
     }, [stepCount]);
 
-    const resetStep = useCallback((forceUpdate?: boolean) => {
-        setThrottleStep(0, forceUpdate);
+    const resetStep = useCallback((forceSet?: boolean) => {
+        setThrottleStep(() => {
+            const newValue = 0;
+            newStepRef.current = newValue;
+
+            return newValue;
+        }, forceSet);
+        handleForceUpdate(forceSet);
     }, []);
 
     useEffect(() => {
+        currentStepRef.current = step;
+
         if (autoSlide === false) {
             return undefined;
         }
