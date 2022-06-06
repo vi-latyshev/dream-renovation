@@ -7,6 +7,7 @@ import type { PageMetaProps } from 'components/Page';
 
 const meta: PageMetaProps = {
     title: 'Электрика',
+    description: 'Ремонт от специалистов своего дела - недорого, с четким соблюдением сметы, работаем по договору и точно в срок! Обновим полностью электросистему. Ремонт Мечты в Москве или Московской области',
 };
 
 const ElectricityPage = () => (

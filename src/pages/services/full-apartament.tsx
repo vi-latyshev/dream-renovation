@@ -7,6 +7,7 @@ import type { PageMetaProps } from 'components/Page';
 
 const meta: PageMetaProps = {
     title: 'Квартира целиком',
+    description: 'Ремонт от специалистов своего дела - недорого, с четким соблюдением сметы, работаем по договору и точно в срок! Обновим вашу квартиру целиком. Ремонт Мечты в Москве или Московской области',
 };
 
 const FullApartamentPage = () => (
