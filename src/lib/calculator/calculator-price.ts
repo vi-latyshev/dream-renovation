@@ -1,3 +1,5 @@
+import { numberSplitTo3 } from 'utils/numberSplitTo3';
+
 import type { Infer } from 'lib/superstruct/base';
 import type { calculatorDataSchema } from 'lib/api/routes/forms/schemas';
 
@@ -25,5 +27,5 @@ export const calculatePrice = (calculatorData: CalculatorDataType): string => {
     const styleValue = priceData[styleRepair];
     const value = styleValue * squareArea;
 
-    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    return numberSplitTo3(value);
 };
