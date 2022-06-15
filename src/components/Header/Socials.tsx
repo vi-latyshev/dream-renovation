@@ -1,10 +1,11 @@
 import { makeStyles } from '@material-ui/core';
-import { WhatsApp } from '@material-ui/icons';
+import { Telegram, WhatsApp } from '@material-ui/icons';
 
 import { Link } from 'components/controls';
 import { SOCIALS } from 'constants/socials';
 
 const SOCIALS_LINKS = [
+    { href: SOCIALS.telegram, icon: Telegram },
     { href: SOCIALS.whatsapp, icon: WhatsApp },
 ];
 
