@@ -11,6 +11,7 @@ import { defaultCalculateData } from 'lib/calculator/calculator-price';
 import { Input, Select, Slider } from 'components/controls';
 import { useFormBase } from 'components/controls/hooks';
 import { useModal } from 'components/Modal';
+import { FormAcceptPolicy } from 'components/FormAcceptPolicy';
 
 import { CalculatorPrice } from './CalculatorPrice';
 import { CalculatorContactForm } from './CalculatorContactForm';
@@ -144,6 +145,7 @@ export const CalculatorForm = () => {
             >
                 Связаться с нами
             </Button>
+            <FormAcceptPolicy />
         </form>
     );
 };

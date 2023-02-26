@@ -8,7 +8,7 @@ import { useReactForm } from 'components/controls/hooks';
 import { useModal, ModalFormRespSuccess, ModalFormRespError } from 'components/Modal';
 import { FormAcceptPolicy } from 'components/FormAcceptPolicy';
 
-const useStyles = makeStyles(({ breakpoints, spacing }) => ({
+const useStyles = makeStyles(({ breakpoints, spacing, palette }) => ({
     contactForm: {
         position: 'relative',
         display: 'flex',
@@ -29,6 +29,11 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     },
     messageInput: {
         maxWidth: breakpoints.values.sm,
+    },
+    policy: {
+        '& > a:hover': {
+            color: palette.backgroundSecondary.main,
+        },
     },
 }));
 
@@ -84,7 +89,7 @@ export const ContactForm = () => {
             >
                 Связаться с нами
             </Button>
-            <FormAcceptPolicy />
+            <FormAcceptPolicy className={classes.policy} />
         </form>
     );
 };

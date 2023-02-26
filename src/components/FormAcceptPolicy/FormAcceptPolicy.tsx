@@ -8,15 +8,10 @@ interface FormAcceptPolicyProps {
     className?: string;
 }
 
-const useStyles = makeStyles(({ palette, spacing }) => ({
+const useStyles = makeStyles(({ spacing }) => ({
     policyNote: {
         position: 'absolute',
         bottom: spacing(-7),
-    },
-    policyLink: {
-        '&:hover': {
-            color: palette.backgroundSecondary.main,
-        },
     },
 }));
 
@@ -32,7 +27,6 @@ export const FormAcceptPolicy = ({
             <Link
                 underline="always"
                 href="/policies/privacy"
-                className={classes.policyLink}
             >
                 соглашаетесь на обработку ваших персональных данных
             </Link>
