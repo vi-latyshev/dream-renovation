@@ -75,11 +75,9 @@ module.exports = {
             default: [
                 'public-static-field',
                 'protected-static-field',
-                'private-static-field',
 
                 'public-static-method',
                 'protected-static-method',
-                'private-static-method',
 
                 'public-field',
                 'protected-field',
@@ -89,11 +87,9 @@ module.exports = {
 
                 'public-abstract-field',
                 'protected-abstract-field',
-                'private-abstract-field',
 
                 'public-abstract-method',
                 'protected-abstract-method',
-                'private-abstract-method',
 
                 'public-method',
                 'protected-method',

@@ -1,15 +1,22 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 
+import { Link } from 'components/controls';
+
 interface FormAcceptPolicyProps {
     children?: string;
     className?: string;
 }
 
-const useStyles = makeStyles(({ spacing }) => ({
+const useStyles = makeStyles(({ palette, spacing }) => ({
     policyNote: {
         position: 'absolute',
         bottom: spacing(-7),
+    },
+    policyLink: {
+        '&:hover': {
+            color: palette.backgroundSecondary.main,
+        },
     },
 }));
 
@@ -21,7 +28,14 @@ export const FormAcceptPolicy = ({
 
     return (
         <Typography className={clsx(classes.policyNote, className)}>
-            Нажимая кнопку &quot;{children}&quot; вы соглашаетесь на обработку ваших персональных данных
+            Нажимая кнопку &quot;{children}&quot; вы{' '}
+            <Link
+                underline="always"
+                href="/policies/privacy"
+                className={classes.policyLink}
+            >
+                соглашаетесь на обработку ваших персональных данных
+            </Link>
         </Typography>
     );
 };
